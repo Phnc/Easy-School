@@ -9,6 +9,22 @@ public class Turma {
 	Disciplina disc;
 	ArrayList<Aluno> alunos;
 	
+public void addNota(String nome, int unidade, double nota, int disc) {
+		
+		buscarAluno(nome).mudarNota(disc, unidade, nota);
+	}
+	
+	
+	
+	public Aluno buscarAluno(String nome) {
+		for(int i = 0; i < alunos.size(); i++) {
+			if(nome.equals(alunos.get(i).getNome())) {
+				return alunos.get(i);
+			}
+		}
+		return null;
+	}
+	
 	
 	public String getAlunos() {
 		String imprimir = "";

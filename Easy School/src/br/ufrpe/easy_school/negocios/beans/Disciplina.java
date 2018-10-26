@@ -8,6 +8,21 @@ public class Disciplina {
 	private ArrayList<String> notificacoes;
 	
 	
+	public Disciplina(String nome) {
+		super();
+		this.nome = nome;
+		this.notificacoes = new ArrayList<String>(0);
+	}
+
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
 
 	
 	
