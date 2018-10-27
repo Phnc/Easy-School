@@ -8,6 +8,7 @@ import br.ufrpe.easy_school.negocios.beans.Professor;
 import br.ufrpe.easy_school.negocios.beans.Responsavel;
 import br.ufrpe.easy_school.negocios.beans.Turma;
 
+//Essa não é a estrutura de repositório que utilizaremos no nosso projeto. Nós iremos implementar os repositorios com o padrão SINGLETON.
 public class Repositorio {
 	
 	private ArrayList<Aluno> repositorioAlunos;
