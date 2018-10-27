@@ -1,13 +1,11 @@
 package br.ufrpe.easy_school.negocios.beans;
 
-
-
 public class Aluno {
 	
-	//nomeResponsavel para uso futuro em buscas no repositorio de responsaveis
-	//nao sei se um aluno pode ter um 'Responsavel' dentro dele
-	//ao mesmo tempo que responsavel tem um 'Aluno' dentro dele
-	private String nomeResponsavel;
+	//cpfResponsavel para uso futuro em buscas no repositorio de responsaveis
+	//todo responsavel pode ter um aluno associado, e a busca da relação pode ser cpf-cpf
+	
+	private String cpfResponsavel;
 	private String nome;
 	private String cpf;
 	private String tipoSanguineo;
@@ -16,9 +14,8 @@ public class Aluno {
 	private double[][] notas;
 	
 
-	public Aluno(String nome, String cpf, String tipoSanguineo, String senha, String matricula, String nomeResponsavel) {
-		super();
-		this.nomeResponsavel = nomeResponsavel;
+	public Aluno(String nome, String cpf, String tipoSanguineo, String senha, String matricula, String cpfResponsavel) {
+		this.cpfResponsavel = cpfResponsavel;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.tipoSanguineo = tipoSanguineo;
@@ -36,12 +33,12 @@ public class Aluno {
 
 
 	public String getNomeResponsavel() {
-		return nomeResponsavel;
+		return cpfResponsavel;
 	}
 
 
 	public void setNomeResponsavel(String nomeResponsavel) {
-		this.nomeResponsavel = nomeResponsavel;
+		this.cpfResponsavel = nomeResponsavel;
 	}
 
 
