@@ -3,10 +3,11 @@ package br.ufrpe.easy_school.negocios.beans;
 public class Aluno {
 	
 	//cpfResponsavel para uso futuro em buscas no repositorio de responsaveis
-	//todo responsavel pode ter um aluno associado, e a busca da relação pode ser cpf-cpf
+	//todo responsavel pode ter um aluno associado, e a busca da relaÃ§Ã£o pode ser cpf-cpf
 	
 	private String cpfResponsavel;
 	private String nome;
+	private int idade;
 	private String cpf;
 	private String tipoSanguineo;
 	private String senha;
@@ -14,9 +15,10 @@ public class Aluno {
 	private double[][] notas;
 	
 
-	public Aluno(String nome, String cpf, String tipoSanguineo, String senha, String matricula, String cpfResponsavel) {
+	public Aluno(String nome, int idade, String cpf, String tipoSanguineo, String senha, String matricula, String cpfResponsavel) {
 		this.cpfResponsavel = cpfResponsavel;
 		this.nome = nome;
+		this.idade = idade;
 		this.cpf = cpf;
 		this.tipoSanguineo = tipoSanguineo;
 		this.senha = senha;
@@ -32,13 +34,13 @@ public class Aluno {
 	}
 
 
-	public String getNomeResponsavel() {
+	public String getCpfResponsavel() {
 		return cpfResponsavel;
 	}
 
 
-	public void setNomeResponsavel(String nomeResponsavel) {
-		this.cpfResponsavel = nomeResponsavel;
+	public void setCpfResponsavel(String cpfResponsavel) {
+		this.cpfResponsavel = cpfResponsavel;
 	}
 
 
