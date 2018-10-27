@@ -3,12 +3,14 @@ package br.ufrpe.easy_school.negocios.beans;
 public class Professor {
 	
 	private String nome;
+	private int idade;
 	private String cpf;
 	private String senha;
 	
-	public Professor(String nome, String cpf, String senha) {
+	public Professor(String nome, int idade, String cpf, String senha) {
 		super();
 		this.nome = nome;
+		this.idade = idade;
 		this.cpf = cpf;
 		this.senha = senha;
 	}
@@ -19,6 +21,14 @@ public class Professor {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public int getIdade(){
+		return idade;
+	}
+	
+	public void setIdade(int idade){
+		this.idade = idade;
 	}
 
 	public String getCpf() {
