@@ -6,6 +6,29 @@ public class Diretoria {
 	//Além de poder visualizar informações sobre elas
 	//Imagine que um aluno sofre um acidente na escola, a diretoria tem acesso à informações relevantes neste caso, como tipo sanguineo e alergias.
 	
+	
+	private String login;
+	private String senha;
+	
+	
+	
+	
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	public static void adicionarAluno(String nome, String cpf, String tipoSanguineo, String senha, String matricula, String nomeResponsavel) {
 		
 	}
