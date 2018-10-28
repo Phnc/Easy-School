@@ -46,5 +46,12 @@ public class Professor {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	//Esse método mudar nota fazia parte dos métodos da Classe Aluno.
+	//Eu acho que ele ficaria melhor dessa forma, dentro da Classe Professor, já que é ele quem vai mudar a nota de fato.
+	//Possivelmente mudar pra aluno.getNotas() já que o atributo é privado, mas esse getter não existe ainda.
+	public void mudarNota(Aluno aluno, int disciplina, int unidade, double nota){
+		aluno.notas[disciplina][unidade] = nota;
+	}
 
 }
