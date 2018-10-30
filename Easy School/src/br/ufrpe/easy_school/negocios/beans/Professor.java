@@ -3,18 +3,24 @@ package br.ufrpe.easy_school.negocios.beans;
 public class Professor {
 	
 	private String nome;
-	private int idade;
-	private String cpf;
+	private String id;
 	private String senha;
 	
-	public Professor(String nome, int idade, String cpf, String senha) {
-		super();
-		this.nome = nome;
-		this.idade = idade;
-		this.cpf = cpf;
-		this.senha = senha;
+	public boolean login(String newId, String newSenha) {
+		if(this.id.equals(newId) && this.senha.equals(newSenha)) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
-
+	
+	public boolean logout() {
+		//chama algum metodo para confirmar
+		return true;
+	}
+	
+	
 	public String getNome() {
 		return nome;
 	}
@@ -22,36 +28,69 @@ public class Professor {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	public int getIdade(){
-		return idade;
-	}
-	
-	public void setIdade(int idade){
-		this.idade = idade;
+
+	public String getId() {
+		return id;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getSenha() {
+	@SuppressWarnings("unused")
+	private String getSenha() {
 		return senha;
 	}
 
-	public void setSenha(String senha) {
+	@SuppressWarnings("unused")
+	private void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public Professor(String nome, String id, String senha) {
+		super();
+		this.nome = nome;
+		this.id = id;
 		this.senha = senha;
 	}
 	
-	//Esse método mudar nota fazia parte dos métodos da Classe Aluno.
-	//Eu acho que ele ficaria melhor dessa forma, dentro da Classe Professor, já que é ele quem vai mudar a nota de fato.
-	//Possivelmente mudar pra aluno.getNotas() já que o atributo é privado, mas esse getter não existe ainda.
-	public void mudarNota(Aluno aluno, int disciplina, int unidade, double nota){
-		aluno.notas[disciplina][unidade] = nota;
+	public boolean equals(Professor prof) {
+		
+		if(this.nome.equals(prof.getNome()) && this.id.equals(prof.getId())) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 	}
 
+	@Override
+	public String toString() {
+		return  nome;
+	}
+	
+	public void modificarNota(Aluno aluno, int unidade, double nota) {
+		int aux = aluno.buscarDisciplina(this);
+		if(aux != -1) {
+			aluno.getDisciplinas().get(aux).mudarNota(this, unidade, nota);
+		}
+		else {
+			//alguma exception
+		}
+	}
+	
+	public void marcarFalta(Aluno aluno) {
+		int aux = aluno.buscarDisciplina(this);
+		if(aux != -1) {
+			aluno.getDisciplinas().get(aux).marcarFalta(this);
+		}
+		else {
+			//alguma exception
+		}
+	}
+	
+	
+	
+	
 }

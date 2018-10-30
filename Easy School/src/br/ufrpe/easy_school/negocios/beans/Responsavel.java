@@ -5,48 +5,96 @@ import java.util.ArrayList;
 public class Responsavel {
 	
 	private String nome;
-	private String cpf;
+	private String id;
 	private String senha;
+	private ArrayList<Aluno> alunos;
 	
-	private ArrayList<Aluno> estudante;
-	private ArrayList<String> reclamacoes;
-	private ArrayList<String> notificacoes;
+	public boolean logout() {
+		//chama algum metodo para confirmar
+		return true;
+	}
 	
 	
-	public Responsavel(String nome, String cpf, String senha) {
+	
+	
+	public Responsavel(String nome, String id, String senha) {
 		super();
 		this.nome = nome;
-		this.cpf = cpf;
+		this.id = id;
 		this.senha = senha;
-		this.notificacoes = new ArrayList<String>(0);
-		this.reclamacoes = new ArrayList<String>(0);
-		this.estudante = new ArrayList<Aluno>(0);
-		
-		
+		this.alunos = new ArrayList<Aluno>(1);
 	}
+
+
+	public boolean login(String newId, String newSenha) {
+		if(this.id.equals(newId) && this.senha.equals(newSenha)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
 
 	public String getNome() {
 		return nome;
 	}
 
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public String getCpf() {
-		return cpf;
+
+	public String getId() {
+		return id;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String getSenha() {
+
+	public ArrayList<Aluno> getAlunos() {
+		return alunos;
+	}
+
+
+	public void setAlunos(ArrayList<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+
+
+	@SuppressWarnings("unused")
+	private String getSenha() {
 		return senha;
 	}
 
-	public void setSenha(String senha) {
+
+	@SuppressWarnings("unused")
+	private void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public void addAluno(Aluno aluno) {
+		this.alunos.add(aluno);
+	}
 
+
+	@Override
+	public String toString() {
+		String aux = "";
+		for(int i = 0; i < alunos.size(); i++) {
+			aux += alunos.get(i).toString();
+			aux += "\n";
+		}
+		
+		return aux;
+	}
+	
+	
+	
+	
+	
 }
