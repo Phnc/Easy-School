@@ -1,89 +1,95 @@
 package br.ufrpe.easy_school.negocios.beans;
 
-import java.util.Arrays;
-
 public class Disciplina {
 	
-	private Professor professor;
 	private String nome;
-	private String id;
+	private Professor professor;
 	private double[] notas;
-	int faltas;
+	private int faltas;
+	private String id;
 	
-	public Disciplina(Professor professor, String nome, String id) {
+	public Disciplina(String nome, Professor professor, String id) {
 		super();
-		this.professor = professor;
 		this.nome = nome;
-		this.id = id;
+		this.professor = professor;
 		this.notas = new double[4];
-		faltas = 0;
+		this.faltas = 0;
+		this.setId(id);;
+	}
+
+	public String getId() {
+		return id;
 	}
 	
-	public boolean verificarProf(Professor prof) {
-		if(this.professor.equals(prof)) {
-			return true;
+	
+	public void setId(String id) {
+		if(id != null && !id.isEmpty()) {
+			this.id = id;
 		}
 		else {
-			return false;
+			//exception
 		}
 	}
 	
-	
-	public void mudarNota(Professor prof, int unidade, double nota) {
-		if(this.verificarProf(prof) == true) {
-			this.notas[unidade] = nota;
-		}
-		else {
-			//devolve algum erro ou exception
-		}
-	}
-	
-	public void marcarFalta(Professor prof) {
-		if(this.verificarProf(prof) == true) {
-			this.faltas += 1;
-		}
-		else {
-			//alguma exception
-		}
-		
-	}
 
 	public Professor getProfessor() {
 		return professor;
 	}
+	
+	
+		
 
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
+	public double getNotasUnidade(int unidade) {
+		return notas[unidade];
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void mudarNota(int unidade, double nota) {
+		if((unidade <= 4 && unidade > 0) && nota <= 10) {
+			this.notas[unidade - 1] = nota;
+		}
+		else {
+			//alguma exception
+		}
+	}
+	
+	public void marcarFalta() {
+		this.faltas += 1;
+	}
+	
+	public void removerFalta() {
+		if(this.faltas > 0) {
+			this.faltas--;
+		}
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public double[] getNotas() {
-		return notas;
-	}
-
-	public void setNotas(double[] notas) {
-		this.notas = notas;
-	}
-
-	@Override
 	public String toString() {
-		return "Disciplina [Professor: " + professor + "| Disciplina: " + nome +  "| Notas:"
-				+ Arrays.toString(notas) + " Faltas " + faltas + "]";
+		StringBuffer helper = new StringBuffer();
+		helper.append("Disciplina: " + this.getNome() + "\n");
+		helper.append("Professor: " + this.professor.getName() + "\n");
+		helper.append("Notas:\n");
+		helper.append("Unidade 1: " + this.getNotasUnidade(0) + " ");
+		helper.append("Unidade 2: " + this.getNotasUnidade(1) + " ");
+		helper.append("Unidade 3: " + this.getNotasUnidade(2) + " ");
+		helper.append("Unidade 4: " + this.getNotasUnidade(3) + "\n");
+		String retornar = helper.toString();
+		return retornar;
+	}
+	
+	public boolean equals(Disciplina outra) {
+		boolean devolve = false;
+		if(this.professor.equals(outra.getProfessor())) {
+			if(this.id.equals(outra.getId())) {
+				devolve = true;
+			}
+		}
+		
+		
+		
+		return devolve;
 	}
 	
 	
