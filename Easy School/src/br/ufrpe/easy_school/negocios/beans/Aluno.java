@@ -1,10 +1,18 @@
 package br.ufrpe.easy_school.negocios.beans;
 
 import java.util.ArrayList;
+import br.ufrpe.easy_school.dados.*;
 
 public class Aluno extends Pessoa {
 	
 	private ArrayList<Disciplina> disciplinas;
+	@SuppressWarnings("unused")
+	private RepositorioAluno repositorioAluno;
+	
+
+	public void setRepositorioAluno(RepositorioAluno repositorioAluno) {
+		this.repositorioAluno = repositorioAluno;
+	}
 
 	public Aluno(String name, String id, String password) {
 		super(name, id, password);
@@ -14,6 +22,7 @@ public class Aluno extends Pessoa {
 	public void criarDisciplinas(ArrayList<Disciplina> disciplinas) {
 		this.disciplinas.addAll(disciplinas);
 	}
+	
 	
 	
 	public Disciplina buscarDisc(Professor prof) {
@@ -34,12 +43,22 @@ public class Aluno extends Pessoa {
 	
 	
 
+	public ArrayList<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
 	public String toString() {
 		String imprimir = super.toString();
 		for(int i = 0; i < this.disciplinas.size(); i++) {
 			imprimir += this.disciplinas.get(i).toString();
 		}
 		return imprimir;
+	}
+	
+	public void menuTeste() {
+		System.out.println("Imprimindo notas do aluno " + this.getName() + " ................");
+		System.out.println(this.disciplinas.toString());
+		System.out.println("........................");
 	}
 	
 }
