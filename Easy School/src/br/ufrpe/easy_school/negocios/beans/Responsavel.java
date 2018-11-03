@@ -1,6 +1,7 @@
 package br.ufrpe.easy_school.negocios.beans;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import br.ufrpe.easy_school.dados.RepositorioAluno;
 import br.ufrpe.easy_school.dados.RepositorioResponsavel;
@@ -42,6 +43,29 @@ public class Responsavel extends Pessoa {
 			System.out.println(this.alunos.get(i).toString());
 		}
 	}
+	
+	public void menuLogin() {
+		Scanner sc = new Scanner(System.in);
+		String aux2;
+		System.out.println("Digite sua senha:");
+		aux2 = sc.nextLine();
+		int sair = 0;
+		
+		while(this.login(this.getId(), aux2) == false && sair == 0) {
+			System.out.println("Digite a senha");
+			aux2 = sc.nextLine();
+			
+			System.out.println("Digite 0 para tentar novamente");
+			sair = sc.nextInt();
+			sc.nextLine();
+		}
+		
+		if (this.login(this.getId(), aux2) == true) {
+			this.menuTeste();
+		}
+	}
+	
+	
 	
 	public void menuTeste() {
 		System.out.println("Responsavel: " + this.getName() + " ................");

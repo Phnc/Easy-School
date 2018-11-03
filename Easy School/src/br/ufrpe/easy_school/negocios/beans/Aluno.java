@@ -1,6 +1,8 @@
 package br.ufrpe.easy_school.negocios.beans;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import br.ufrpe.easy_school.dados.*;
 
 public class Aluno extends Pessoa {
@@ -25,9 +27,9 @@ public class Aluno extends Pessoa {
 	
 	
 	
-	public Disciplina buscarDisc(Professor prof) {
+	public Disciplina buscarDisc(Professor outro) {
 		for(int i = 0; i < this.disciplinas.size(); i++) {
-			if(this.disciplinas.get(i).getProfessor().equals(prof)) {
+			if(this.disciplinas.get(i).getProfessor().getId().equals(outro.getId())) {
 				return this.disciplinas.get(i);
 			}
 		}
@@ -39,6 +41,39 @@ public class Aluno extends Pessoa {
 	
 	public void addDisciplina(Disciplina disc) {
 		this.disciplinas.add(disc);
+	}
+	
+	
+	public void menuNotas() {
+		System.out.println("Visualizando notas:");
+		System.out.println("=====================");
+		System.out.println("");
+		System.out.println("");
+		System.out.println(this.toString());
+		System.out.println("");
+		System.out.println("");
+		System.out.println("=====================");
+	}
+	
+	public void menuLogin() {
+		Scanner sc = new Scanner(System.in);
+		String aux2;
+		System.out.println("Digite sua senha:");
+		aux2 = sc.nextLine();
+		int sair = 0;
+		
+		while(this.login(this.getId(), aux2) == false && sair == 0) {
+			System.out.println("Digite a senha");
+			aux2 = sc.nextLine();
+			
+			System.out.println("Digite 0 para tentar novamente");
+			sair = sc.nextInt();
+			sc.nextLine();
+		}
+		
+		if (this.login(this.getId(), aux2) == true) {
+			this.menuNotas();
+		}
 	}
 	
 	

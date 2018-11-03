@@ -75,7 +75,6 @@ public class Pessoa {
 	
 	
 	
-	@SuppressWarnings("unused")
 	private boolean equals(Pessoa outro) {
 		if(this.getName().equals(outro.getName()) && this.getId().equals(outro.getId())) {
 			return true;
