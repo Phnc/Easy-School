@@ -28,6 +28,7 @@ public class Diretoria extends Pessoa {
 		this.repositorioResponsavel = repositorioResponsavel;
 		
 	}
+	
 
 	
 	public void cadastrarAluno(Aluno aluno) {
