@@ -39,11 +39,9 @@ public class RepositorioAluno {
 	
 	public void estudaCom(Professor professor) {
 		for(int i = 0; i < this.alunos.size(); i++) {
-			for(int j = 0; j < this.alunos.get(i).getDisciplinas().size(); j++) {
-				if(this.alunos.get(i).getDisciplinas().get(j).getProfessor().equals(professor)) {
-					System.out.println(this.alunos.get(i));
-				}
-			}
+		
+					this.alunos.get(i).disciplinasComProf(professor);
+				
 		}
 	}
 	

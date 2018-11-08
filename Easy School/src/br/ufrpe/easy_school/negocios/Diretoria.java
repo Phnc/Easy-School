@@ -160,7 +160,7 @@ public class Diretoria extends Pessoa {
 				aux2 = sc.nextLine();
 				System.out.println("Digite a nova senha desse aluno:");
 				aux3 = sc.nextLine();
-				sc.nextLine();
+				
 				Aluno alunoNovo = new Aluno(aux1, aux2, aux3);
 				alunoNovo.setRepositorioAluno(repositorioAluno);
 				this.cadastrarAluno(alunoNovo);
@@ -173,7 +173,7 @@ public class Diretoria extends Pessoa {
 				aux2 = sc.nextLine();
 				System.out.println("Digite a nova senha desse professor:");
 				aux3 = sc.nextLine();
-				sc.nextLine();
+			
 				Professor professorNovo = new Professor(aux1, aux2, aux3);
 				professorNovo.setRepositorioAluno(repositorioAluno);
 				professorNovo.setRepositorioProfessor(repositorioProfessor);
@@ -187,7 +187,7 @@ public class Diretoria extends Pessoa {
 				aux2 = sc.nextLine();
 				System.out.println("Digite a nova senha desse responsável:");
 				aux3 = sc.nextLine();
-				sc.nextLine();
+
 				Responsavel responsavelNovo = new Responsavel(aux1, aux2, aux3);
 				responsavelNovo.setRepositorioResponsavel(repositorioResponsavel);
 				this.cadastrarResponsavel(responsavelNovo);
@@ -199,7 +199,7 @@ public class Diretoria extends Pessoa {
 				
 				System.out.println("Digite o id do aluno que você deseja adicionar como dependente");
 				aux2 = sc.nextLine();
-				sc.nextLine();
+
 				this.repositorioResponsavel.acessarResponsavel(aux1).addAluno(this.repositorioAluno.acessarAluno(aux2));
 				break;
 				
@@ -208,7 +208,7 @@ public class Diretoria extends Pessoa {
 				aux1 = sc.nextLine();
 				System.out.println("Digite o id da disciplina:");
 				aux2 = sc.nextLine();
-				sc.nextLine();
+
 				this.repositorioAluno.acessarAluno(aux1).addDisciplina(this.repositorioDisciplina.buscarDisciplina(aux2));
 				break;
 			
@@ -220,7 +220,7 @@ public class Diretoria extends Pessoa {
 				aux2 = sc.nextLine();
 				System.out.println("Digite o id do professor");
 				aux3 = sc.nextLine();
-				sc.nextLine();
+
 				Disciplina novaDisciplina = new Disciplina(aux1, this.repositorioProfessor.acessarProfessor(aux3), aux2);
 				this.cadastrarDisciplina(novaDisciplina);
 				break;
@@ -244,7 +244,7 @@ public class Diretoria extends Pessoa {
 		aux1 = sc.nextLine();
 		System.out.println("Digite sua senha:");
 		aux2 = sc.nextLine();
-		sc.nextLine();
+
 		int sair = 0;
 		
 		while(this.login(aux1, aux2) == false && sair == 0) {

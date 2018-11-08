@@ -75,6 +75,7 @@ public class Disciplina {
 		helper.append("Unidade 2: " + this.getNotasUnidade(1) + " ");
 		helper.append("Unidade 3: " + this.getNotasUnidade(2) + " ");
 		helper.append("Unidade 4: " + this.getNotasUnidade(3) + "\n");
+		helper.append("Faltas: " + this.faltas);
 		String retornar = helper.toString();
 		return retornar;
 	}

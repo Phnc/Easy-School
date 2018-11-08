@@ -42,6 +42,7 @@ public class Teste {
 					if(repositorioProfessor.existe(aux1) == true) {
 						repositorioProfessor.acessarProfessor(aux1).menuLogin();
 					}
+					break;
 				
 				case 3:
 					System.out.println("Digite sew login (Id)");
@@ -49,6 +50,7 @@ public class Teste {
 					if(repositorioAluno.existe(aux1) == true) {
 						repositorioAluno.acessarAluno(aux1).menuLogin();
 					}
+					break;
 					
 				case 4:
 					System.out.println("Digite seu login (id)");
@@ -56,7 +58,7 @@ public class Teste {
 					if(repositorioResponsavel.existe(aux1) == true) {
 						repositorioResponsavel.acessarResponsavel(aux1).menuLogin();
 					}
-					
+					break;
 				case 5:
 					i++;
 					break;

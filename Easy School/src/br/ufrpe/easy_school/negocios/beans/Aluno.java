@@ -96,4 +96,14 @@ public class Aluno extends Pessoa {
 		System.out.println("........................");
 	}
 	
+	public void disciplinasComProf(Professor professor) {
+		System.out.println("Nome: " + this.getName()+ ", Id: " + this.getId());
+		for(int i = 0; i < this.disciplinas.size(); i++) {
+			if(this.disciplinas.get(i).getProfessor().equals(professor)) {
+				System.out.println(this.disciplinas.get(i));
+			}
+		}
+	}
+	
+	
 }
