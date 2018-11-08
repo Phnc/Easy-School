@@ -37,7 +37,7 @@ public class Teste {
 					break;
 				case 2:
 					
-					System.out.println("Digite seu login (id)");
+					System.out.println("Digite seu login (Id)");
 					aux1 = sc.nextLine();
 					if(repositorioProfessor.existe(aux1) == true) {
 						repositorioProfessor.acessarProfessor(aux1).menuLogin();
@@ -53,7 +53,7 @@ public class Teste {
 					break;
 					
 				case 4:
-					System.out.println("Digite seu login (id)");
+					System.out.println("Digite seu login (Id)");
 					aux1 = sc.nextLine();
 					if(repositorioResponsavel.existe(aux1) == true) {
 						repositorioResponsavel.acessarResponsavel(aux1).menuLogin();
