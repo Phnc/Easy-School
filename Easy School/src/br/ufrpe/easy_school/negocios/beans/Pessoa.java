@@ -63,8 +63,14 @@ public class Pessoa {
 	}
 	
 	public boolean login(String id, String password) {
-		if(this.id.equals(id) && this.password.equals(password)) {
-			return true;
+		
+		
+		if (id != null && password != null && (id.length() > 1 && password.length() > 1)) {
+			if (this.id.equals(id) && this.password.equals(password)) {
+				return true;
+			} else {
+				return false;
+			} 
 		}
 		else {
 			return false;
@@ -75,6 +81,7 @@ public class Pessoa {
 	
 	
 	
+	@SuppressWarnings("unused")
 	private boolean equals(Pessoa outro) {
 		if(this.getName().equals(outro.getName()) && this.getId().equals(outro.getId())) {
 			return true;
