@@ -26,7 +26,7 @@ public class Teste {
 			System.out.println("1 - Login diretoria:");
 			System.out.println("2 - Login professor:");
 			System.out.println("3 - Login aluno:");
-			System.out.println("4 - Login respons·vel:");
+			System.out.println("4 - Login respons√°vel:");
 			System.out.println("5 - Sair");
 			j = sc.nextInt();
 			sc.nextLine();
@@ -37,7 +37,7 @@ public class Teste {
 					break;
 				case 2:
 					
-					System.out.println("Digite seu login (id)");
+					System.out.println("Digite seu login (Id)");
 					aux1 = sc.nextLine();
 					if(repositorioProfessor.existe(aux1) == true) {
 						repositorioProfessor.acessarProfessor(aux1).menuLogin();
@@ -45,7 +45,7 @@ public class Teste {
 					break;
 				
 				case 3:
-					System.out.println("Digite sew login (Id)");
+					System.out.println("Digite seu login (Id)");
 					aux1 = sc.nextLine();
 					if(repositorioAluno.existe(aux1) == true) {
 						repositorioAluno.acessarAluno(aux1).menuLogin();
@@ -53,7 +53,7 @@ public class Teste {
 					break;
 					
 				case 4:
-					System.out.println("Digite seu login (id)");
+					System.out.println("Digite seu login (Id)");
 					aux1 = sc.nextLine();
 					if(repositorioResponsavel.existe(aux1) == true) {
 						repositorioResponsavel.acessarResponsavel(aux1).menuLogin();
