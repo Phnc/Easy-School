@@ -40,7 +40,11 @@ public class Aluno extends Pessoa {
 	
 	
 	public void addDisciplina(Disciplina disc) {
-		this.disciplinas.add(disc);
+		//usando a Disciplina 'temp' para não passarmos uma referencia para a disciplina original
+		//caso estivessemos passando a original, qualquer modificação em um aluno, iria refeletir nos outros
+		//foi uma solução que consegui encontrar para esse problema, talvez não seja a melhor
+		Disciplina temp = new Disciplina(disc.getNome(), disc.getProfessor(), disc.getId());
+		this.disciplinas.add(temp);
 	}
 	
 	

@@ -1,6 +1,6 @@
 package br.ufrpe.easy_school.negocios.beans;
 
-public class Pessoa {
+public abstract class Pessoa {
 	
 	private String name;
 	private String id;
