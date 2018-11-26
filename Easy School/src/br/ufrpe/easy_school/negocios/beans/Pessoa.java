@@ -1,6 +1,6 @@
 package br.ufrpe.easy_school.negocios.beans;
 
-public abstract class Pessoa {
+public class Pessoa {
 	
 	private String name;
 	private String id;
@@ -12,6 +12,8 @@ public abstract class Pessoa {
 		this.setId(id);
 		this.setPassword(password);
 	}
+	
+	
 
 	public String getName() {
 		return name;

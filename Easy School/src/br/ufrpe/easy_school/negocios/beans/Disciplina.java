@@ -82,7 +82,7 @@ public class Disciplina {
 	
 	public boolean equals(Disciplina outra) {
 		boolean devolve = false;
-		if(this.professor.equals(outra.getProfessor())) {
+		if(this.professor.equals(outra.getProfessor()) && this.getNome().equals(outra.getNome())) {
 			if(this.id.equals(outra.getId())) {
 				devolve = true;
 			}
