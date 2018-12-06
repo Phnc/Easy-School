@@ -23,7 +23,7 @@ public class Responsavel extends Pessoa {
 		
 	}
 	
-	
+
 	@Override
 	public String toString() {
 		String devolver = super.toString();
@@ -35,5 +35,8 @@ public class Responsavel extends Pessoa {
 		}
 		return devolver;
 	}
+
+	
+	
 
 }

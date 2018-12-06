@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.PerfilAlunoController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tableDisc" prefHeight="319.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="columnDisc" prefWidth="115.0" sortable="false" text="Disciplinas" />
+                  <TableColumn fx:id="columnNota1" prefWidth="115.0" sortable="false" text="Unidade 1" />
+                  <TableColumn fx:id="columnNota2" prefWidth="123.0" sortable="false" text="Unidade 2" />
+                  <TableColumn fx:id="columnNota3" prefWidth="123.0" sortable="false" text="Unidade 3" />
+                  <TableColumn fx:id="columnNota4" prefWidth="123.0" sortable="false" text="Unidade 4" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="81.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblName" prefHeight="104.0" prefWidth="369.0" text="Nome do aluno">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnLogout" layoutX="541.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" text="Sair" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

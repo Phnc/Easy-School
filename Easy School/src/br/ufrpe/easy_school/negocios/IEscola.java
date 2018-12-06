@@ -94,7 +94,7 @@ public interface IEscola {
 	 * 					senha do usuário que está tentando efetuar login
 	 */
 	
-	void efetuarLogin(String id, String password);
+	boolean efetuarLogin(String id, String password);
 	
 	/**
 	 * Adiciona um aluno a um responsável

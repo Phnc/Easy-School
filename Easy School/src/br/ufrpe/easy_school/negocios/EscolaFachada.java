@@ -52,9 +52,9 @@ public class EscolaFachada implements IEscola{
 	}
 
 	@Override
-	public void efetuarLogin(String id, String password) {
+	public boolean efetuarLogin(String id, String password) {
 		// TODO Auto-generated method stub
-		this.pessoas.efetuarLogin(id, password);
+		return this.pessoas.efetuarLogin(id, password);
 		
 	}
 
