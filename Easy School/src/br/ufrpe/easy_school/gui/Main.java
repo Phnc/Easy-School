@@ -31,11 +31,21 @@ public class Main extends Application {
 		fachada.cadastrarDisciplina(new Disciplina("Algoritmos e Estrutura de Dados", (Professor)fachada.buscar("6789"), "4040"));
 		fachada.addDisciplina("1010", "4040");
 		fachada.addDisciplina("1010", "1472");
+		fachada.addDisciplina("0412", "1472");
 		
 		fachada.mudarNota((Professor)fachada.buscar("1234"), "1472", "1010", 1, 9);
 		fachada.mudarNota((Professor)fachada.buscar("1234"), "1472", "1010", 2, 10);
 		fachada.mudarNota((Professor)fachada.buscar("1234"), "1472", "1010", 3, 8.5);
 		fachada.mudarNota((Professor)fachada.buscar("1234"), "1472", "1010", 4, 9.5);
+		fachada.marcarFalta((Professor)fachada.buscar("1234"), "1472", "0412");
+		
+		
+		fachada.mudarNota((Professor)fachada.buscar("1234"), "1472", "0412", 1, 10);
+		fachada.mudarNota((Professor)fachada.buscar("1234"), "1472", "0412", 2, 8.4);
+		fachada.mudarNota((Professor)fachada.buscar("1234"), "1472", "0412", 3, 7.8);
+		fachada.mudarNota((Professor)fachada.buscar("1234"), "1472", "0412", 4, 9.7);
+		
+		
 		
 		fachada.mudarNota((Professor)fachada.buscar("6789"), "4040", "1010", 1, 9);
 		fachada.mudarNota((Professor)fachada.buscar("6789"), "4040", "1010", 2, 10);

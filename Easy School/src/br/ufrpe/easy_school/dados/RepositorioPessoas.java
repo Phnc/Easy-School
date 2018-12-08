@@ -3,6 +3,7 @@ package br.ufrpe.easy_school.dados;
 import java.util.ArrayList;
 
 import br.ufrpe.easy_school.negocios.beans.Aluno;
+import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import br.ufrpe.easy_school.negocios.beans.Professor;
 import br.ufrpe.easy_school.negocios.beans.Responsavel;
@@ -85,6 +86,23 @@ public class RepositorioPessoas implements IRepositorioPessoas{
 		// TODO Auto-generated method stub
 		this.pessoas.remove(this.buscar(id));
 		
+	}
+
+	@Override
+	public ArrayList<Aluno> alunosDisc(Disciplina disc) {
+		// TODO Auto-generated method stub
+		ArrayList<Aluno> alunos = new ArrayList<>();
+		
+		for(int i = 0; i < this.pessoas.size(); i++) {
+			
+			if(this.pessoas.get(i) instanceof Aluno && ((Aluno) this.pessoas.get(i)).cursa(disc)) {
+				
+					alunos.add((Aluno) this.pessoas.get(i));
+				
+			}
+			
+		}
+		return alunos;
 	}
 
 	

@@ -1,7 +1,10 @@
 package br.ufrpe.easy_school.negocios;
 
+import java.util.ArrayList;
+
 import br.ufrpe.easy_school.dados.RepositorioDisciplinas;
 import br.ufrpe.easy_school.dados.RepositorioPessoas;
+import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import br.ufrpe.easy_school.negocios.beans.Professor;
@@ -106,7 +109,14 @@ public class EscolaFachada implements IEscola{
 		this.pessoas.marcarFalta(prof, idDisc, idAluno);
 		
 	}
-
 	
+	@Override
+	public ArrayList<String> arrayDisc(Professor prof){
+		return this.disciplinas.arrayDisc(prof);
+	}
+
+	public ArrayList<Aluno> alunosDisc(Disciplina disc){
+		return this.pessoas.alunosDisc(disc);
+	}
 
 }

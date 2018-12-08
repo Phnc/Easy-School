@@ -30,16 +30,16 @@ public class PerfilAlunoController {
     private TableColumn<Disciplina, String> columnDisc;
 
     @FXML
-    private TableColumn<Disciplina, Number> columnNota1;
+    private TableColumn<Disciplina, Double> columnNota1;
 
     @FXML
-    private TableColumn<Disciplina, Number> columnNota2;
+    private TableColumn<Disciplina, Double> columnNota2;
 
     @FXML
-    private TableColumn<Disciplina, Number> columnNota3;
+    private TableColumn<Disciplina, Double> columnNota3;
 
     @FXML
-    private TableColumn<Disciplina, Number> columnNota4;
+    private TableColumn<Disciplina, Double> columnNota4;
     
     @FXML
     private Button btnLogout;
@@ -59,10 +59,10 @@ public class PerfilAlunoController {
     	
     	lblName.setText(a.getName());
     	columnDisc.setCellValueFactory(new PropertyValueFactory<Disciplina, String>("nome"));
-    	columnNota1.setCellValueFactory(new PropertyValueFactory<Disciplina, Number>("Nota1"));
-    	columnNota2.setCellValueFactory(new PropertyValueFactory<Disciplina, Number>("Nota2"));
-    	columnNota3.setCellValueFactory(new PropertyValueFactory<Disciplina, Number>("Nota3"));
-    	columnNota4.setCellValueFactory(new PropertyValueFactory<Disciplina, Number>("Nota4"));
+    	columnNota1.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota1"));
+    	columnNota2.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota2"));
+    	columnNota3.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota3"));
+    	columnNota4.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota4"));
     	
     	tableDisc.setItems(getDisciplinas(a));
 

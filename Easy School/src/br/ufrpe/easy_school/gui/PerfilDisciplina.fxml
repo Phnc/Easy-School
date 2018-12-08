@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.PerfilDisciplinaController">
+   <children>
+      <TableView fx:id="tblAlunos" editable="true" prefHeight="400.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="colAluno" editable="false" prefWidth="197.0" sortable="false" text="Aluno" />
+          <TableColumn fx:id="colNota1" onEditCommit="#changeNota1" prefWidth="94.0" sortable="false" text="Unidade 1" />
+            <TableColumn fx:id="colNota2" onEditCommit="#changeNota2" prefWidth="87.0" sortable="false" text="Unidade 2" />
+            <TableColumn fx:id="colNota3" onEditCommit="#changeNota3" prefWidth="75.0" sortable="false" text="Unidade 3" />
+            <TableColumn fx:id="colNota4" onEditCommit="#changeNota4" prefWidth="70.0" sortable="false" text="Unidade 4" />
+            <TableColumn fx:id="colFaltas" onEditCommit="#addFaltas" prefWidth="76.0" sortable="false" text="Faltas" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

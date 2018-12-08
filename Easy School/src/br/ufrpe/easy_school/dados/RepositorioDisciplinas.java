@@ -71,6 +71,17 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas {
 		this.disciplinas.remove(this.buscar(id));
 
 	}
+	
+	@Override
+	public ArrayList<String> arrayDisc(Professor prof){
+		ArrayList<String> devolver = new ArrayList<>();
+		for(int i = 0; i <this.disciplinas.size(); i++) {
+			if(this.disciplinas.get(i).getProfessor().equals(prof)) {
+				devolver.add(this.disciplinas.get(i).getId());
+			}
+		}
+		return devolver;
+	}
 
 
 

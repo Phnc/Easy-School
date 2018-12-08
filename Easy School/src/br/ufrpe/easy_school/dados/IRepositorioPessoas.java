@@ -1,5 +1,9 @@
 package br.ufrpe.easy_school.dados;
 
+import java.util.ArrayList;
+
+import br.ufrpe.easy_school.negocios.beans.Aluno;
+import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 
 public interface IRepositorioPessoas {
@@ -60,6 +64,16 @@ public interface IRepositorioPessoas {
 	
 	void remover(String id);
 	
+	/**
+	 * Devolve uma lista de alunos que cursam uma disciplina
+	 * 
+	 * @param disc
+	 * 		 	  Disciplina cursada pelos alunos	
+	 * @return
+	 * 		  Alunos que cursam a disciplina passada como parâmetro
+	 */
+	
+	ArrayList<Aluno> alunosDisc(Disciplina disc);
 
 	
 

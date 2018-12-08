@@ -93,21 +93,23 @@ public class Disciplina {
 		return devolve;
 	}
 	
-	public Number getNota1() {
+	public Double getNota1() {
 		return notas[0];
 	}
-	public Number getNota2() {
+	public Double getNota2() {
+		return notas[1];
+	}
+	public Double getNota3() {
 		return notas[2];
 	}
-	public Number getNota3() {
-		return notas[2];
-	}
-	public Number getNota4() {
+	public Double getNota4() {
 		return notas[3];
 	}
 	
 
-	
+	public Integer getFaltas() {
+		return this.faltas;
+	}
 	
 	
 

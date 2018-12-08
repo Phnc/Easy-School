@@ -1,5 +1,8 @@
 package br.ufrpe.easy_school.negocios;
 
+import java.util.ArrayList;
+
+import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import br.ufrpe.easy_school.negocios.beans.Professor;
@@ -123,6 +126,14 @@ public interface IEscola {
 	 */
 	void addDisciplina(String idAluno, String idDisc);
 	
+	/**
+	 * 
+	 */
+	
+	ArrayList<String> arrayDisc(Professor prof);
+	
+	
+	ArrayList<Aluno> alunosDisc(Disciplina disc);
 	
 	
 	

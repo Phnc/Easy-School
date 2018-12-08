@@ -47,5 +47,24 @@ public class Aluno extends Pessoa {
 		}
 		return imprimir;
 	}
+	
+	public boolean cursa(Disciplina disc) {
+		for(int i = 0; i < this.disciplinas.size(); i++) {
+			if(this.disciplinas.get(i).equals(disc)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public Disciplina getDisciplina(Disciplina disc) {
+		for(int i = 0; i < this.disciplinas.size(); i++) {
+			if(this.disciplinas.get(i).equals(disc)) {
+				return this.disciplinas.get(i);
+			}
+		}
+		return null;
+		
+	}
 
 }

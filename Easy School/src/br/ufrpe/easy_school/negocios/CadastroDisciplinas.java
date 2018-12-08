@@ -1,5 +1,7 @@
 package br.ufrpe.easy_school.negocios;
 
+import java.util.ArrayList;
+
 import br.ufrpe.easy_school.dados.IRepositorioDisciplinas;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
@@ -56,5 +58,7 @@ public class CadastroDisciplinas {
 		this.repositorio.remover(id);
 	}
 	
-
+	public ArrayList<String> arrayDisc(Professor prof){
+		return this.repositorio.arrayDisc(prof);
+	}
 }
