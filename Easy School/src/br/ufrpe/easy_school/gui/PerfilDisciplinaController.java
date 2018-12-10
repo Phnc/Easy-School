@@ -9,11 +9,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 public class PerfilDisciplinaController {
+	Aluno selecionado;
 	
     @FXML
     private TableView<Aluno> tblAlunos;
@@ -35,6 +41,33 @@ public class PerfilDisciplinaController {
 
     @FXML
     private TableColumn<Aluno, Number> colFaltas;
+    
+    @FXML
+    private TextField txtNota2;
+
+    @FXML
+    private TextField txtNota4;
+
+    @FXML
+    private TextField txtNota3;
+
+    @FXML
+    private TextField txtNota1;
+    
+    @FXML
+    private Label lblAluno;
+    
+    @FXML
+    private Button btnSalvar;
+    
+    @FXML
+    private Button btnVoltar;
+    
+    @FXML
+    void voltar(ActionEvent event) {
+    	KeepDisciplina.getInstance().setDisciplina(null);
+    	ScreenManager.getInstance().showPerfilProfessor();
+    }
 
     @FXML
     void addFaltas(ActionEvent event) {
@@ -42,24 +75,25 @@ public class PerfilDisciplinaController {
     }
 
     @FXML
-    void changeNota1(ActionEvent event) {
-
+    void salvarStatus() {
+    	if(txtNota1.getText() != null && !txtNota1.getText().isEmpty()) {
+    		selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(1, Double.parseDouble(txtNota1.getText()));
+    	}
+    	
+    	if(txtNota2.getText() != null && !txtNota2.getText().isEmpty()) {
+    		selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(2, Double.parseDouble(txtNota2.getText()));
+    	}
+    	
+    	if(txtNota3.getText() != null && !txtNota3.getText().isEmpty()) {
+    		selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(3, Double.parseDouble(txtNota3.getText()));
+    	}
+    	
+    	if(txtNota4.getText() != null && !txtNota4.getText().isEmpty()) {
+    		selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(4, Double.parseDouble(txtNota4.getText()));
+    	}
+    	
     }
-
-    @FXML
-    void changeNota2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void changeNota3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void changeNota4(ActionEvent event) {
-
-    }
+    
     
     @FXML
     public void initialize() {
@@ -75,6 +109,13 @@ public class PerfilDisciplinaController {
     	
     	
     	tblAlunos.setItems(getAlunos());
+    	
+    	tblAlunos.setOnMouseClicked((MouseEvent event) -> {
+            if(event.getButton().equals(MouseButton.PRIMARY)){
+                selecionado = tblAlunos.getSelectionModel().getSelectedItem();
+                lblAluno.setText(selecionado.getName());
+            }
+        });
     }
     
     public ObservableList<Aluno> getAlunos() {

@@ -28,6 +28,16 @@ public class PerfilProfessorController {
 
     @FXML
     private Button btnGoDisc;
+    
+    @FXML
+    private Button btnSair;
+
+    @FXML
+    void sair(ActionEvent event) {
+    	KeepPerson.getInstance().setPessoa(null);
+    	ScreenManager.getInstance().showCena1();
+    	
+    }
 
     @FXML
     void showDisc(ActionEvent event) {
