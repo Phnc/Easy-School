@@ -19,3 +19,5 @@ Regra 6: Controlador para cada repositório.
 Uma dica útil, nas palavras de Ieghor: "Bora colocar os nomes das classes como ControladorNomeDaClasse e RepositórioNomeDaClasse", isso vai facilitar o entendimento já que vai ser só bater o olho no nome da classe pra ter uma ideia de que ela serve ou do que ela é.
 
 Vamo que vamo meus vingadores.
+
+teste
