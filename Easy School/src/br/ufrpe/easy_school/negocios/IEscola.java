@@ -126,13 +126,26 @@ public interface IEscola {
 	 */
 	void addDisciplina(String idAluno, String idDisc);
 	
+
 	/**
+	 * Retorna uma lista de disciplinas ensinadas por um professor
 	 * 
+	 * @param prof
+	 * 			  Professor que ensina as disciplinas
+	 * @return
+	 * 		  Lista de disciplinas ensinadas pelo professor
 	 */
 	
 	ArrayList<String> arrayDisc(Professor prof);
 	
-	
+	/**
+	 * Retorna uma lista de alunos que cursam uma disciplina
+	 * 
+	 * @param disc
+	 * 			  Disciplina que os alunos cursam
+	 * @return
+	 * 		  Lista de alunos que cursam a disciplina passada comom parâmetro
+	 */
 	ArrayList<Aluno> alunosDisc(Disciplina disc);
 	
 	

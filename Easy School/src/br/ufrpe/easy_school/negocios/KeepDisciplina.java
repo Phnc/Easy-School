@@ -4,6 +4,10 @@ import br.ufrpe.easy_school.negocios.beans.Disciplina;
 
 public class KeepDisciplina {
 	
+	/**
+	 * Esta classe serve para manter uma referência para a disciplina selecionada pelo professor em seu perfil
+	 */
+	
 	public static KeepDisciplina instance;
 	private Disciplina disciplina;
 	

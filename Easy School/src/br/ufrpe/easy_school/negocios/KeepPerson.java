@@ -3,6 +3,9 @@ package br.ufrpe.easy_school.negocios;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 
 public class KeepPerson {
+	/**
+	 * Esta classe serve para manter uma referência do usuário logado
+	 */
 
 	public static KeepPerson instance;
 	private Pessoa pessoa;
