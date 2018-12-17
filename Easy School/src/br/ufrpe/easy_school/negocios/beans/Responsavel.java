@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 
-public class Responsavel extends Pessoa {
+public class Responsavel extends Pessoa implements Serializable{
 	
 
 	private ArrayList<Aluno> alunos;
