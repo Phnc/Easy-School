@@ -10,6 +10,10 @@ public class CadastroDisciplinas {
 	
 	IRepositorioDisciplinas repositorio;
 
+	/*
+	 * Adicionar this.repositorio.salvarArquivoRepositorioDisciplinas() ao final de todos os métodos.
+	 */
+	
 	public CadastroDisciplinas(IRepositorioDisciplinas instanciaRepositorio) {
 		super();
 		this.repositorio = instanciaRepositorio;
@@ -24,9 +28,6 @@ public class CadastroDisciplinas {
 				this.repositorio.cadastrar(d);
 			}
 		}
-		
-		
-		
 	}
 	
 	public void cadastrar(String nome, Professor professor, String id) {

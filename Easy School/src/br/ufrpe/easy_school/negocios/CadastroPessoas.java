@@ -12,6 +12,9 @@ import br.ufrpe.easy_school.negocios.beans.Responsavel;
 public class CadastroPessoas {
 	IRepositorioPessoas repositorio;
 	
+	/*
+	 * Adicionar this.repositorio.salvarArquivoRepositorioPessoas() ao final de todos os métodos.
+	 */
 	
 	public CadastroPessoas(IRepositorioPessoas instanciaRepositorio) {
 		this.repositorio = instanciaRepositorio;
