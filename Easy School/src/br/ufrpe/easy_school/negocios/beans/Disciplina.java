@@ -1,6 +1,6 @@
 package br.ufrpe.easy_school.negocios.beans;
 
-public class Disciplina {
+public class Disciplina implements Serializable{
 	
 	private String nome;
 	private Professor professor;
