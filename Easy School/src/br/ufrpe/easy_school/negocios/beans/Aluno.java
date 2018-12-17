@@ -1,5 +1,6 @@
 package br.ufrpe.easy_school.negocios.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 

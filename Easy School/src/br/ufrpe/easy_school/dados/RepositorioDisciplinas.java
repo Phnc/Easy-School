@@ -1,6 +1,15 @@
 package br.ufrpe.easy_school.dados;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
@@ -18,9 +27,9 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas, Serializ
 	
 	
 	public static RepositorioDisciplinas getInstance() {
-		this.carregarArquivosRepositorioDisciplinas();
+		
 		if(instance == null) {
-			instance = new RepositorioDisciplinas();
+			RepositorioDisciplinas.instance.carregarArquivosRepositorioDisciplinas();
 		}
 		return instance;
 	}
@@ -92,18 +101,42 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas, Serializ
 	@Override
 	public void salvarArquivosRepositorioDisciplinas() {
 		File repos = new File("ArquivoBDDisciplinas.dat");
-		ObjectOutputStream objectOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(repos)));		
-		this.ordenarPorOrdemAlfabetica();
-		objectOut.writeObject(this.getInstance());
-		objectOut.close();
+		ObjectOutputStream objectOut;
+		try {
+			objectOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(repos)));
+			this.ordenarPorOrdemAlfabetica();
+			objectOut.writeObject(RepositorioDisciplinas.getInstance());
+			objectOut.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
 	}
 
-	@Override
 	public void carregarArquivosRepositorioDisciplinas() {
 		File repos = new File("ArquivoBDDisciplinas.dat");
-		ObjectInputStream objectIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream(repos)));
-		this.instance = ((this.getClass()) o)objectIn.readObject();
-		objectIn.close();
+		ObjectInputStream objectIn;
+		try {
+			objectIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream(repos)));
+			RepositorioDisciplinas.instance = (RepositorioDisciplinas)objectIn.readObject();
+			objectIn.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+
+
 	}
 
 

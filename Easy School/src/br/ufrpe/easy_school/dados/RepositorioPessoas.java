@@ -1,5 +1,15 @@
 package br.ufrpe.easy_school.dados;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import br.ufrpe.easy_school.negocios.beans.Aluno;
@@ -22,9 +32,8 @@ public class RepositorioPessoas implements IRepositorioPessoas, Serializable{
 	}
 	
 	public static RepositorioPessoas getInstance() {
-		this.carregarArquivosRepositorioPessoas();
 		if(instance == null) {
-			instance = new RepositorioPessoas();
+			RepositorioPessoas.instance.carregarArquivosRepositorioPessoas();
 		}
 		return instance;
 	}
@@ -114,23 +123,41 @@ public class RepositorioPessoas implements IRepositorioPessoas, Serializable{
 
 	
 	@Override
-	public void salvarArquivoRepositorioPessoas() {
+	public void salvarArquivosRepositorioPessoas() {
 		File repos = new File("ArquivoBDPessoas.dat");
-		ObjectOutputStream objectOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(repos)));		
-		this.ordenarPorOrdemAlfabetica();
-		objectOut.writeObject(this.getInstance());
-		objectOut.close();
+		ObjectOutputStream objectOut;
+		try {
+			objectOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(repos)));
+			this.ordenarPorOrdemAlfabetica();
+			objectOut.writeObject(RepositorioDisciplinas.getInstance());
+			objectOut.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
 	}
 
-	@Override
 	public void carregarArquivosRepositorioPessoas() {
 		File repos = new File("ArquivoBDPessoas.dat");
-		ObjectInputStream objectIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream(repos)));
-		this.instance = ((this.getClass()) o)objectIn.readObject();
-		objectIn.close();
+		ObjectInputStream objectIn;
+		try {
+			objectIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream(repos)));
+			RepositorioPessoas.instance = (RepositorioPessoas)objectIn.readObject();
+			objectIn.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
-
-
-	
 
 }

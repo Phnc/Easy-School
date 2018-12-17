@@ -20,9 +20,11 @@ public interface IRepositorioDisciplinas {
 	
 	ArrayList<String> arrayDisc(Professor prof);
 	
-	//void salvarArquivoRepositorioDisciplinas();
-	
-	//void carregarArquivoRepositorioDisciplinas();
-	
+
+
+	void salvarArquivosRepositorioDisciplinas();
+
+	void carregarArquivosRepositorioDisciplinas();
+
 	//void ordenarPorOrdemAlfabetica();
 }

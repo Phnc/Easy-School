@@ -1,8 +1,7 @@
 package br.ufrpe.easy_school.negocios.beans;
 
 import java.util.ArrayList;
-
-
+import java.io.Serializable;
 
 public class Responsavel extends Pessoa implements Serializable{
 	

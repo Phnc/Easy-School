@@ -74,8 +74,8 @@ public interface IRepositorioPessoas {
 	 */
 	
 	ArrayList<Aluno> alunosDisc(Disciplina disc);
-	
-	//void salvarArquivoRepositorioPessoas();
+
+	void salvarArquivosRepositorioPessoas();
 	
 	//void carregarArquivoRepositorioPessoas();
 	

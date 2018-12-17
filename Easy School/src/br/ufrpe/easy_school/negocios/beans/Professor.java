@@ -1,5 +1,7 @@
 package br.ufrpe.easy_school.negocios.beans;
 
+import java.io.Serializable;
+
 public class Professor extends Pessoa implements Serializable{
 
 	public Professor(String name, String id, String password) {
