@@ -1,11 +1,12 @@
 package br.ufrpe.easy_school.dados;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
 
-public class RepositorioDisciplinas implements IRepositorioDisciplinas {
+public class RepositorioDisciplinas implements IRepositorioDisciplinas, Serializable {
 	
 	private ArrayList<Disciplina> disciplinas;
 	
@@ -17,6 +18,7 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas {
 	
 	
 	public static RepositorioDisciplinas getInstance() {
+		this.carregarArquivosRepositorioDisciplinas();
 		if(instance == null) {
 			instance = new RepositorioDisciplinas();
 		}
@@ -38,7 +40,11 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas {
 
 	}
 
-
+	public void ordenarPorOrdemAlfabetica() {
+		/*
+		 * CRIAR MÉTODO DE ORDENAÇÃO POR ORDEM ALFABÉTICA.
+		 */
+	}
 
 	@Override
 	public Disciplina buscar(String id) {
@@ -82,7 +88,23 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas {
 		}
 		return devolver;
 	}
+	
+	@Override
+	public void salvarArquivosRepositorioDisciplinas() {
+		File repos = new File("ArquivoBDDisciplinas.dat");
+		ObjectOutputStream objectOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(repos)));		
+		this.ordenarPorOrdemAlfabetica();
+		objectOut.writeObject(this.getInstance());
+		objectOut.close();
+	}
 
+	@Override
+	public void carregarArquivosRepositorioDisciplinas() {
+		File repos = new File("ArquivoBDDisciplinas.dat");
+		ObjectInputStream objectIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream(repos)));
+		this.instance = ((this.getClass()) o)objectIn.readObject();
+		objectIn.close();
+	}
 
 
 }
