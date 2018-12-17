@@ -1,6 +1,6 @@
 package br.ufrpe.easy_school.negocios.beans;
 
-public class Professor extends Pessoa {
+public class Professor extends Pessoa implements Serializable{
 
 	public Professor(String name, String id, String password) {
 		super(name, id, password);
