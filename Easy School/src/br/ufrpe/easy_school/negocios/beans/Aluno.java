@@ -3,7 +3,7 @@ package br.ufrpe.easy_school.negocios.beans;
 import java.util.ArrayList;
 
 
-public class Aluno extends Pessoa {
+public class Aluno extends Pessoa implements Serializable {
 	
 	public Aluno(String name, String id, String password) {
 		super(name, id, password);
@@ -29,9 +29,9 @@ public class Aluno extends Pessoa {
 	
 	
 	public void addDisciplina(Disciplina disc) {
-		//usando a Disciplina 'temp' para n„o passarmos uma referencia para a disciplina original
-		//caso estivessemos passando a original, qualquer modificaÁ„o em um aluno, iria refeletir nos outros
-		//foi uma soluÁ„o que consegui encontrar para esse problema, talvez n„o seja a melhor
+		//usando a Disciplina 'temp' para n√£o passarmos uma referencia para a disciplina original
+		//caso estivessemos passando a original, qualquer modifica√ß√£o em um aluno, iria refeletir nos outros
+		//foi uma solu√ß√£o que consegui encontrar para esse problema, talvez n√£o seja a melhor
 		Disciplina temp = new Disciplina(disc.getNome(), disc.getProfessor(), disc.getId());
 		this.disciplinas.add(temp);
 	}
