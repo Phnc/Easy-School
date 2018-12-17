@@ -9,7 +9,7 @@ import br.ufrpe.easy_school.negocios.beans.Professor;
 import br.ufrpe.easy_school.negocios.beans.Responsavel;
 
 
-public class RepositorioPessoas implements IRepositorioPessoas{
+public class RepositorioPessoas implements IRepositorioPessoas, Serializable{
 	
 	private ArrayList<Pessoa> pessoas;
 
@@ -22,6 +22,7 @@ public class RepositorioPessoas implements IRepositorioPessoas{
 	}
 	
 	public static RepositorioPessoas getInstance() {
+		this.carregarArquivosRepositorioPessoas();
 		if(instance == null) {
 			instance = new RepositorioPessoas();
 		}
@@ -88,6 +89,12 @@ public class RepositorioPessoas implements IRepositorioPessoas{
 		
 	}
 
+	public void ordenarPorOrdemAlfabetica() {
+		/*
+		 * CRIAR MÉTODO DE ORDENAÇÃO POR ORDEM ALFABETICA;
+		 */
+	}
+	
 	@Override
 	public ArrayList<Aluno> alunosDisc(Disciplina disc) {
 		// TODO Auto-generated method stub
@@ -104,6 +111,25 @@ public class RepositorioPessoas implements IRepositorioPessoas{
 		}
 		return alunos;
 	}
+
+	
+	@Override
+	public void salvarArquivoRepositorioPessoas() {
+		File repos = new File("ArquivoBDPessoas.dat");
+		ObjectOutputStream objectOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(repos)));		
+		this.ordenarPorOrdemAlfabetica();
+		objectOut.writeObject(this.getInstance());
+		objectOut.close();
+	}
+
+	@Override
+	public void carregarArquivosRepositorioPessoas() {
+		File repos = new File("ArquivoBDPessoas.dat");
+		ObjectInputStream objectIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream(repos)));
+		this.instance = ((this.getClass()) o)objectIn.readObject();
+		objectIn.close();
+	}
+
 
 	
 
