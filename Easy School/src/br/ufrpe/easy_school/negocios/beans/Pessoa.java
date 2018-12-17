@@ -1,6 +1,6 @@
 package br.ufrpe.easy_school.negocios.beans;
 
-public class Pessoa {
+public class Pessoa implements Serializable{
 	
 	private String name;
 	private String id;
