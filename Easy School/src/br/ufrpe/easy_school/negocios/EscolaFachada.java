@@ -4,10 +4,16 @@ import java.util.ArrayList;
 
 import br.ufrpe.easy_school.dados.RepositorioDisciplinas;
 import br.ufrpe.easy_school.dados.RepositorioPessoas;
+import br.ufrpe.easy_school.exceptions.DisciplinaJaExistenteException;
+import br.ufrpe.easy_school.exceptions.DisciplinaNaoExistenteException;
+import br.ufrpe.easy_school.exceptions.PessoaExistenteException;
+import br.ufrpe.easy_school.exceptions.PessoaNaoExistenteException;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import br.ufrpe.easy_school.negocios.beans.Professor;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class EscolaFachada implements IEscola{
 	
@@ -34,7 +40,15 @@ public class EscolaFachada implements IEscola{
 	@Override
 	public void cadastrarPessoa(Pessoa pessoa) {
 		// TODO Auto-generated method stub
-		this.pessoas.cadastrar(pessoa);
+		try {
+			this.pessoas.cadastrar(pessoa);
+		} catch (PessoaExistenteException e) {
+			// TODO Auto-generated catch block
+			Alert a = new Alert(AlertType.WARNING);
+			a.setContentText(e.getMessage());
+			a.setTitle("Pessoa já cadastrada");
+			a.show();
+		}
 		
 	}
 
@@ -50,21 +64,45 @@ public class EscolaFachada implements IEscola{
 	@Override
 	public void mudarNota(Professor prof, String idDisc, String idAluno, int unidade, double nota) {
 		// TODO Auto-generated method stub
-		this.pessoas.mudarNota(prof, idDisc, idAluno, unidade, nota);
+		try {
+			this.pessoas.mudarNota(prof, idDisc, idAluno, unidade, nota);
+		} catch (PessoaNaoExistenteException e) {
+			// TODO Auto-generated catch block
+			Alert a = new Alert(AlertType.WARNING);
+			a.setContentText(e.getMessage());
+			a.setTitle("Pessoa não existe");
+			a.show();
+		}
 		
 	}
 
 	@Override
 	public boolean efetuarLogin(String id, String password) {
 		// TODO Auto-generated method stub
-		return this.pessoas.efetuarLogin(id, password);
+		try {
+			return this.pessoas.efetuarLogin(id, password);
+		} catch (PessoaNaoExistenteException e) {
+			Alert a = new Alert(AlertType.WARNING);
+			a.setContentText(e.getMessage());
+			a.setTitle("Pessoa não existe");
+			a.show();
+			return false;
+		}
 		
 	}
 
 	@Override
 	public void cadastrarDisciplina(Disciplina disciplina) {
 		// TODO Auto-generated method stub
-		this.disciplinas.cadastrar(disciplina);
+		try {
+			this.disciplinas.cadastrar(disciplina);
+		} catch (DisciplinaJaExistenteException e) {
+			// TODO Auto-generated catch block
+			Alert a = new Alert(AlertType.WARNING);
+			a.setContentText(e.getMessage());
+			a.setTitle("Disciplina já cadastrada");
+			a.show();
+		}
 		
 	}
 
@@ -72,26 +110,60 @@ public class EscolaFachada implements IEscola{
 	public Pessoa buscar(String id) {
 		// TODO Auto-generated method stub
 		
-		return this.pessoas.buscar(id);
+		try {
+			return this.pessoas.buscar(id);
+		} catch (PessoaNaoExistenteException e) {
+			// TODO Auto-generated catch block
+			Alert a = new Alert(AlertType.WARNING);
+			a.setContentText(e.getMessage());
+			a.setTitle("Pessoa não existe");
+			a.show();
+			return null;
+		}
 	}
 
 	@Override
 	public void addAluno(String idAluno, String idResponsavel) {
 		// TODO Auto-generated method stub
-		this.pessoas.addAluno(idAluno, idResponsavel);
+		try {
+			this.pessoas.addAluno(idAluno, idResponsavel);
+		} catch (PessoaNaoExistenteException e) {
+			// TODO Auto-generated catch block
+			Alert a = new Alert(AlertType.WARNING);
+			a.setContentText(e.getMessage());
+			a.setTitle("Pessoa não existe");
+			a.show();
+		}
 		
 	}
 
 	@Override
 	public Disciplina buscarDisciplina(String id) {
 		// TODO Auto-generated method stub
-		return this.disciplinas.buscar(id);
+		try {
+			return this.disciplinas.buscar(id);
+		} catch (DisciplinaNaoExistenteException e) {
+			// TODO Auto-generated catch block
+			Alert a = new Alert(AlertType.WARNING);
+			a.setContentText(e.getMessage());
+			a.setTitle("Disciplina não existente");
+			a.show();
+		}
+		return null;
 	}
 
 	@Override
 	public void removerDisciplina(String id) {
 		// TODO Auto-generated method stub
-		this.disciplinas.remover(id);
+		try {
+			this.disciplinas.remover(id);
+		} catch (DisciplinaNaoExistenteException e) {
+			// TODO Auto-generated catch block
+			Alert a = new Alert(AlertType.WARNING);
+			a.setContentText(e.getMessage());
+			a.setTitle("Disciplina não existente");
+			a.show();
+		}
 		
 	}
 
@@ -99,14 +171,30 @@ public class EscolaFachada implements IEscola{
 	public void addDisciplina(String idAluno, String idDisc) {
 		// TODO Auto-generated method stubs
 		Disciplina d = this.buscarDisciplina(idDisc);
-		this.pessoas.addDisciplina(idAluno, d);
+		try {
+			this.pessoas.addDisciplina(idAluno, d);
+		} catch (PessoaNaoExistenteException e) {
+			// TODO Auto-generated catch block
+			Alert a = new Alert(AlertType.WARNING);
+			a.setContentText(e.getMessage());
+			a.setTitle("Pessoa não existe");
+			a.show();
+		}
 		
 	}
 
 	@Override
 	public void marcarFalta(Professor prof, String idDisc, String idAluno) {
 		// TODO Auto-generated method stub
-		this.pessoas.marcarFalta(prof, idDisc, idAluno);
+		try {
+			this.pessoas.marcarFalta(prof, idDisc, idAluno);
+		} catch (PessoaNaoExistenteException e) {
+			// TODO Auto-generated catch block
+			Alert a = new Alert(AlertType.WARNING);
+			a.setContentText(e.getMessage());
+			a.setTitle("Pessoa não existe");
+			a.show();
+		}
 		
 	}
 	

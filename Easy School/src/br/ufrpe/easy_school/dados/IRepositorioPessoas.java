@@ -2,6 +2,8 @@ package br.ufrpe.easy_school.dados;
 
 import java.util.ArrayList;
 
+import br.ufrpe.easy_school.exceptions.PessoaExistenteException;
+import br.ufrpe.easy_school.exceptions.PessoaNaoExistenteException;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
@@ -17,7 +19,7 @@ public interface IRepositorioPessoas {
 	 * @param pessoa
 	 *              A referência da pessoa a ser cadastrada
 	 */
-	void cadastrar(Pessoa pessoa);
+	void cadastrar(Pessoa pessoa) throws PessoaExistenteException;
 	
 	/**
 	 * Cria um objeto de uma subclasse de Pessoa usando o construtor padrão da classe
@@ -30,7 +32,7 @@ public interface IRepositorioPessoas {
 	 * 				senha da nova pessoa
 	 */
 	
-	void cadastrar(String nome, String id, String password);
+	void cadastrar(String nome, String id, String password) throws PessoaExistenteException;
 	
 	
 	/**
@@ -41,7 +43,7 @@ public interface IRepositorioPessoas {
 	 * @return A pessoa encontrada, ou null, caso uma pessoa com esse ID não exista
 	 */
 	
-	Pessoa buscar(String id);
+	Pessoa buscar(String id) throws PessoaNaoExistenteException;
 	
 	
 	/**

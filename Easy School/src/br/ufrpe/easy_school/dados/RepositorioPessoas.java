@@ -33,7 +33,8 @@ public class RepositorioPessoas implements IRepositorioPessoas, Serializable{
 	
 	public static RepositorioPessoas getInstance() {
 		if(instance == null) {
-			RepositorioPessoas.instance.carregarArquivosRepositorioPessoas();
+			//RepositorioPessoas.instance.carregarArquivosRepositorioPessoas();
+			instance = new RepositorioPessoas();
 		}
 		return instance;
 	}

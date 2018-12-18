@@ -12,6 +12,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import br.ufrpe.easy_school.exceptions.DisciplinaJaExistenteException;
+import br.ufrpe.easy_school.exceptions.DisciplinaNaoExistenteException;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
 
@@ -29,7 +31,8 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas, Serializ
 	public static RepositorioDisciplinas getInstance() {
 		
 		if(instance == null) {
-			RepositorioDisciplinas.instance.carregarArquivosRepositorioDisciplinas();
+			//RepositorioDisciplinas.instance.carregarArquivosRepositorioDisciplinas();
+			instance = new RepositorioDisciplinas();
 		}
 		return instance;
 	}
@@ -42,7 +45,7 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas, Serializ
 	}
 
 	@Override
-	public void cadastrar(String nome, Professor professor, String id) {
+	public void cadastrar(String nome, Professor professor, String id) throws DisciplinaJaExistenteException{
 		// TODO Auto-generated method stub
 		Disciplina temp = new Disciplina(nome, professor, id);
 		this.cadastrar(temp);
@@ -56,7 +59,7 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas, Serializ
 	}
 
 	@Override
-	public Disciplina buscar(String id) {
+	public Disciplina buscar(String id) throws DisciplinaNaoExistenteException {
 		// TODO Auto-generated method stub
 		for(int i = 0; i < this.disciplinas.size(); i++) {
 			if(this.disciplinas.get(i).getId().equals(id)) {
@@ -81,7 +84,7 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas, Serializ
 
 
 	@Override
-	public void remover(String id) {
+	public void remover(String id) throws DisciplinaNaoExistenteException {
 		// TODO Auto-generated method stub
 		this.disciplinas.remove(this.buscar(id));
 

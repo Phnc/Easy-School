@@ -3,6 +3,8 @@ package br.ufrpe.easy_school.negocios;
 import java.util.ArrayList;
 
 import br.ufrpe.easy_school.dados.IRepositorioPessoas;
+import br.ufrpe.easy_school.exceptions.PessoaExistenteException;
+import br.ufrpe.easy_school.exceptions.PessoaNaoExistenteException;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
@@ -21,7 +23,7 @@ public class CadastroPessoas {
 	}
 	
 	
-	public void cadastrar(Pessoa p) {
+	public void cadastrar(Pessoa p) throws PessoaExistenteException {
 		if(p == null) {
 			//exception
 		}
@@ -37,7 +39,7 @@ public class CadastroPessoas {
 	
 	
 	
-	public void descadastrar(String id) {
+	public void descadastrar(String id) throws PessoaNaoExistenteException {
 		
 		Pessoa p = this.buscar(id);
 		if(p == null) {
@@ -49,7 +51,7 @@ public class CadastroPessoas {
 	}
 	
 	
-	public void mudarNota(Professor prof, String idDisc, String idAluno, int unidade, double nota) {
+	public void mudarNota(Professor prof, String idDisc, String idAluno, int unidade, double nota) throws PessoaNaoExistenteException {
 		Pessoa temp = this.buscar(idAluno);
 		if(!(temp instanceof Aluno)) {
 			//aluno nao cadastrado
@@ -59,7 +61,7 @@ public class CadastroPessoas {
 		}
 	}
 	
-	public void addAluno(String idAluno, String idResponsavel) {
+	public void addAluno(String idAluno, String idResponsavel) throws PessoaNaoExistenteException {
 		Pessoa temp = this.buscar(idAluno);
 		if(temp instanceof Aluno) {
 			if(this.buscar(idResponsavel) instanceof Responsavel) {
@@ -69,7 +71,7 @@ public class CadastroPessoas {
 		}
 	}
 	
-	public boolean efetuarLogin(String id, String password) {
+	public boolean efetuarLogin(String id, String password) throws PessoaNaoExistenteException {
 		// TODO Auto-generated method stub
 		boolean retorno = false;
 		if(this.existe(id) ) {
@@ -82,7 +84,7 @@ public class CadastroPessoas {
 		return retorno;
 	}
 	
-	public void addDisciplina(String idAluno, Disciplina disc) {
+	public void addDisciplina(String idAluno, Disciplina disc) throws PessoaNaoExistenteException {
 		Pessoa temp = this.buscar(idAluno);
 		if (temp instanceof Aluno) {
 			((Aluno) this.buscar(idAluno)).addDisciplina(disc);
@@ -90,7 +92,7 @@ public class CadastroPessoas {
 		
 	}
 	
-	public void marcarFalta(Professor prof, String idDisc, String idAluno) {
+	public void marcarFalta(Professor prof, String idDisc, String idAluno) throws PessoaNaoExistenteException {
 		Pessoa temp = this.buscar(idAluno);
 		if (temp instanceof Aluno) {
 			((Aluno) this.buscar(idAluno)).buscarDisc(prof).marcarFalta();
@@ -99,7 +101,7 @@ public class CadastroPessoas {
 	
 	
 	
-	public Pessoa buscar(String id) {
+	public Pessoa buscar(String id) throws PessoaNaoExistenteException {
 		return this.repositorio.buscar(id);
 	}
 	

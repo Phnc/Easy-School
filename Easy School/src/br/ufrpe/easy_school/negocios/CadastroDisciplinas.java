@@ -3,6 +3,8 @@ package br.ufrpe.easy_school.negocios;
 import java.util.ArrayList;
 
 import br.ufrpe.easy_school.dados.IRepositorioDisciplinas;
+import br.ufrpe.easy_school.exceptions.DisciplinaJaExistenteException;
+import br.ufrpe.easy_school.exceptions.DisciplinaNaoExistenteException;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
 
@@ -19,7 +21,7 @@ public class CadastroDisciplinas {
 		this.repositorio = instanciaRepositorio;
 	}
 	
-	public void cadastrar(Disciplina d) {
+	public void cadastrar(Disciplina d) throws DisciplinaJaExistenteException{
 		if(d == null) {
 			//exception
 		}
@@ -30,14 +32,14 @@ public class CadastroDisciplinas {
 		}
 	}
 	
-	public void cadastrar(String nome, Professor professor, String id) {
+	public void cadastrar(String nome, Professor professor, String id) throws DisciplinaJaExistenteException {
 		Disciplina temp = new Disciplina(nome, professor, id);
 		this.cadastrar(temp);
 		
 	}
 	
 	
-	public void descadastrar(String id) {
+	public void descadastrar(String id) throws DisciplinaNaoExistenteException {
 		Disciplina d = this.buscar(id);
 		if(d == null) {
 			//disciplina nao cadastrada exception
@@ -47,7 +49,7 @@ public class CadastroDisciplinas {
 		}
 	}
 	
-	public Disciplina buscar(String id) {
+	public Disciplina buscar(String id) throws DisciplinaNaoExistenteException {
 		return this.repositorio.buscar(id);
 	}
 	
@@ -55,7 +57,7 @@ public class CadastroDisciplinas {
 		return this.repositorio.existe(id);
 	}
 	
-	public void remover(String id) {
+	public void remover(String id) throws DisciplinaNaoExistenteException {
 		this.repositorio.remover(id);
 	}
 	
