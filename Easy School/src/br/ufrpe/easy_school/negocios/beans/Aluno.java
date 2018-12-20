@@ -43,9 +43,9 @@ public class Aluno extends Pessoa implements Serializable {
 	
 	public String toString() {
 		String imprimir = super.toString();
-		for(int i = 0; i < this.disciplinas.size(); i++) {
+		/*for(int i = 0; i < this.disciplinas.size(); i++) {
 			imprimir += this.disciplinas.get(i).toString();
-		}
+		}*/
 		return imprimir;
 	}
 	

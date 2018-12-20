@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class ScreenManager {
@@ -17,6 +18,7 @@ public class ScreenManager {
     private Scene perfilAluno;
     private Scene perfilProfessor;
     private Scene perfilDisc;
+    private Scene perfilResponsavel;
 
     
     public static ScreenManager getInstance() {
@@ -110,6 +112,19 @@ public class ScreenManager {
 			e.printStackTrace();
 		}
     	this.mainStage.setScene(perfilDisc);
+    	this.mainStage.show();
+    }
+    
+    public void showPerfilResponsavel() {
+    	GridPane scene;
+    	
+    	try {
+    		scene = FXMLLoader.load(getClass().getResource("/br/ufrpe/easy_school/gui/PerfilResponsavel.fxml"));
+    		this.perfilResponsavel = new Scene(scene);
+    	}catch(IOException e) {
+    		e.printStackTrace();
+    	}
+    	this.mainStage.setScene(perfilResponsavel);
     	this.mainStage.show();
     }
 	

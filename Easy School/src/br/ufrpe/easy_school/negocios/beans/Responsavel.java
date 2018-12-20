@@ -35,7 +35,9 @@ public class Responsavel extends Pessoa implements Serializable{
 		return devolver;
 	}
 
-	
+	public ArrayList<Aluno> getAlunos(){
+		return this.alunos;
+	}
 	
 
 }

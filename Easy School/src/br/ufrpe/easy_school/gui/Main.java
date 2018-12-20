@@ -5,6 +5,7 @@ import br.ufrpe.easy_school.negocios.IEscola;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
+import br.ufrpe.easy_school.negocios.beans.Responsavel;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -51,6 +52,11 @@ public class Main extends Application {
 		fachada.mudarNota((Professor)fachada.buscar("6789"), "4040", "1010", 2, 10);
 		fachada.mudarNota((Professor)fachada.buscar("6789"), "4040", "1010", 3, 8.5);
 		fachada.mudarNota((Professor)fachada.buscar("6789"), "4040", "1010", 4, 9.5);
+		
+		
+		fachada.cadastrarPessoa(new Responsavel("Mãe do Paulo", "1016", "1016"));
+		fachada.addAluno("1010", "1016");
+		
 		launch(args);
 	}
 }
