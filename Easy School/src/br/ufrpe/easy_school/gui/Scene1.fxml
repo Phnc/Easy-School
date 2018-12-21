@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.Scene1Controller">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -18,14 +17,19 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="135.0" layoutY="185.0" text="Senha">
+            <Label layoutX="133.0" layoutY="189.0" text="Senha">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
             <PasswordField fx:id="txtSenha" layoutX="247.0" layoutY="188.0" promptText="Digite sua senha" />
             <TextField fx:id="txtId" layoutX="247.0" layoutY="142.0" promptText="Seu login aqui" />
-            <Button fx:id="btnLogin" layoutX="268.0" layoutY="256.0" mnemonicParsing="false" onAction="#realizarLogin" text="Entrar no sistema" />
+            <Button fx:id="btnLogin" layoutX="268.0" layoutY="256.0" mnemonicParsing="false" onAction="#realizarLogin" text="Entrar no Sistema" />
+            <Label layoutX="175.0" layoutY="34.0" prefHeight="65.0" prefWidth="251.0" text="EasySchool">
+               <font>
+                  <Font name="Impact" size="52.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>

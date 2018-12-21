@@ -49,7 +49,7 @@ public class PerfilProfessorController {
     
     @FXML
     public void initialize() {
-    	lblNomeProf.setText(KeepPerson.getInstance().getPessoa().getName());
+    	lblNomeProf.setText("Bem vindo(a), " + KeepPerson.getInstance().getPessoa().getName() + "!");
     	ObservableList<String> opcoes = FXCollections.observableArrayList(EscolaFachada.getInstance().arrayDisc((Professor) KeepPerson.getInstance().getPessoa()));
     	choiceDisc.setItems(opcoes);
     }

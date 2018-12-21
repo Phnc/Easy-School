@@ -8,13 +8,18 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.PerfilProfessorController">
    <children>
-      <Label fx:id="lblNomeProf" layoutX="14.0" prefHeight="61.0" prefWidth="273.0" text="Nome do Professor">
+      <Label fx:id="lblNomeProf" layoutX="14.0" prefHeight="61.0" prefWidth="573.0" text="Nome do Professor">
          <font>
-            <Font size="24.0" />
+            <Font size="22.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="choiceDisc" layoutX="14.0" layoutY="116.0" prefWidth="150.0" />
-      <Button fx:id="btnGoDisc" layoutX="189.0" layoutY="116.0" mnemonicParsing="false" onAction="#showDisc" text="Go!" />
-      <Button fx:id="btnSair" layoutX="287.0" layoutY="18.0" mnemonicParsing="false" onAction="#sair" text="Sair" />
+      <ChoiceBox fx:id="choiceDisc" layoutX="14.0" layoutY="200.0" prefHeight="31.0" prefWidth="183.0" />
+      <Button fx:id="btnGoDisc" layoutX="217.0" layoutY="200.0" mnemonicParsing="false" onAction="#showDisc" text="Go!" />
+      <Button fx:id="btnSair" layoutX="519.0" layoutY="355.0" mnemonicParsing="false" onAction="#sair" text="Sair" />
+      <Label fx:id="lblNomeProf1" layoutX="14.0" layoutY="139.0" prefHeight="61.0" prefWidth="573.0" text="Escolha uma disciplina:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
