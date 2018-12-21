@@ -12,7 +12,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 
 public class Scene1Controller {
 	
@@ -38,7 +37,7 @@ public class Scene1Controller {
     	else {
     		if(EscolaFachada.getInstance().efetuarLogin(txtId.getText(), txtSenha.getText())) {
         		//verificar instanceof e
-        		//chamar a cena dedicada a cada tipo de usu·rio
+        		//chamar a cena dedicada a cada tipo de usu√°rio
         		if(EscolaFachada.getInstance().buscar(txtId.getText()) instanceof Aluno) {
         			KeepPerson.getInstance().setPessoa((Aluno) EscolaFachada.getInstance().buscar(txtId.getText()));
         			txtId.setText(null);
