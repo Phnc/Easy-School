@@ -1,12 +1,16 @@
 package br.ufrpe.easy_school.negocios.beans;
 
 import java.util.ArrayList;
+
+import br.ufrpe.easy_school.negocios.Mensagem;
+
 import java.io.Serializable;
 
 public class Responsavel extends Pessoa implements Serializable{
 	
 
 	private ArrayList<Aluno> alunos;
+	private ArrayList<Mensagem> mensagens;
 	
 	public Responsavel(String name, String id, String password) {
 		super(name, id, password);
@@ -20,6 +24,14 @@ public class Responsavel extends Pessoa implements Serializable{
 	public void removerAluno(Aluno aluno) {
 		this.alunos.remove(aluno);
 		
+	}
+	
+	public void addMensagem(Mensagem mensagem) {
+		this.mensagens.add(mensagem);
+	}
+	
+	public void removeMensagem(Mensagem mensagem) {
+		this.mensagens.remove(mensagem);
 	}
 	
 
