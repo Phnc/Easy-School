@@ -19,6 +19,7 @@ public class ScreenManager {
     private Scene perfilProfessor;
     private Scene perfilDisc;
     private Scene perfilResponsavel;
+    private Scene msgScene;
 
     
     public static ScreenManager getInstance() {
@@ -55,7 +56,7 @@ public class ScreenManager {
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
            
-        mainStage.setWidth(700);
+        mainStage.setWidth(710);
         mainStage.setHeight(700);
     }
     
@@ -125,6 +126,20 @@ public class ScreenManager {
     		e.printStackTrace();
     	}
     	this.mainStage.setScene(perfilResponsavel);
+    	this.mainStage.show();
+    }
+    
+    public void showMessageScene() {
+    	AnchorPane scene;
+    	try {
+			scene = FXMLLoader.load(getClass().getResource(
+			        "/br/ufrpe/easy_school/gui/MessageScene.fxml"));
+			this.msgScene = new Scene(scene);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	this.mainStage.setScene(msgScene);
     	this.mainStage.show();
     }
 	

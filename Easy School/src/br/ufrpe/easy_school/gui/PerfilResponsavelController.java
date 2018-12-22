@@ -21,10 +21,21 @@ public class PerfilResponsavelController {
 
     @FXML
     private Label lblNome;
+    
+    @FXML
+    private Button btnSendMsg;
+
+    @FXML
+    private Button btnMsgRecebidas;
 
     @FXML
     void mostrarAlunoSelecionado(ActionEvent event) {
     	
+    }
+    
+    @FXML
+    void sendMsg(ActionEvent event) {
+    	ScreenManager.getInstance().showMessageScene();
     }
 
     

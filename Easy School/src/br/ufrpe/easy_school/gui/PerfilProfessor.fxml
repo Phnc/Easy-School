@@ -16,7 +16,7 @@
       <ChoiceBox fx:id="choiceDisc" layoutX="14.0" layoutY="200.0" prefHeight="31.0" prefWidth="183.0" />
       <Button fx:id="btnGoDisc" layoutX="217.0" layoutY="200.0" mnemonicParsing="false" onAction="#showDisc" text="Go!" />
       <Button fx:id="btnSair" layoutX="519.0" layoutY="355.0" mnemonicParsing="false" onAction="#sair" text="Sair" />
-      <Label fx:id="lblNomeProf1" layoutX="14.0" layoutY="139.0" prefHeight="61.0" prefWidth="573.0" text="Escolha uma disciplina:">
+      <Label layoutX="14.0" layoutY="139.0" prefHeight="61.0" prefWidth="573.0" text="Escolha uma disciplina:">
          <font>
             <Font size="18.0" />
          </font>
