@@ -43,7 +43,6 @@ public class PerfilProfessorController {
     void showDisc(ActionEvent event) {
     	KeepDisciplina.getInstance().setDisciplina(EscolaFachada.getInstance().buscarDisciplina(choiceDisc.getValue()));
     	ScreenManager.getInstance().showDisc();
-    	
 		  
     }
     

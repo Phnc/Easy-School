@@ -55,8 +55,8 @@ public class ScreenManager {
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
            
-        mainStage.setWidth(600);
-        mainStage.setHeight(600);
+        mainStage.setWidth(700);
+        mainStage.setHeight(700);
     }
     
     
