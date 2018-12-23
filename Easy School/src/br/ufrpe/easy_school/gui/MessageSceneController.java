@@ -33,19 +33,40 @@ public class MessageSceneController {
     
     @FXML
     void sendMessage(ActionEvent event) {
+    	Mensagem m;
     	
     	Diretoria d =((Diretoria)EscolaFachada.getInstance().buscar("admin"));
-    	Mensagem m = new Mensagem(txtTitulo.getText(), textMensagem.getText(), " ");
-    	d.addMensagem(m);
-    	Responsavel r = (Responsavel) KeepPerson.getInstance().getPessoa();
-    	r.addMensagem(m);
+    	Responsavel r;
+    	if(txtTitulo.getText() != null && !txtTitulo.getText().equals("") && txtTitulo.getText().length() > 0) {
+    		if(textMensagem.getText() != null && !textMensagem.getText().equals("") && textMensagem.getText().length() > 0) {
+    			m = new Mensagem(txtTitulo.getText(), textMensagem.getText(), " ");
+    			d.addMensagem(m);
+    			r = (Responsavel) KeepPerson.getInstance().getPessoa();
+    			r.addMensagem(m);
+    			if(d.getMensagens().contains(m) && r.getMensagens().contains(m)) {
+    	    		Alert a = new Alert(AlertType.INFORMATION);
+    	        	a.setTitle("Confirmação da mensagem");
+    	        	a.setHeaderText("");
+    	        	a.setContentText("Mensagem enviada com sucesso!");
+    	        	a.show();
+    	        	ScreenManager.getInstance().showPerfilResponsavel();
+    	    	}
+    		}
+    	}
+    	else {
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setTitle("Campos vazios");
+    		a.setContentText("Todos os campos são obrigatórios!");
+    		a.setHeaderText("");
+    		a.show();
+    	}
     	
-    	Alert a = new Alert(AlertType.INFORMATION);
-    	a.setTitle("Confirmação da mensagem");
-    	a.setHeaderText("");
-    	a.setContentText("Mensagem enviada com sucesso!");
-    	a.show();
-    	ScreenManager.getInstance().showPerfilResponsavel();
+    	
+    	
+    	
+    	
+    	
+    	
     }
     
     @FXML
