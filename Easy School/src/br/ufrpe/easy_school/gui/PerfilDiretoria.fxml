@@ -46,7 +46,15 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label alignment="CENTER" layoutY="48.0" prefHeight="27.0" prefWidth="700.0" text="Navegue pelas abas para acessar as várias áreas do Sistema!">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </GridPane>
                      </children>
@@ -91,8 +99,8 @@
                                     <TableView fx:id="tblAlunos" editable="true" layoutY="40.0" prefHeight="320.0" prefWidth="700.0">
                                        <columns>
                                           <TableColumn fx:id="colAluno" editable="false" prefWidth="260.0" sortable="false" text="Aluno" />
-                                          <TableColumn fx:id="colId" prefWidth="180.0" sortable="false" text="Id" />
-                                          <TableColumn fx:id="colResponsavel" prefWidth="260.0" sortable="false" text="Responsável" />
+                                          <TableColumn fx:id="colIdAluno" prefWidth="180.0" sortable="false" text="Id" />
+                                          <TableColumn fx:id="colResponsavelAluno" prefWidth="260.0" sortable="false" text="Responsável" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -164,11 +172,8 @@
                                     </Label>
                                     <TableView fx:id="tblProfessores" editable="true" layoutY="40.0" prefHeight="320.0" prefWidth="700.0">
                                        <columns>
-                                          <TableColumn fx:id="colAluno1" editable="false" prefWidth="180.0" sortable="false" text="Professor" />
-                                          <TableColumn fx:id="colId1" prefWidth="120.0" sortable="false" text="Id" />
-                                          <TableColumn fx:id="colResponsavel1" prefWidth="200.0" sortable="false" text="Disciplina 1" />
-                                          <TableColumn fx:id="colResponsavel11" prefWidth="200.0" sortable="false" text="Disciplina 2" />
-                                          <TableColumn fx:id="colId11" prefWidth="442.0" sortable="false" text="Id" />
+                                          <TableColumn fx:id="colProf" editable="false" prefWidth="350.0" sortable="false" text="Professor" />
+                                          <TableColumn fx:id="colIdProf" prefWidth="350.0" sortable="false" text="Id" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -187,16 +192,15 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="textIdProf" layoutX="432.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Id do Professor" />
-                                    <Label layoutX="50.0" layoutY="87.0" text="Disciplina:">
+                                    <Label layoutX="43.0" layoutY="87.0" text="Disciplinas:">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ChoiceBox fx:id="choiceAddDisciplina" layoutX="133.0" layoutY="82.0" prefHeight="31.0" prefWidth="200.0" />
-                                    <Button fx:id="btnAddDisciplinaProf" layoutX="343.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="54.0" text="Add" />
+                                    <ChoiceBox fx:id="choiceDisciplinaProf" layoutX="133.0" layoutY="82.0" prefHeight="31.0" prefWidth="200.0" />
                                     <Button fx:id="btnAlterarProf" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
-                                    <Button fx:id="btnAlterarProf" layoutX="458.0" layoutY="125.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" text="Remover Professor" />
-                                    <Button fx:id="btnRemoveDisciplinaProf" layoutX="333.0" layoutY="125.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="75.0" text="Remove" />
+                                    <Button fx:id="btnRemoveProf" layoutX="458.0" layoutY="125.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" text="Remover Professor" />
+                                    <Button fx:id="btnRemoveDisciplinaProf" layoutX="343.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Remover" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -214,9 +218,9 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="229.0" minHeight="10.0" prefHeight="202.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="288.0" minHeight="10.0" prefHeight="288.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="210.0" minHeight="10.0" prefHeight="202.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="229.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="414.0" minHeight="10.0" prefHeight="360.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="194.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -233,8 +237,46 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="256.0" prefWidth="700.0" GridPane.rowIndex="1" />
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label layoutX="243.0" layoutY="1.0" text="Selecione um Responsável:">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="tblProfessores1" editable="true" layoutY="40.0" prefHeight="320.0" prefWidth="700.0">
+                                       <columns>
+                                          <TableColumn fx:id="colResponsavel" editable="false" prefWidth="350.0" sortable="false" text="Responsável" />
+                                          <TableColumn fx:id="colIdResp" prefWidth="350.0" sortable="false" text="Id" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                 <children>
+                                    <TextField fx:id="textNomeResp" layoutX="133.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Nome do Responsável" />
+                                    <Label layoutX="76.0" layoutY="38.0" text="Nome:">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="403.0" layoutY="38.0" text="Id:">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="textIdResp" layoutX="432.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Id do Responsável" />
+                                    <Button fx:id="btnAlterarResp" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
+                                    <Button fx:id="btnRemoveResp" layoutX="449.0" layoutY="125.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="168.0" text="Remover Responsável" />
+                                    <ChoiceBox fx:id="choiceAlunosResp" layoutX="133.0" layoutY="82.0" prefWidth="200.0" />
+                                    <Label layoutX="70.0" layoutY="87.0" text="Alunos:">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="btnRemoveAlunoResp" layoutX="342.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Remover" />
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </GridPane>
                      </children>

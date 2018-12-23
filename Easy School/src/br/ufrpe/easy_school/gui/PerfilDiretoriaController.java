@@ -16,10 +16,10 @@ public class PerfilDiretoriaController {
     private TableColumn<?, ?> colAluno;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn<?, ?> colIdAluno;
 
     @FXML
-    private TableColumn<?, ?> colResponsavel;
+    private TableColumn<?, ?> colResponsavelAluno;
 
     @FXML
     private TextField textNomeAluno;
@@ -40,19 +40,10 @@ public class PerfilDiretoriaController {
     private TableView<?> tblProfessores;
 
     @FXML
-    private TableColumn<?, ?> colAluno1;
+    private TableColumn<?, ?> colProf;
 
     @FXML
-    private TableColumn<?, ?> colId1;
-
-    @FXML
-    private TableColumn<?, ?> colResponsavel1;
-
-    @FXML
-    private TableColumn<?, ?> colResponsavel11;
-
-    @FXML
-    private TableColumn<?, ?> colId11;
+    private TableColumn<?, ?> colIdProf;
 
     @FXML
     private TextField textNomeProf;
@@ -61,16 +52,42 @@ public class PerfilDiretoriaController {
     private TextField textIdProf;
 
     @FXML
-    private ChoiceBox<?> choiceAddDisciplina;
-
-    @FXML
-    private Button btnAddDisciplinaProf;
+    private ChoiceBox<?> choiceDisciplinaProf;
 
     @FXML
     private Button btnAlterarProf;
 
     @FXML
+    private Button btnRemoveProf;
+
+    @FXML
     private Button btnRemoveDisciplinaProf;
 
-}
+    @FXML
+    private TableView<?> tblProfessores1;
 
+    @FXML
+    private TableColumn<?, ?> colResponsavel;
+
+    @FXML
+    private TableColumn<?, ?> colIdResp;
+
+    @FXML
+    private TextField textNomeResp;
+
+    @FXML
+    private TextField textIdResp;
+
+    @FXML
+    private Button btnAlterarResp;
+
+    @FXML
+    private Button btnRemoveResp;
+
+    @FXML
+    private ChoiceBox<?> choiceAlunosResp;
+
+    @FXML
+    private Button btnRemoveAlunoResp;
+
+}
