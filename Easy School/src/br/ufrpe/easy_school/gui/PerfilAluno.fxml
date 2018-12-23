@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.PerfilAlunoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.PerfilAlunoController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tableDisc" prefHeight="319.0" prefWidth="600.0">
+            <TableView fx:id="tableDisc" layoutX="50.0" layoutY="139.0" prefHeight="319.0" prefWidth="600.0">
               <columns>
                 <TableColumn fx:id="columnDisc" prefWidth="115.0" sortable="false" text="Disciplinas" />
                   <TableColumn fx:id="columnNota1" prefWidth="115.0" sortable="false" text="Unidade 1" />
@@ -21,18 +21,23 @@
                   <TableColumn fx:id="columnNota4" prefWidth="123.0" sortable="false" text="Unidade 4" />
               </columns>
             </TableView>
+            <Button fx:id="btnLogout" layoutX="620.0" layoutY="537.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="60.0" text="Sair" />
+            <Label fx:id="lblName" alignment="CENTER" layoutX="166.0" layoutY="26.0" prefHeight="104.0" prefWidth="369.0" text="Nome do aluno">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>
    <top>
       <AnchorPane prefHeight="81.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblName" prefHeight="104.0" prefWidth="369.0" text="Nome do aluno">
+            <Label layoutX="10.0" prefHeight="42.0" prefWidth="121.0" text="EasySchool">
                <font>
-                  <Font size="28.0" />
+                  <Font name="Impact" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="btnLogout" layoutX="541.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" text="Sair" />
          </children>
       </AnchorPane>
    </top>
