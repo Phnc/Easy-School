@@ -193,9 +193,10 @@
                                        </font>
                                     </Label>
                                     <ChoiceBox fx:id="choiceAddDisciplina" layoutX="133.0" layoutY="82.0" prefHeight="31.0" prefWidth="200.0" />
-                                    <Button fx:id="btnAddDisciplina" layoutX="343.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="54.0" text="Add" />
+                                    <Button fx:id="btnAddDisciplinaProf" layoutX="343.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="54.0" text="Add" />
                                     <Button fx:id="btnAlterarProf" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
-                                    <Button fx:id="btnAlterarProf" layoutX="458.0" layoutY="130.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" text="Remover Professor" />
+                                    <Button fx:id="btnAlterarProf" layoutX="458.0" layoutY="125.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" text="Remover Professor" />
+                                    <Button fx:id="btnRemoveDisciplinaProf" layoutX="333.0" layoutY="125.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="75.0" text="Remove" />
                                  </children>
                               </AnchorPane>
                            </children>

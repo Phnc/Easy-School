@@ -64,9 +64,13 @@ public class PerfilDiretoriaController {
     private ChoiceBox<?> choiceAddDisciplina;
 
     @FXML
-    private Button btnAddDisciplina;
+    private Button btnAddDisciplinaProf;
 
     @FXML
     private Button btnAlterarProf;
 
+    @FXML
+    private Button btnRemoveDisciplinaProf;
+
 }
+
