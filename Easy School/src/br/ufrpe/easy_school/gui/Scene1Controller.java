@@ -3,6 +3,7 @@ package br.ufrpe.easy_school.gui;
 import br.ufrpe.easy_school.negocios.EscolaFachada;
 import br.ufrpe.easy_school.negocios.KeepPerson;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
+import br.ufrpe.easy_school.negocios.beans.Diretoria;
 import br.ufrpe.easy_school.negocios.beans.Professor;
 import br.ufrpe.easy_school.negocios.beans.Responsavel;
 import javafx.event.ActionEvent;
@@ -57,6 +58,13 @@ public class Scene1Controller {
         			txtId.setText(null);
         			txtSenha.setText(null);
         			ScreenManager.getInstance().showPerfilResponsavel();
+        		}
+        		
+        		if(EscolaFachada.getInstance().buscar(txtId.getText()) instanceof Diretoria) {
+        			KeepPerson.getInstance().setPessoa((Diretoria) EscolaFachada.getInstance().buscar(txtId.getText()));
+        			txtId.setText(null);
+        			txtSenha.setText(null);
+        			ScreenManager.getInstance().showPerfilDiretoria();
         		}
         		
     		}

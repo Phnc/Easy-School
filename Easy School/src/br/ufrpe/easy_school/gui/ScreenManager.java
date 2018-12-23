@@ -19,6 +19,7 @@ public class ScreenManager {
     private Scene perfilProfessor;
     private Scene perfilDisc;
     private Scene perfilResponsavel;
+    private Scene perfilDiretoria;
     private Scene msgScene;
 
     
@@ -56,8 +57,8 @@ public class ScreenManager {
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
            
-        mainStage.setWidth(720);
-        mainStage.setHeight(720);
+        mainStage.setWidth(718);
+        mainStage.setHeight(735);
     }
     
     
@@ -142,6 +143,21 @@ public class ScreenManager {
     	this.mainStage.setScene(msgScene);
     	this.mainStage.show();
     }
+
+	public void showPerfilDiretoria() {
+		AnchorPane scene;
+    	try {
+			scene = FXMLLoader.load(getClass().getResource(
+			        "/br/ufrpe/easy_school/gui/PerfilDiretoria.fxml"));
+			this.perfilDiretoria = new Scene(scene);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	this.mainStage.setScene(perfilDiretoria);
+    	this.mainStage.show();
+		
+	}
 	
 
     
