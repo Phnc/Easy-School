@@ -3,6 +3,7 @@ package br.ufrpe.easy_school.gui;
 import br.ufrpe.easy_school.negocios.EscolaFachada;
 import br.ufrpe.easy_school.negocios.IEscola;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
+import br.ufrpe.easy_school.negocios.beans.Diretoria;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
 import br.ufrpe.easy_school.negocios.beans.Responsavel;
@@ -24,6 +25,7 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		IEscola fachada = EscolaFachada.getInstance();
 		fachada = EscolaFachada.getInstance();
+		fachada.cadastrarPessoa(new Diretoria("Admin", "admin", "admin"));
         fachada.cadastrarPessoa(new Aluno("Paulo", "1010", "1010"));
         fachada.cadastrarPessoa(new Aluno("Guilherme", "0412", "0412"));
         fachada.cadastrarPessoa(new Professor("Leandro Marques", "1234", "12345"));
@@ -56,6 +58,7 @@ public class Main extends Application {
 		
 		fachada.cadastrarPessoa(new Responsavel("Mãe do Paulo", "1016", "1016"));
 		fachada.addAluno("1010", "1016");
+		
 		
 		launch(args);
 	}

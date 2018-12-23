@@ -13,6 +13,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import br.ufrpe.easy_school.negocios.beans.Aluno;
+import br.ufrpe.easy_school.negocios.beans.Diretoria;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import br.ufrpe.easy_school.negocios.beans.Professor;
@@ -70,6 +71,10 @@ public class RepositorioPessoas implements IRepositorioPessoas, Serializable{
 				
 				if(this.pessoas.get(i) instanceof Responsavel) {
 					return (Responsavel)this.pessoas.get(i);
+				}
+				
+				if(this.pessoas.get(i) instanceof Diretoria) {
+					return (Diretoria)this.pessoas.get(i);
 				}
 				
 				

@@ -15,6 +15,7 @@ public class Responsavel extends Pessoa implements Serializable{
 	public Responsavel(String name, String id, String password) {
 		super(name, id, password);
 		this.alunos = new ArrayList<Aluno>(1);
+		this.mensagens = new ArrayList<Mensagem>(1);
 	}
 	
 	public void addAluno(Aluno aluno) {
@@ -51,5 +52,8 @@ public class Responsavel extends Pessoa implements Serializable{
 		return this.alunos;
 	}
 	
+	public ArrayList<Mensagem> getMensagens(){
+		return this.mensagens;
+	}
 
 }
