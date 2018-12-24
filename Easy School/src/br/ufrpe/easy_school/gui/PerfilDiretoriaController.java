@@ -3,6 +3,7 @@ package br.ufrpe.easy_school.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -64,7 +65,7 @@ public class PerfilDiretoriaController {
     private Button btnRemoveDisciplinaProf;
 
     @FXML
-    private TableView<?> tblProfessores1;
+    private TableView<?> tblResponsaveis;
 
     @FXML
     private TableColumn<?, ?> colResponsavel;
@@ -89,5 +90,53 @@ public class PerfilDiretoriaController {
 
     @FXML
     private Button btnRemoveAlunoResp;
+
+    @FXML
+    private TableView<?> tblDisciplina;
+
+    @FXML
+    private TableColumn<?, ?> colDisciplina;
+
+    @FXML
+    private TableColumn<?, ?> colIdDisciplina;
+
+    @FXML
+    private TableColumn<?, ?> colProfDisciplina;
+
+    @FXML
+    private TextField textNomeDisciplina;
+
+    @FXML
+    private TextField textIdDisciplina;
+
+    @FXML
+    private TextField textProfessorDisciplina;
+
+    @FXML
+    private Button btnAlterarDisciplina;
+
+    @FXML
+    private Button btnRemoveDisciplina;
+
+    @FXML
+    private RadioButton btnSelectAluno;
+
+    @FXML
+    private RadioButton btnSelectProf;
+
+    @FXML
+    private RadioButton btnSelectResp;
+
+    @FXML
+    private TextField textNomeCadastro;
+
+    @FXML
+    private TextField textIdCadastro;
+
+    @FXML
+    private TextField textSenhaCadastro;
+
+    @FXML
+    private Button btnCadastrar;
 
 }
