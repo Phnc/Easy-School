@@ -64,4 +64,9 @@ public class CadastroDisciplinas {
 	public ArrayList<String> arrayDisc(Professor prof){
 		return this.repositorio.arrayDisc(prof);
 	}
+
+	public ArrayList<Disciplina> getDisciplinas() {
+		// TODO Auto-generated method stub
+		return this.repositorio.getDisciplinas();
+	}
 }

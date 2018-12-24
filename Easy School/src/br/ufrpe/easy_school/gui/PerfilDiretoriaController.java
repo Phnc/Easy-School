@@ -1,5 +1,12 @@
 package br.ufrpe.easy_school.gui;
 
+import br.ufrpe.easy_school.negocios.EscolaFachada;
+import br.ufrpe.easy_school.negocios.beans.Aluno;
+import br.ufrpe.easy_school.negocios.beans.Disciplina;
+import br.ufrpe.easy_school.negocios.beans.Professor;
+import br.ufrpe.easy_school.negocios.beans.Responsavel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -7,17 +14,19 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class PerfilDiretoriaController {
 
     @FXML
-    private TableView<?> tblAlunos;
+    private TableView<Aluno> tblAlunos;
 
     @FXML
-    private TableColumn<?, ?> colAluno;
+    private TableColumn<Aluno, String> colAluno;
 
     @FXML
-    private TableColumn<?, ?> colIdAluno;
+    private TableColumn<Aluno, String> colIdAluno;
 
     @FXML
     private TableColumn<?, ?> colResponsavelAluno;
@@ -38,13 +47,13 @@ public class PerfilDiretoriaController {
     private Button btnRemoveAluno;
 
     @FXML
-    private TableView<?> tblProfessores;
+    private TableView<Professor> tblProfessores;
 
     @FXML
-    private TableColumn<?, ?> colProf;
+    private TableColumn<Professor, String> colProf;
 
     @FXML
-    private TableColumn<?, ?> colIdProf;
+    private TableColumn<Professor, String> colIdProf;
 
     @FXML
     private TextField textNomeProf;
@@ -53,7 +62,7 @@ public class PerfilDiretoriaController {
     private TextField textIdProf;
 
     @FXML
-    private ChoiceBox<?> choiceDisciplinaProf;
+    private ChoiceBox<Disciplina> choiceDisciplinaProf;
 
     @FXML
     private Button btnAlterarProf;
@@ -65,13 +74,13 @@ public class PerfilDiretoriaController {
     private Button btnRemoveDisciplinaProf;
 
     @FXML
-    private TableView<?> tblResponsaveis;
+    private TableView<Responsavel> tblResponsaveis;
 
     @FXML
-    private TableColumn<?, ?> colResponsavel;
+    private TableColumn<Responsavel, String> colResponsavel;
 
     @FXML
-    private TableColumn<?, ?> colIdResp;
+    private TableColumn<Responsavel, String> colIdResp;
 
     @FXML
     private TextField textNomeResp;
@@ -86,22 +95,22 @@ public class PerfilDiretoriaController {
     private Button btnRemoveResp;
 
     @FXML
-    private ChoiceBox<?> choiceAlunosResp;
+    private ChoiceBox<Aluno> choiceAlunosResp;
 
     @FXML
     private Button btnRemoveAlunoResp;
 
     @FXML
-    private TableView<?> tblDisciplina;
+    private TableView<Disciplina> tblDisciplina;
 
     @FXML
-    private TableColumn<?, ?> colDisciplina;
+    private TableColumn<Disciplina, String> colDisciplina;
 
     @FXML
-    private TableColumn<?, ?> colIdDisciplina;
+    private TableColumn<Disciplina, String> colIdDisciplina;
 
     @FXML
-    private TableColumn<?, ?> colProfDisciplina;
+    private TableColumn<Disciplina, Professor> colProfDisciplina;
 
     @FXML
     private TextField textNomeDisciplina;
@@ -117,6 +126,9 @@ public class PerfilDiretoriaController {
 
     @FXML
     private Button btnRemoveDisciplina;
+    
+    @FXML
+    private ToggleGroup grupo;
 
     @FXML
     private RadioButton btnSelectAluno;
@@ -138,5 +150,60 @@ public class PerfilDiretoriaController {
 
     @FXML
     private Button btnCadastrar;
+    
+    @FXML
+    public void initialize() {
+    	//Tornando selecionável somente um radioButton na parte do cadastro de novos usuários
+    	grupo = new ToggleGroup();
+    	btnSelectAluno.setToggleGroup(grupo);
+    	btnSelectProf.setToggleGroup(grupo);
+    	btnSelectResp.setToggleGroup(grupo);
+    	btnSelectAluno.setSelected(true);
+    	
+    	//Adicionando os itens na tableview da tab de alunos
+    	tblAlunos.setItems(getAlunos());
+    	colAluno.setCellValueFactory(new PropertyValueFactory<Aluno, String>("name"));
+    	colIdAluno.setCellValueFactory(new PropertyValueFactory<Aluno, String>("id"));
+    	
+    	//adicionando os itens na tableview da tab de professores
+    	tblProfessores.setItems(getProfessores());
+    	colProf.setCellValueFactory(new PropertyValueFactory<Professor, String>("name"));
+    	colIdProf.setCellValueFactory(new PropertyValueFactory<Professor, String>("id"));
+    	
+    	//adicionando os itens da tableview de responsaveis da tab de responsaveis
+    	tblResponsaveis.setItems(getResponsaveis());
+    	colResponsavel.setCellValueFactory(new PropertyValueFactory<Responsavel, String>("name"));
+    	colIdResp.setCellValueFactory(new PropertyValueFactory<Responsavel, String>("id"));
+    	
+    	//adcicionando os itens da tableview de diciplinas na tab de disciplinas
+    	tblDisciplina.setItems(getDisciplinas());
+    	colDisciplina.setCellValueFactory(new PropertyValueFactory<Disciplina, String>("nome"));
+    	colIdDisciplina.setCellValueFactory(new PropertyValueFactory<Disciplina, String>("id"));
+    	colProfDisciplina.setCellValueFactory(new PropertyValueFactory<Disciplina, Professor>("professor"));
+    }
+    
+    public ObservableList<Aluno> getAlunos(){
+    	ObservableList<Aluno> lista = FXCollections.observableArrayList();
+    	lista.addAll(EscolaFachada.getInstance().getAlunos());
+    	return lista;
+    }
+    
+    public ObservableList<Professor> getProfessores(){
+    	ObservableList<Professor> lista = FXCollections.observableArrayList();
+    	lista.addAll(EscolaFachada.getInstance().getProfessores());
+    	return lista;
+    }
+    
+    public ObservableList<Responsavel> getResponsaveis(){
+    	ObservableList<Responsavel> lista = FXCollections.observableArrayList();
+    	lista.addAll(EscolaFachada.getInstance().getResponsaveis());
+    	return lista;
+    }
+    
+    public ObservableList<Disciplina> getDisciplinas(){
+    	ObservableList<Disciplina> disciplinas = FXCollections.observableArrayList();
+    	disciplinas.addAll(EscolaFachada.getInstance().getDisciplinas());
+    	return disciplinas;
+    }
 
 }

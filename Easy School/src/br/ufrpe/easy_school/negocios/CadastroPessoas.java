@@ -118,4 +118,16 @@ public class CadastroPessoas {
 		return this.repositorio.alunosDisc(disc);
 	}
 	
+	public ArrayList<Aluno> getAlunos(){
+		return this.repositorio.getAlunos();
+	}
+	
+	public ArrayList<Professor> getProfessores(){
+		return this.repositorio.getProfessores();
+	}
+	
+	public ArrayList<Responsavel> getResponsaveis(){
+		return this.repositorio.getResponsaveis();
+	}
+	
 }

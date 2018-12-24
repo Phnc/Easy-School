@@ -7,6 +7,8 @@ import br.ufrpe.easy_school.exceptions.PessoaNaoExistenteException;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
+import br.ufrpe.easy_school.negocios.beans.Professor;
+import br.ufrpe.easy_school.negocios.beans.Responsavel;
 
 public interface IRepositorioPessoas {
 
@@ -82,5 +84,27 @@ public interface IRepositorioPessoas {
 	//void carregarArquivoRepositorioPessoas();
 	
 	//void ordenarPorOrdemAlfabetica();
+	
+	/**
+	 *Devolve todos os alunos cadastrados no sistema
+	 * 
+	 * @return
+	 * 		  ArrayList de alunos cadastrados
+	 */		  
+	ArrayList<Aluno> getAlunos();
 
+	/**
+	 * Devolve um arraylist com todos os professores cadastrados até o momento
+	 * @return
+	 * 		  lista de todos os professores
+	 */
+	ArrayList<Professor> getProfessores();
+	
+	/**
+	 * Devolve uma lista com todos os responsaveis cadastrados ate o momento
+	 * @return
+	 * 		  lista de todos os responsaveis até o momento
+	 */
+	ArrayList<Responsavel> getResponsaveis();
+	
 }

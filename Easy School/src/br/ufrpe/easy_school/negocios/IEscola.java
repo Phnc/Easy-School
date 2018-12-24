@@ -6,6 +6,7 @@ import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import br.ufrpe.easy_school.negocios.beans.Professor;
+import br.ufrpe.easy_school.negocios.beans.Responsavel;
 
 public interface IEscola {
 	/**
@@ -148,6 +149,33 @@ public interface IEscola {
 	 */
 	ArrayList<Aluno> alunosDisc(Disciplina disc);
 	
+	/**
+	 * Devolve uma lista com todos os alunos cadastrados até o momento
+	 * @return
+	 * 		  Lista com todos os alunos do sistema
+	 */
+	ArrayList<Aluno> getAlunos();
+	
+	/**
+	 * Devolve uma lista com todos os professores cadastrados até o momento
+	 * @return
+	 * 		  lista com todos os professores do sistema
+	 */
+	ArrayList<Professor> getProfessores();
+	
+	/**
+	 * Devolve uma lista com todos os responsaveis cadastrados até o momento 
+	 * @return
+	 * 		 lista com todos os responsaveis do sistema
+	 */
+	ArrayList<Responsavel> getResponsaveis();
+	
+	/**
+	 * Devolve uma lsita com todas as disciplinas cadastradas até o momento
+	 * @return
+	 * 		  lista com todas as disciplinas do sistema
+	 */
+	ArrayList<Disciplina> getDisciplinas();
 	
 	
 }

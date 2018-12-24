@@ -143,4 +143,11 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas, Serializ
 	}
 
 
+	@Override
+	public ArrayList<Disciplina> getDisciplinas() {
+		// TODO Auto-generated method stub
+		return this.disciplinas;
+	}
+
+
 }

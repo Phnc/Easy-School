@@ -166,4 +166,40 @@ public class RepositorioPessoas implements IRepositorioPessoas, Serializable{
 		}		
 	}
 
+	@Override
+	public ArrayList<Aluno> getAlunos() {
+		// TODO Auto-generated method stub
+		ArrayList<Aluno> alunos = new ArrayList<>();
+		for(int i = 0; i < this.pessoas.size(); i++) {
+			if(this.pessoas.get(i) instanceof Aluno) {
+				alunos.add((Aluno) this.pessoas.get(i));
+			}
+		}
+		return alunos;
+	}
+	
+	@Override
+	public ArrayList<Professor> getProfessores(){
+		ArrayList<Professor> lista = new ArrayList<>();
+		for(int i = 0; i < this.pessoas.size(); i++) {
+			if(this.pessoas.get(i) instanceof Professor) {
+				lista.add((Professor) this.pessoas.get(i));
+			}
+		}
+		return lista;
+	}
+
+	@Override
+	public ArrayList<Responsavel> getResponsaveis() {
+		// TODO Auto-generated method stub
+		ArrayList<Responsavel> lista = new ArrayList<>();
+		for(int i = 0; i < this.pessoas.size(); i++) {
+			if(this.pessoas.get(i) instanceof Responsavel) {
+				lista.add((Responsavel) this.pessoas.get(i));
+			}
+		}
+		return lista;
+		
+	}
+
 }

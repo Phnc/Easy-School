@@ -73,6 +73,12 @@ public interface IRepositorioDisciplinas {
 	void salvarArquivosRepositorioDisciplinas();
 
 	void carregarArquivosRepositorioDisciplinas();
+	/**
+	 * Devolve uma lista com todas as disciplinas do repositorio
+	 * @return
+	 * 		  todas as disciplinas do repositorio
+	 */
+	ArrayList<Disciplina> getDisciplinas();
 
 	//void ordenarPorOrdemAlfabetica();
 }

@@ -12,6 +12,7 @@ import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import br.ufrpe.easy_school.negocios.beans.Professor;
+import br.ufrpe.easy_school.negocios.beans.Responsavel;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -205,6 +206,28 @@ public class EscolaFachada implements IEscola{
 
 	public ArrayList<Aluno> alunosDisc(Disciplina disc){
 		return this.pessoas.alunosDisc(disc);
+	}
+
+	@Override
+	public ArrayList<Aluno> getAlunos() {
+		// TODO Auto-generated method stub
+		return this.pessoas.getAlunos();
+	}
+
+	@Override
+	public ArrayList<Professor> getProfessores() {
+		// TODO Auto-generated method stub
+		return this.pessoas.getProfessores();
+	}
+	
+	@Override
+	public ArrayList<Responsavel> getResponsaveis(){
+		return this.pessoas.getResponsaveis();
+	}
+	
+	@Override
+	public ArrayList<Disciplina> getDisciplinas(){
+		return this.disciplinas.getDisciplinas();
 	}
 
 }
