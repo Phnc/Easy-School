@@ -210,52 +210,52 @@ public class PerfilDiretoriaController {
     }
     
     public void cadastrar(ActionEvent event) {
+    	
     	if(!textNomeCadastro.getText().isEmpty() && textNomeCadastro.getText().length() > 0 && !textNomeCadastro.getText().equals("") && (!textIdCadastro.getText().isEmpty() && textIdCadastro.getText().length() > 0 && !textIdCadastro.getText().equals("")) && (!textSenhaCadastro.getText().isEmpty() && textSenhaCadastro.getText().length() > 0 && !textSenhaCadastro.getText().equals(""))) {
-    		
-    				if(btnSelectAluno.isSelected()) {
-    					EscolaFachada.getInstance().cadastrarPessoa(new Aluno(textNomeCadastro.getText(), textIdCadastro.getText(), textSenhaCadastro.getText()));
-    					tblAlunos.refresh();
-    					textSenhaCadastro.setText(null);
-    					textNomeCadastro.setText(null);
-    					textIdCadastro.setText(null);
+    		if(btnSelectAluno.isSelected()) {
+    			EscolaFachada.getInstance().cadastrarPessoa(new Aluno(textNomeCadastro.getText(), textIdCadastro.getText(), textSenhaCadastro.getText()));
+    			tblAlunos.refresh();
+    			textSenhaCadastro.setText(null);
+    			textNomeCadastro.setText(null);
+    			textIdCadastro.setText(null);
     					
-    					Alert a = new Alert(AlertType.INFORMATION);
-    					a.setTitle("Informação do cadastro");
-    					a.setHeaderText("Cadastro realizado com sucesso");
-    					a.setContentText(null);
-    					a.show();
-    				}
-    				else if(btnSelectProf.isSelected()) {
-    					EscolaFachada.getInstance().cadastrarPessoa(new Professor(textNomeCadastro.getText(), textIdCadastro.getText(), textSenhaCadastro.getText()));
-    					tblProfessores.refresh();
-
-    					textSenhaCadastro.setText(null);
-    					textNomeCadastro.setText(null);
-    					textIdCadastro.setText(null);
-    					
-    					Alert a = new Alert(AlertType.INFORMATION);
-    					a.setTitle("Informação do cadastro");
-    					a.setHeaderText("Cadastro realizado com sucesso");
-    					a.setContentText(null);
-    					a.show();
-    				}
-    				else if(btnSelectResp.isSelected()) {
-    					EscolaFachada.getInstance().cadastrarPessoa(new Responsavel(textNomeCadastro.getText(), textIdCadastro.getText(), textSenhaCadastro.getText()));
-    					tblResponsaveis.refresh();
-
-    					textSenhaCadastro.setText(null);
-    					textNomeCadastro.setText(null);
-    					textIdCadastro.setText(null);
-    					
-
-    					Alert a = new Alert(AlertType.INFORMATION);
-    					a.setTitle("Informação do cadastro");
-    					a.setHeaderText("Cadastro realizado com sucesso");
-    					a.setContentText(null);
-    					a.show();
-    				}
-    			
-    		
+    			Alert a = new Alert(AlertType.INFORMATION);
+    			a.setTitle("Informação do cadastro");
+    			a.setHeaderText("Cadastro realizado com sucesso");
+    			a.setContentText(null);
+    			a.show();
+    		}
+	    	else if(btnSelectProf.isSelected()) {
+	    		EscolaFachada.getInstance().cadastrarPessoa(new Professor(textNomeCadastro.getText(), textIdCadastro.getText(), textSenhaCadastro.getText()));
+	    		tblProfessores.refresh();
+	
+	    		textSenhaCadastro.setText(null);
+	    		textNomeCadastro.setText(null);
+	    		textIdCadastro.setText(null);
+	    					
+	    		Alert a = new Alert(AlertType.INFORMATION);
+	    		a.setTitle("Informação do cadastro");
+	    		a.setHeaderText("Cadastro realizado com sucesso");
+	    		a.setContentText(null);
+	    		a.show();
+	    	}
+	    	else if(btnSelectResp.isSelected()) {
+	    		EscolaFachada.getInstance().cadastrarPessoa(new Responsavel(textNomeCadastro.getText(), textIdCadastro.getText(), textSenhaCadastro.getText()));
+	    		tblResponsaveis.refresh();
+	
+	    		textSenhaCadastro.setText(null);
+	    		textNomeCadastro.setText(null);
+	    		textIdCadastro.setText(null);
+	    					
+	
+	    		Alert a = new Alert(AlertType.INFORMATION);
+	    		a.setTitle("Informação do cadastro");
+	    		a.setHeaderText("Cadastro realizado com sucesso");
+	    		a.setContentText(null);
+	    		a.show();
+	    	}
+	    			
+	    		
     	}
     	
     	else {
