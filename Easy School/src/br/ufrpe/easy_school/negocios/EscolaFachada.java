@@ -230,4 +230,9 @@ public class EscolaFachada implements IEscola{
 		return this.disciplinas.getDisciplinas();
 	}
 
+	@Override
+	public ArrayList<Responsavel> responsaveisAluno(Aluno aluno) {
+		return this.pessoas.responsaveisAluno(aluno);
+	}
+
 }

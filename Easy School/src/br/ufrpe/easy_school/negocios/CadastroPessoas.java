@@ -130,4 +130,8 @@ public class CadastroPessoas {
 		return this.repositorio.getResponsaveis();
 	}
 	
+	public ArrayList<Responsavel> responsaveisAluno(Aluno aluno){
+		return this.repositorio.responsaveisAluno(aluno);
+	}
+	
 }

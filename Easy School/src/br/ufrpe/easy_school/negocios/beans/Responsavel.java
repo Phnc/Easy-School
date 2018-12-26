@@ -39,12 +39,6 @@ public class Responsavel extends Pessoa implements Serializable{
 	@Override
 	public String toString() {
 		String devolver = super.toString();
-		devolver += "Alunos: ";
-		devolver += "\n";
-		for(int i = 0; i < this.alunos.size(); i++) {
-			devolver += "\n";
-			devolver += this.alunos.get(i);
-		}
 		return devolver;
 	}
 

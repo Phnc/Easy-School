@@ -202,4 +202,17 @@ public class RepositorioPessoas implements IRepositorioPessoas, Serializable{
 		
 	}
 
+	@Override
+	public ArrayList<Responsavel> responsaveisAluno(Aluno aluno) {
+		ArrayList<Responsavel> lista = new ArrayList<>();
+		for(int i = 0; i < this.pessoas.size(); i++) {
+			if(this.pessoas.get(i) instanceof Responsavel) {
+				if(((Responsavel)this.pessoas.get(i)).getAlunos().contains(aluno)) {
+					lista.add((Responsavel) this.pessoas.get(i));
+				}
+			}
+		}
+		return lista;
+	}
+
 }

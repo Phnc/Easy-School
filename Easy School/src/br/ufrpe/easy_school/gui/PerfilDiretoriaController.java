@@ -38,8 +38,6 @@ public class PerfilDiretoriaController {
     @FXML
     private TableColumn<Aluno, String> colIdAluno;
 
-    @FXML
-    private TableColumn<?, ?> colResponsavelAluno;
 
     @FXML
     private TextField textNomeAluno;
@@ -48,7 +46,7 @@ public class PerfilDiretoriaController {
     private TextField textIdAluno;
 
     @FXML
-    private TextField textResponsavelAluno;
+    private ChoiceBox<Responsavel> choiceResponsavelAluno;
 
     @FXML
     private Button btnAlterarAluno;
@@ -196,12 +194,11 @@ public class PerfilDiretoriaController {
                 alunoTabela = tblAlunos.getSelectionModel().getSelectedItem();
                 textNomeAluno.setText(alunoTabela.getName());
                 textIdAluno.setText(alunoTabela.getId());
-                if(alunoTabela.getResponsavel() != null) {
-                	textResponsavelAluno.setText(alunoTabela.getResponsavel().getName());
-                }
-                else {
-                	textResponsavelAluno.setText("Nenhum");
-                }
+                
+                ObservableList<Responsavel> list = FXCollections.observableArrayList(EscolaFachada.getInstance().responsaveisAluno(alunoTabela));
+                
+                choiceResponsavelAluno.setItems(list);
+              
             }
         });
     	

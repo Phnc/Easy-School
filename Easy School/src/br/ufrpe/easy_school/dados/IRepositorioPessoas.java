@@ -107,4 +107,8 @@ public interface IRepositorioPessoas {
 	 */
 	ArrayList<Responsavel> getResponsaveis();
 	
+	
+	
+	ArrayList<Responsavel> responsaveisAluno(Aluno aluno);
+	
 }

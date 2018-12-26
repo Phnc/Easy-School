@@ -98,9 +98,8 @@
                                     </Label>
                                     <TableView fx:id="tblAlunos" editable="true" layoutY="40.0" prefHeight="320.0" prefWidth="700.0">
                                        <columns>
-                                          <TableColumn fx:id="colAluno" editable="false" prefWidth="260.0" sortable="false" text="Aluno" />
-                                          <TableColumn fx:id="colIdAluno" prefWidth="180.0" sortable="false" text="Id" />
-                                          <TableColumn fx:id="colResponsavelAluno" prefWidth="260.0" sortable="false" text="Responsável" />
+                                          <TableColumn fx:id="colAluno" editable="false" prefWidth="353.0" sortable="false" text="Aluno" />
+                                          <TableColumn fx:id="colIdAluno" prefWidth="346.0" sortable="false" text="Id" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -119,14 +118,14 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="textIdAluno" layoutX="432.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Id do Aluno" />
-                                    <Label layoutX="31.0" layoutY="87.0" text="Responsável:">
+                                    <Label layoutX="31.0" layoutY="87.0" text="Responsáveis:">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="textResponsavelAluno" layoutX="133.0" layoutY="82.0" prefHeight="31.0" prefWidth="200.0" promptText="Responsável do Aluno" />
                                     <Button fx:id="btnAlterarAluno" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
                                     <Button fx:id="btnRemoveAluno" layoutX="470.0" layoutY="130.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Remover Aluno" />
+                                    <ChoiceBox fx:id="choiceResponsavelAluno" layoutX="141.0" layoutY="85.0" prefWidth="150.0" />
                                  </children>
                               </AnchorPane>
                            </children>

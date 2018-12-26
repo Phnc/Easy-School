@@ -177,5 +177,14 @@ public interface IEscola {
 	 */
 	ArrayList<Disciplina> getDisciplinas();
 	
+	/**
+	 * Devolve a lista de pessoas responsaveis por um aluno  
+	 * @param aluno
+	 * 			   Aluno da qual as pessoas sao responsaveis
+	 * @return
+	 * 		  Lista de responsaveis do aluno passado como parâmetro
+	 */
+	
+	public ArrayList<Responsavel> responsaveisAluno(Aluno aluno);
 	
 }
