@@ -200,7 +200,7 @@ public class EscolaFachada implements IEscola{
 	}
 	
 	@Override
-	public ArrayList<String> arrayDisc(Professor prof){
+	public ArrayList<Disciplina> arrayDisc(Professor prof){
 		return this.disciplinas.arrayDisc(prof);
 	}
 

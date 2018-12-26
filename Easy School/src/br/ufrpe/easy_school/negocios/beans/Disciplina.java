@@ -70,14 +70,8 @@ public class Disciplina implements Serializable{
 
 	public String toString() {
 		StringBuffer helper = new StringBuffer();
-		helper.append("Disciplina: " + this.getNome() + "\n");
-		helper.append("Professor: " + this.professor.getName() + "\n");
-		helper.append("Notas:\n");
-		helper.append("Unidade 1: " + this.getNotasUnidade(0) + " ");
-		helper.append("Unidade 2: " + this.getNotasUnidade(1) + " ");
-		helper.append("Unidade 3: " + this.getNotasUnidade(2) + " ");
-		helper.append("Unidade 4: " + this.getNotasUnidade(3) + "\n");
-		helper.append("Faltas: " + this.faltas);
+		helper.append(this.getNome() + "\n");
+		helper.append(this.getId());
 		String retornar = helper.toString();
 		return retornar;
 	}

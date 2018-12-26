@@ -91,11 +91,11 @@ public class RepositorioDisciplinas implements IRepositorioDisciplinas, Serializ
 	}
 	
 	@Override
-	public ArrayList<String> arrayDisc(Professor prof){
-		ArrayList<String> devolver = new ArrayList<>();
+	public ArrayList<Disciplina> arrayDisc(Professor prof){
+		ArrayList<Disciplina> devolver = new ArrayList<>();
 		for(int i = 0; i <this.disciplinas.size(); i++) {
 			if(this.disciplinas.get(i).getProfessor().equals(prof)) {
-				devolver.add(this.disciplinas.get(i).getId());
+				devolver.add(this.disciplinas.get(i));
 			}
 		}
 		return devolver;

@@ -66,7 +66,7 @@ public interface IRepositorioDisciplinas {
 	 * 		  Array de disciplinas ensinadas pelo professor
 	 */
 	
-	ArrayList<String> arrayDisc(Professor prof);
+	ArrayList<Disciplina> arrayDisc(Professor prof);
 	
 
 

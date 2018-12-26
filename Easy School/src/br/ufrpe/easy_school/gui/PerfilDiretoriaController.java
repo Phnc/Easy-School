@@ -1,7 +1,6 @@
 package br.ufrpe.easy_school.gui;
 
 import br.ufrpe.easy_school.negocios.EscolaFachada;
-import br.ufrpe.easy_school.negocios.KeepPerson;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
@@ -10,6 +9,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
@@ -17,8 +18,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -73,7 +72,7 @@ public class PerfilDiretoriaController {
     private TextField textIdProf;
 
     @FXML
-    private ChoiceBox<String> choiceDisciplinaProf;
+    private ChoiceBox<Disciplina> choiceDisciplinaProf;
 
     @FXML
     private Button btnAlterarProf;
@@ -211,7 +210,7 @@ public class PerfilDiretoriaController {
             	profTabela = tblProfessores.getSelectionModel().getSelectedItem();
                 textNomeProf.setText(profTabela.getName());
                 textIdProf.setText(profTabela.getId());
-                ObservableList<String> listaDisciplinas = FXCollections.observableArrayList(EscolaFachada.getInstance().arrayDisc(profTabela));
+                ObservableList<Disciplina> listaDisciplinas = FXCollections.observableArrayList(EscolaFachada.getInstance().arrayDisc(profTabela));
                 choiceDisciplinaProf.setItems(listaDisciplinas);
             }
         });

@@ -137,7 +137,7 @@ public interface IEscola {
 	 * 		  Lista de disciplinas ensinadas pelo professor
 	 */
 	
-	ArrayList<String> arrayDisc(Professor prof);
+	ArrayList<Disciplina> arrayDisc(Professor prof);
 	
 	/**
 	 * Retorna uma lista de alunos que cursam uma disciplina

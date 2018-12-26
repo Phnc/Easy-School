@@ -61,7 +61,7 @@ public class CadastroDisciplinas {
 		this.repositorio.remover(id);
 	}
 	
-	public ArrayList<String> arrayDisc(Professor prof){
+	public ArrayList<Disciplina> arrayDisc(Professor prof){
 		return this.repositorio.arrayDisc(prof);
 	}
 
