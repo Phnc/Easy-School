@@ -12,7 +12,7 @@ public class Aluno extends Pessoa implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	private Responsavel responsavel;
 
 	private ArrayList<Disciplina> disciplinas;
 	
@@ -66,6 +66,18 @@ public class Aluno extends Pessoa implements Serializable {
 		}
 		return null;
 		
+	}
+
+
+	public Responsavel getResponsavel() {
+		return responsavel;
+	}
+
+
+	public void setResponsavel(Responsavel responsavel) {
+		if(responsavel != null) {
+			this.responsavel = responsavel;
+		}
 	}
 
 }

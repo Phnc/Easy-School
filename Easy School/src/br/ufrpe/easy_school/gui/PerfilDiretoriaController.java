@@ -1,6 +1,7 @@
 package br.ufrpe.easy_school.gui;
 
 import br.ufrpe.easy_school.negocios.EscolaFachada;
+import br.ufrpe.easy_school.negocios.KeepPerson;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
@@ -19,8 +20,15 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 public class PerfilDiretoriaController {
+	
+	Aluno alunoTabela;
+	Professor profTabela;
+	Responsavel respTabela;
+	Disciplina discTabela;
 
     @FXML
     private TableView<Aluno> tblAlunos;
@@ -65,7 +73,7 @@ public class PerfilDiretoriaController {
     private TextField textIdProf;
 
     @FXML
-    private ChoiceBox<Disciplina> choiceDisciplinaProf;
+    private ChoiceBox<String> choiceDisciplinaProf;
 
     @FXML
     private Button btnAlterarProf;
@@ -183,6 +191,54 @@ public class PerfilDiretoriaController {
     	colDisciplina.setCellValueFactory(new PropertyValueFactory<Disciplina, String>("nome"));
     	colIdDisciplina.setCellValueFactory(new PropertyValueFactory<Disciplina, String>("id"));
     	colProfDisciplina.setCellValueFactory(new PropertyValueFactory<Disciplina, Professor>("professor"));
+    	
+    	tblAlunos.setOnMouseClicked((MouseEvent event) -> {
+            if(event.getButton().equals(MouseButton.PRIMARY)){
+                alunoTabela = tblAlunos.getSelectionModel().getSelectedItem();
+                textNomeAluno.setText(alunoTabela.getName());
+                textIdAluno.setText(alunoTabela.getId());
+                if(alunoTabela.getResponsavel() != null) {
+                	textResponsavelAluno.setText(alunoTabela.getResponsavel().getName());
+                }
+                else {
+                	textResponsavelAluno.setText("Nenhum");
+                }
+            }
+        });
+    	
+    	tblProfessores.setOnMouseClicked((MouseEvent event) -> {
+            if(event.getButton().equals(MouseButton.PRIMARY)){
+            	profTabela = tblProfessores.getSelectionModel().getSelectedItem();
+                textNomeProf.setText(profTabela.getName());
+                textIdProf.setText(profTabela.getId());
+                ObservableList<String> listaDisciplinas = FXCollections.observableArrayList(EscolaFachada.getInstance().arrayDisc(profTabela));
+                choiceDisciplinaProf.setItems(listaDisciplinas);
+            }
+        });
+    	
+    	tblResponsaveis.setOnMouseClicked((MouseEvent event) -> {
+            if(event.getButton().equals(MouseButton.PRIMARY)){
+            	respTabela = tblResponsaveis.getSelectionModel().getSelectedItem();
+                textNomeResp.setText(respTabela.getName());
+                textIdResp.setText(respTabela.getId());
+                ObservableList<Aluno> listaAlunos = FXCollections.observableArrayList(respTabela.getAlunos());
+                choiceAlunosResp.setItems(listaAlunos);
+            }
+        });
+    	
+    	tblDisciplina.setOnMouseClicked((MouseEvent event) -> {
+            if(event.getButton().equals(MouseButton.PRIMARY)){
+                discTabela = tblDisciplina.getSelectionModel().getSelectedItem();
+                textNomeDisciplina.setText(discTabela.getNome());
+                textIdDisciplina.setText(discTabela.getId());
+                if(discTabela.getProfessor() != null) {
+                	textProfessorDisciplina.setText(discTabela.getProfessor().getId());
+                }
+                else {
+                	textProfessorDisciplina.setText("Nenhum");
+                }
+            }
+        });
     }
     
     public ObservableList<Aluno> getAlunos(){
