@@ -1,5 +1,7 @@
 package br.ufrpe.easy_school.gui;
 
+import java.io.IOException;
+
 import br.ufrpe.easy_school.negocios.EscolaFachada;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
@@ -9,6 +11,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -21,6 +27,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class PerfilDiretoriaController {
 	
@@ -28,6 +35,8 @@ public class PerfilDiretoriaController {
 	Professor profTabela;
 	Responsavel respTabela;
 	Disciplina discTabela;
+	
+	boolean isShowing = false;
 
     @FXML
     private TableView<Aluno> tblAlunos;
@@ -47,6 +56,12 @@ public class PerfilDiretoriaController {
 
     @FXML
     private ChoiceBox<Responsavel> choiceResponsavelAluno;
+    
+    @FXML
+    private Button btnRemoveResponsavelAluno;
+    
+    @FXML
+    private Button btnAdicionarResponsavelAluno;
 
     @FXML
     private Button btnAlterarAluno;
@@ -321,6 +336,24 @@ public class PerfilDiretoriaController {
     	
     	initialize();
     	
+    }
+    
+    @FXML
+    void addResponsavel(ActionEvent event) {	
+    	if(isShowing == false) {
+			Parent root;
+		    try {
+		        root = FXMLLoader.load(getClass().getResource("AddResponsavelWindow.fxml"));
+		        Stage stage = new Stage();
+		        stage.setTitle("Adicionar um Responsável");
+		        stage.setScene(new Scene(root, 400, 250));
+		        stage.show();
+		        isShowing = true;
+		    }
+		    catch (IOException e) {
+		        e.printStackTrace();
+		    }
+    	}
     }
 
 }
