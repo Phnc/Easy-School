@@ -376,7 +376,7 @@ public class PerfilDiretoriaController {
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
-    		a.setHeaderText("Selecione um responsavel");
+    		a.setHeaderText("Selecione um Responsável");
     		a.show();
     	}
     }
@@ -392,8 +392,8 @@ public class PerfilDiretoriaController {
     	else {
     		Alert a = new Alert(AlertType.WARNING);
     		a.setTitle("Operação não realizada");
-    		a.setHeaderText("Não foi possível alterar os dados do aluno");
-    		a.setContentText("Verifique se os campos tem informações válidas e tente novamente");
+    		a.setHeaderText("Não foi possível alterar os dados do Aluno");
+    		a.setContentText("Verifique se os campos têm informações válidas e tente novamente");
     	}
     }
     
@@ -405,6 +405,89 @@ public class PerfilDiretoriaController {
 			alunoTabela = null;
 			tblAlunos.getSelectionModel().clearSelection();
 			tblAlunos.refresh();
+		}
+    }
+    
+    @FXML
+    void alterarDadosProfessor(ActionEvent event) {
+    	if((textNomeProf.getText() != null && textNomeProf.getText().length() > 0 && !textNomeProf.getText().equals("")) && (textIdProf.getText() != null && textIdProf.getText().length() > 0 && !textIdProf.getText().equals(""))) {
+    		profTabela.setName(textNomeProf.getText());
+    		profTabela.setId(textIdProf.getText());
+    		tblProfessores.refresh();
+    	}
+    	else {
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setTitle("Operação não realizada");
+    		a.setHeaderText("Não foi possível alterar os dados do Professor");
+    		a.setContentText("Verifique se os campos têm informações válidas e tente novamente");
+    	}
+    }
+    
+    @FXML
+    void removerProfessor(ActionEvent event) {
+    	if (profTabela != null) {
+    		tblProfessores.getItems().remove(profTabela);
+			EscolaFachada.getInstance().removerPessoa(profTabela.getId());
+			profTabela = null;
+			tblProfessores.getSelectionModel().clearSelection();
+			tblProfessores.refresh();
+		}
+    }
+    
+    @FXML
+    void removerDisciplinaProfessor(ActionEvent event) {
+    	
+    }
+    
+    @FXML
+    void alterarDadosResponsavel(ActionEvent event) {
+    	if((textNomeResp.getText() != null && textNomeResp.getText().length() > 0 && !textNomeResp.getText().equals("")) && (textIdResp.getText() != null && textIdResp.getText().length() > 0 && !textIdResp.getText().equals(""))) {
+    		respTabela.setName(textNomeResp.getText());
+    		respTabela.setId(textIdResp.getText());
+    		tblResponsaveis.refresh();
+    	}
+    	else {
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setTitle("Operação não realizada");
+    		a.setHeaderText("Não foi possível alterar os dados do Responsável");
+    		a.setContentText("Verifique se os campos têm informações válidas e tente novamente");
+    	}
+    }
+    
+    @FXML
+    void removerResponsavel(ActionEvent event) {
+    	if (respTabela != null) {
+    		tblResponsaveis.getItems().remove(respTabela);
+			EscolaFachada.getInstance().removerPessoa(respTabela.getId());
+			respTabela = null;
+			tblResponsaveis.getSelectionModel().clearSelection();
+			tblResponsaveis.refresh();
+		}
+    }
+    
+    @FXML
+    void alterarDadosDisciplina(ActionEvent event) {
+    	if((textNomeDisciplina.getText() != null && textNomeDisciplina.getText().length() > 0 && !textNomeDisciplina.getText().equals("")) && (textIdDisciplina.getText() != null && textIdDisciplina.getText().length() > 0 && !textIdDisciplina.getText().equals(""))) {
+    		discTabela.setNome(textNomeDisciplina.getText());
+    		discTabela.setId(textIdDisciplina.getText());
+    		tblDisciplina.refresh();
+    	}
+    	else {
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setTitle("Operação não realizada");
+    		a.setHeaderText("Não foi possível alterar os dados da Disciplina");
+    		a.setContentText("Verifique se os campos têm informações válidas e tente novamente");
+    	}
+    }
+    
+    @FXML
+    void removerDisciplina(ActionEvent event) {
+    	if (discTabela != null) {
+    		tblDisciplina.getItems().remove(discTabela);
+			EscolaFachada.getInstance().removerDisciplina(discTabela.getId());
+			discTabela = null;
+			tblDisciplina.getSelectionModel().clearSelection();
+			tblDisciplina.refresh();
 		}
     }
 

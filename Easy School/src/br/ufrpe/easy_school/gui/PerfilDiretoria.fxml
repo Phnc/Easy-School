@@ -199,9 +199,9 @@
                                        </font>
                                     </Label>
                                     <ChoiceBox fx:id="choiceDisciplinaProf" layoutX="133.0" layoutY="82.0" prefHeight="31.0" prefWidth="200.0" />
-                                    <Button fx:id="btnAlterarProf" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
-                                    <Button fx:id="btnRemoveProf" layoutX="458.0" layoutY="125.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" text="Remover Professor" />
-                                    <Button fx:id="btnRemoveDisciplinaProf" layoutX="343.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Remover" />
+                                    <Button fx:id="btnAlterarProf" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" onAction="#alterarDadosProfessor" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
+                                    <Button fx:id="btnRemoveProf" layoutX="458.0" layoutY="125.0" mnemonicParsing="false" onAction="#removerProfessor" prefHeight="35.0" prefWidth="150.0" text="Remover Professor" />
+                                    <Button fx:id="btnRemoveDisciplinaProf" layoutX="343.0" layoutY="82.0" mnemonicParsing="false" onAction="#removerDisciplinaProfessor" prefHeight="31.0" prefWidth="80.0" text="Remover" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -267,8 +267,8 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="textIdResp" layoutX="432.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Id do Responsável" />
-                                    <Button fx:id="btnAlterarResp" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
-                                    <Button fx:id="btnRemoveResp" layoutX="449.0" layoutY="125.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="168.0" text="Remover Responsável" />
+                                    <Button fx:id="btnAlterarResp" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" onAction="#alterarDadosResponsavel" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
+                                    <Button fx:id="btnRemoveResp" layoutX="449.0" layoutY="125.0" mnemonicParsing="false" onAction="#removerResponsavel" prefHeight="35.0" prefWidth="168.0" text="Remover Responsável" />
                                     <ChoiceBox fx:id="choiceAlunosResp" layoutX="133.0" layoutY="82.0" prefWidth="200.0" />
                                     <Label layoutX="70.0" layoutY="87.0" text="Alunos:">
                                        <font>
@@ -348,8 +348,8 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="textProfessorDisciplina" layoutX="133.0" layoutY="82.0" prefHeight="31.0" prefWidth="200.0" promptText="Professor da Disciplina" />
-                                    <Button fx:id="btnAlterarDisciplina" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
-                                    <Button fx:id="btnRemoveDisciplina" layoutX="458.0" layoutY="125.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" text="Remover Disciplina" />
+                                    <Button fx:id="btnAlterarDisciplina" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" onAction="#alterarDadosDisciplina" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
+                                    <Button fx:id="btnRemoveDisciplina" layoutX="458.0" layoutY="125.0" mnemonicParsing="false" onAction="#removerDisciplina" prefHeight="35.0" prefWidth="150.0" text="Remover Disciplina" />
                                  </children>
                               </AnchorPane>
                            </children>

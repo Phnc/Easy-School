@@ -38,8 +38,9 @@ public class Disciplina implements Serializable{
 		return professor;
 	}
 	
-	
-		
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
 
 	public double getNotasUnidade(int unidade) {
 		return notas[unidade];
@@ -47,6 +48,10 @@ public class Disciplina implements Serializable{
 
 	public String getNome() {
 		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public void mudarNota(int unidade, double nota) {
