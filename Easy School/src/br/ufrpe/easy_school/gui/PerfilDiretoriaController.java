@@ -12,7 +12,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -209,6 +208,7 @@ public class PerfilDiretoriaController {
                 alunoTabela = tblAlunos.getSelectionModel().getSelectedItem();
                 textNomeAluno.setText(alunoTabela.getName());
                 textIdAluno.setText(alunoTabela.getId());
+                choiceResponsavelAluno.setDisable(false);
                 
                 ObservableList<Responsavel> list = FXCollections.observableArrayList(EscolaFachada.getInstance().responsaveisAluno(alunoTabela));
                 
@@ -341,19 +341,71 @@ public class PerfilDiretoriaController {
     @FXML
     void addResponsavel(ActionEvent event) {	
     	if(isShowing == false) {
-			Parent root;
+			
 		    try {
-		        root = FXMLLoader.load(getClass().getResource("AddResponsavelWindow.fxml"));
+		    	FXMLLoader fxloader = new FXMLLoader(getClass().getResource("/br/ufrpe/easy_school/gui/AddResponsavelWindow.fxml"));
+		        Parent root = (Parent) fxloader.load();
+		        AddResponsavelWindowController controller = fxloader.<AddResponsavelWindowController>getController();
+		        controller.setAluno(alunoTabela);
+		        
 		        Stage stage = new Stage();
 		        stage.setTitle("Adicionar um Responsável");
 		        stage.setScene(new Scene(root, 400, 250));
+		        
+		        
+		        
 		        stage.show();
 		        isShowing = true;
+		        stage.setOnHiding( evento -> {isShowing = false;});
 		    }
 		    catch (IOException e) {
 		        e.printStackTrace();
 		    }
     	}
+    }
+    
+    
+    @FXML
+    void removeResponsavelAluno(ActionEvent event) {
+    	
+    	if(choiceResponsavelAluno.getValue() != null && choiceResponsavelAluno.getValue().getAlunos().contains(alunoTabela)) {
+    		choiceResponsavelAluno.getValue().removerAluno(alunoTabela);
+    		choiceResponsavelAluno.setValue(null);
+    		tblAlunos.getSelectionModel().clearSelection();
+    		choiceResponsavelAluno.setDisable(true);
+    	}
+    	else {
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setHeaderText("Selecione um responsavel");
+    		a.show();
+    	}
+    }
+    
+    
+    @FXML
+    void alterarDadosAluno(ActionEvent event) {
+    	if((textNomeAluno.getText() != null && textNomeAluno.getText().length() > 0 && !textNomeAluno.getText().equals("")) && (textIdAluno.getText() != null && textIdAluno.getText().length() > 0 && !textIdAluno.getText().equals(""))) {
+    		alunoTabela.setName(textNomeAluno.getText());
+    		alunoTabela.setId(textIdAluno.getText());
+    		tblAlunos.refresh();
+    	}
+    	else {
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setTitle("Operação não realizada");
+    		a.setHeaderText("Não foi possível alterar os dados do aluno");
+    		a.setContentText("Verifique se os campos tem informações válidas e tente novamente");
+    	}
+    }
+    
+    @FXML
+    void removerAluno(ActionEvent event) {
+    	if (alunoTabela != null) {
+    		tblAlunos.getItems().remove(alunoTabela);
+			EscolaFachada.getInstance().removerPessoa(alunoTabela.getId());
+			alunoTabela = null;
+			tblAlunos.getSelectionModel().clearSelection();
+			tblAlunos.refresh();
+		}
     }
 
 }
