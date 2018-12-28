@@ -112,6 +112,10 @@ public class Disciplina implements Serializable{
 		return this.faltas;
 	}
 	
+	public void removerProfessor() {
+		this.professor = new Professor("Sem prof", "Sem prof", "sem prof");
+	}
+	
 	
 
 }

@@ -18,6 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -84,7 +85,7 @@ public class PerfilDiretoriaController {
     private TextField textIdProf;
 
     @FXML
-    private ChoiceBox<Disciplina> choiceDisciplinaProf;
+    private ComboBox<Disciplina> choiceDisciplinaProf;
 
     @FXML
     private Button btnAlterarProf;
@@ -175,6 +176,8 @@ public class PerfilDiretoriaController {
     
     @FXML
     public void initialize() {
+    	
+    	
     	//Tornando selecionável somente um radioButton na parte do cadastro de novos usuários
     	grupo = new ToggleGroup();
     	btnSelectAluno.setToggleGroup(grupo);
@@ -203,6 +206,20 @@ public class PerfilDiretoriaController {
     	colIdDisciplina.setCellValueFactory(new PropertyValueFactory<Disciplina, String>("id"));
     	colProfDisciplina.setCellValueFactory(new PropertyValueFactory<Disciplina, Professor>("professor"));
     	
+    	choiceDisciplinaProf.setOnMouseClicked((MouseEvent event) -> {
+    		if(event.getButton().equals(MouseButton.PRIMARY)) {
+    			if(tblProfessores.getSelectionModel().getSelectedItem()  != null) {
+    				
+    				if((EscolaFachada.getInstance().arrayDisc(profTabela).size() > 0) && (EscolaFachada.getInstance().arrayDisc(profTabela) != null)){
+    					choiceDisciplinaProf.setItems(FXCollections.observableArrayList(EscolaFachada.getInstance().arrayDisc(profTabela)));
+    		
+    				}
+                   	
+                }
+    		}
+    		
+    	});
+    	
     	tblAlunos.setOnMouseClicked((MouseEvent event) -> {
             if(event.getButton().equals(MouseButton.PRIMARY)){
                 alunoTabela = tblAlunos.getSelectionModel().getSelectedItem();
@@ -221,9 +238,7 @@ public class PerfilDiretoriaController {
             if(event.getButton().equals(MouseButton.PRIMARY)){
             	profTabela = tblProfessores.getSelectionModel().getSelectedItem();
                 textNomeProf.setText(profTabela.getName());
-                textIdProf.setText(profTabela.getId());
-                ObservableList<Disciplina> listaDisciplinas = FXCollections.observableArrayList(EscolaFachada.getInstance().arrayDisc(profTabela));
-                choiceDisciplinaProf.setItems(listaDisciplinas);
+                textIdProf.setText(profTabela.getId());                          
             }
         });
     	
@@ -251,6 +266,7 @@ public class PerfilDiretoriaController {
             }
         });
     }
+    
     
     public ObservableList<Aluno> getAlunos(){
     	ObservableList<Aluno> lista = FXCollections.observableArrayList();
@@ -340,7 +356,7 @@ public class PerfilDiretoriaController {
     
     @FXML
     void addResponsavel(ActionEvent event) {	
-    	if(isShowing == false) {
+    	if(isShowing == false && tblAlunos.getSelectionModel().getSelectedItem() != null) {
 			
 		    try {
 		    	FXMLLoader fxloader = new FXMLLoader(getClass().getResource("/br/ufrpe/easy_school/gui/AddResponsavelWindow.fxml"));
@@ -356,7 +372,10 @@ public class PerfilDiretoriaController {
 		        
 		        stage.show();
 		        isShowing = true;
-		        stage.setOnHiding( evento -> {isShowing = false;});
+		        stage.setOnHiding( evento -> {
+		        	isShowing = false;
+		        	
+		        });
 		    }
 		    catch (IOException e) {
 		        e.printStackTrace();
@@ -399,7 +418,7 @@ public class PerfilDiretoriaController {
     
     @FXML
     void removerAluno(ActionEvent event) {
-    	if (alunoTabela != null) {
+    	if (alunoTabela != null && tblAlunos.getSelectionModel().getSelectedItem() != null) {
     		tblAlunos.getItems().remove(alunoTabela);
 			EscolaFachada.getInstance().removerPessoa(alunoTabela.getId());
 			alunoTabela = null;
@@ -433,9 +452,24 @@ public class PerfilDiretoriaController {
 			tblProfessores.refresh();
 		}
     }
+
+    /*	if(choiceResponsavelAluno.getValue() != null && choiceResponsavelAluno.getValue().getAlunos().contains(alunoTabela)) {
+    		choiceResponsavelAluno.getValue().removerAluno(alunoTabela);
+    		choiceResponsavelAluno.setValue(null);
+    		tblAlunos.getSelectionModel().clearSelection();
+    		choiceResponsavelAluno.setDisable(true);
+    	
+     */
     
     @FXML
     void removerDisciplinaProfessor(ActionEvent event) {
+    	if(choiceDisciplinaProf.getValue() != null && choiceDisciplinaProf.getValue().getProfessor().equals(profTabela)) {
+    		choiceDisciplinaProf.getValue().removerProfessor();
+    		choiceDisciplinaProf.getSelectionModel().clearSelection();
+    		choiceDisciplinaProf.getItems().clear();
+    		tblProfessores.getSelectionModel().clearSelection();
+    		tblDisciplina.refresh();
+    	}
     	
     }
     
