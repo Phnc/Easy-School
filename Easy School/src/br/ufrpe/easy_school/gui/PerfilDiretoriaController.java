@@ -479,13 +479,7 @@ public class PerfilDiretoriaController {
 		}
     }
 
-    /*	if(choiceResponsavelAluno.getValue() != null && choiceResponsavelAluno.getValue().getAlunos().contains(alunoTabela)) {
-    		choiceResponsavelAluno.getValue().removerAluno(alunoTabela);
-    		choiceResponsavelAluno.setValue(null);
-    		tblAlunos.getSelectionModel().clearSelection();
-    		choiceResponsavelAluno.setDisable(true);
-    	
-     */
+
     
     @FXML
     void removerDisciplinaProfessor(ActionEvent event) {
@@ -527,25 +521,31 @@ public class PerfilDiretoriaController {
     
     @FXML
     void alterarDadosDisciplina(ActionEvent event) {
-    	if(tblDisciplina.getSelectionModel().getSelectedItem() != null && (!textNomeDisciplina.getText().isEmpty())) {
-    		
+    	if(tblDisciplina.getSelectionModel().getSelectedItem() != null && (!textNomeDisciplina.getText().isEmpty()) && (!textIdDisciplina.getText().isEmpty())) {
+    		Disciplina temp = tblDisciplina.getSelectionModel().getSelectedItem();
     		ArrayList<Aluno> lista = EscolaFachada.getInstance().alunosDisc(discTabela);
     		
     		if(lista.size() > 0 && lista != null) {
     			
     			for(int i = 0; i < lista.size(); i++) {
 
-    					lista.get(i).getDisciplina(discTabela).setNome(textNomeDisciplina.getText());	
-    				
-    					lista.get(i).getDisciplina(discTabela).setId(textIdDisciplina.getText());
+    					lista.get(i).getDisciplina(temp).setNome(textNomeDisciplina.getText());	
+    					Disciplina temp2 = new Disciplina(textNomeDisciplina.getText(), temp.getProfessor(), temp.getId());
+    					lista.get(i).getDisciplina(temp2).setId(textIdDisciplina.getText());
     			
     			}
-    			discTabela.setNome(textNomeDisciplina.getText());
-    			discTabela.setId(textIdDisciplina.getText());
+    			//discTabela.setNome(textNomeDisciplina.getText());
+    			//discTabela.setId(textIdDisciplina.getText());
+    			tblDisciplina.getSelectionModel().getSelectedItem().setId(textIdDisciplina.getText());
+    			tblDisciplina.getSelectionModel().getSelectedItem().setNome(textNomeDisciplina.getText());
     			
     			discTabela = null;
     	    	tblDisciplina.getSelectionModel().clearSelection();
     			tblDisciplina.refresh();
+    			textNomeDisciplina.setText(null);
+    			textIdDisciplina.setText(null);
+    			textProfessorDisciplina.setText(null);
+    			
     		}
     		
     	}
@@ -554,6 +554,7 @@ public class PerfilDiretoriaController {
     		a.setTitle("Operação não realizada");
     		a.setHeaderText("Não foi possível alterar os dados da Disciplina");
     		a.setContentText("Verifique se os campos têm informações válidas e tente novamente");
+    		a.show();
     	}
     }
     
