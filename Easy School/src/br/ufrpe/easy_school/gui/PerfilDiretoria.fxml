@@ -130,7 +130,7 @@
                                     <Button fx:id="btnRemoveAluno" layoutX="470.0" layoutY="130.0" mnemonicParsing="false" onAction="#removerAluno" prefHeight="35.0" prefWidth="125.0" text="Remover Aluno" />
                                     <ChoiceBox fx:id="choiceResponsavelAluno" layoutX="133.0" layoutY="82.0" prefWidth="200.0" />
                                     <Button fx:id="btnRemoveResponsavelAluno" layoutX="343.0" layoutY="82.0" mnemonicParsing="false" onAction="#removeResponsavelAluno" prefHeight="31.0" prefWidth="80.0" text="Remover" />
-                                    <Button fx:id="btnAdicionarResponsavelAluno" layoutX="136.0" layoutY="130.0" mnemonicParsing="false" onAction="#addResponsavel" prefHeight="31.0" prefWidth="195.0" text="Adicionar um Responsável" />
+                                    <Button fx:id="btnAdicionarResponsavelAluno" layoutX="136.0" layoutY="132.0" mnemonicParsing="false" onAction="#addResponsavel" prefHeight="31.0" prefWidth="195.0" text="Adicionar um Responsável" />
                                  </children>
                               </AnchorPane>
                            </children>
