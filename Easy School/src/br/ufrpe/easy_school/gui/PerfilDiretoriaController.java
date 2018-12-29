@@ -283,7 +283,6 @@ public class PerfilDiretoriaController {
                 discTabela = tblDisciplina.getSelectionModel().getSelectedItem();
                 textNomeDisciplina.setText(discTabela.getNome());
                 textIdDisciplina.setText(discTabela.getId());
-                textIdDisciplina.setDisable(true);
                 if(discTabela.getProfessor() != null) {
                 	textProfessorDisciplina.setText(discTabela.getProfessor().getId());
                 }
@@ -528,7 +527,6 @@ public class PerfilDiretoriaController {
     
     @FXML
     void alterarDadosDisciplina(ActionEvent event) {
-    	String idAntes = textIdDisciplina.getText();
     	if(tblDisciplina.getSelectionModel().getSelectedItem() != null && (!textNomeDisciplina.getText().isEmpty())) {
     		
     		ArrayList<Aluno> lista = EscolaFachada.getInstance().alunosDisc(discTabela);
@@ -539,9 +537,7 @@ public class PerfilDiretoriaController {
 
     					lista.get(i).getDisciplina(discTabela).setNome(textNomeDisciplina.getText());	
     				
-    				if(!idAntes.equals(textIdDisciplina.getText())) {
     					lista.get(i).getDisciplina(discTabela).setId(textIdDisciplina.getText());
-    				}
     			
     			}
     			discTabela.setNome(textNomeDisciplina.getText());

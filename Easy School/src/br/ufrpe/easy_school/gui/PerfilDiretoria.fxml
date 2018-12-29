@@ -205,7 +205,7 @@
                                     <Button fx:id="btnAlterarProf" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" onAction="#alterarDadosProfessor" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
                                     <Button fx:id="btnRemoveProf" layoutX="458.0" layoutY="125.0" mnemonicParsing="false" onAction="#removerProfessor" prefHeight="35.0" prefWidth="150.0" text="Remover Professor" />
                                     <Button fx:id="btnRemoveDisciplinaProf" layoutX="343.0" layoutY="82.0" mnemonicParsing="false" onAction="#removerDisciplinaProfessor" prefHeight="31.0" prefWidth="80.0" text="Remover" />
-                                    <ComboBox fx:id="choiceDisciplinaProf" layoutX="143.0" layoutY="85.0" prefHeight="25.0" prefWidth="167.0" />
+                                    <ComboBox fx:id="choiceDisciplinaProf" layoutX="133.0" layoutY="82.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
                               </AnchorPane>
                            </children>
