@@ -1,6 +1,7 @@
 package br.ufrpe.easy_school.gui;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import br.ufrpe.easy_school.negocios.EscolaFachada;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
@@ -174,6 +175,28 @@ public class PerfilDiretoriaController {
     @FXML
     private Button btnCadastrar;
     
+    
+    @FXML
+    private Button btnMudarProfessorDisc;
+    
+    @FXML
+    private Button btnLogout1;
+    
+    @FXML
+    private Button btnLogout2;
+    
+    @FXML
+    private Button btnLogout3;
+    
+    @FXML
+    private Button btnLogout4;
+    
+    @FXML
+    private Button btnLogout5;
+    
+    @FXML
+    private Button btnLogout6;
+    
     @FXML
     public void initialize() {
     	
@@ -252,11 +275,15 @@ public class PerfilDiretoriaController {
             }
         });
     	
+    	
+    	//EU DESABILITEI O TEXTFIELD DO ID DA DISCIPLINA AQUI!!!!
+    	
     	tblDisciplina.setOnMouseClicked((MouseEvent event) -> {
             if(event.getButton().equals(MouseButton.PRIMARY)){
                 discTabela = tblDisciplina.getSelectionModel().getSelectedItem();
                 textNomeDisciplina.setText(discTabela.getNome());
                 textIdDisciplina.setText(discTabela.getId());
+                textIdDisciplina.setDisable(true);
                 if(discTabela.getProfessor() != null) {
                 	textProfessorDisciplina.setText(discTabela.getProfessor().getId());
                 }
@@ -501,10 +528,30 @@ public class PerfilDiretoriaController {
     
     @FXML
     void alterarDadosDisciplina(ActionEvent event) {
-    	if((textNomeDisciplina.getText() != null && textNomeDisciplina.getText().length() > 0 && !textNomeDisciplina.getText().equals("")) && (textIdDisciplina.getText() != null && textIdDisciplina.getText().length() > 0 && !textIdDisciplina.getText().equals(""))) {
-    		discTabela.setNome(textNomeDisciplina.getText());
-    		discTabela.setId(textIdDisciplina.getText());
-    		tblDisciplina.refresh();
+    	String idAntes = textIdDisciplina.getText();
+    	if(tblDisciplina.getSelectionModel().getSelectedItem() != null) {
+    		
+    		ArrayList<Aluno> lista = EscolaFachada.getInstance().alunosDisc(discTabela);
+    		
+    		if(lista.size() > 0 && lista != null) {
+    			
+    			for(int i = 0; i < lista.size(); i++) {
+
+    					lista.get(i).getDisciplina(discTabela).setNome(textNomeDisciplina.getText());	
+    				
+    				if(!idAntes.equals(textIdDisciplina.getText())) {
+    					lista.get(i).getDisciplina(discTabela).setId(textIdDisciplina.getText());
+    				}
+    			
+    			}
+    			discTabela.setNome(textNomeDisciplina.getText());
+    			discTabela.setId(textIdDisciplina.getText());
+    			
+    			discTabela = null;
+    	    	tblDisciplina.getSelectionModel().clearSelection();
+    			tblDisciplina.refresh();
+    		}
+    		
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
@@ -524,5 +571,26 @@ public class PerfilDiretoriaController {
 			tblDisciplina.refresh();
 		}
     }
-
+    
+    @FXML
+    void alterarProfessorDisciplina(ActionEvent event) {
+    	if(textProfessorDisciplina.getText() != null && EscolaFachada.getInstance().getProfessores().contains(EscolaFachada.getInstance().buscar(textProfessorDisciplina.getText())) && discTabela != null && tblDisciplina.getSelectionModel().getSelectedItem() != null) {
+    		ArrayList<Aluno> lista = EscolaFachada.getInstance().alunosDisc(discTabela);
+    		Professor p = (Professor) EscolaFachada.getInstance().buscar(textProfessorDisciplina.getText());
+        	for(int i = 0; i < lista.size(); i++) {
+        		lista.get(i).getDisciplina(discTabela).setProfessor(p);
+        	
+        	}
+        	tblDisciplina.getSelectionModel().getSelectedItem().setProfessor(p);
+    	}
+    	discTabela = null;
+    	tblDisciplina.getSelectionModel().clearSelection();
+    	tblDisciplina.refresh();
+    }
+    
+    
+    @FXML
+    void logout(ActionEvent event) {
+    	ScreenManager.getInstance().showCena1();
+    }
 }

@@ -83,7 +83,7 @@ public class Disciplina implements Serializable{
 	
 	public boolean equals(Disciplina outra) {
 		boolean devolve = false;
-		if(this.professor.equals(outra.getProfessor()) && this.getNome().equals(outra.getNome())) {
+		if(this.getId().equals(outra.getId()) && this.getNome().equals(outra.getNome())) {
 			if(this.id.equals(outra.getId())) {
 				devolve = true;
 			}

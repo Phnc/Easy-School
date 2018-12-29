@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import br.ufrpe.easy_school.exceptions.DisciplinaJaExistenteException;
 import br.ufrpe.easy_school.exceptions.DisciplinaNaoExistenteException;
+import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
 
@@ -79,6 +80,8 @@ public interface IRepositorioDisciplinas {
 	 * 		  todas as disciplinas do repositorio
 	 */
 	ArrayList<Disciplina> getDisciplinas();
+	
+	
 
 	//void ordenarPorOrdemAlfabetica();
 }

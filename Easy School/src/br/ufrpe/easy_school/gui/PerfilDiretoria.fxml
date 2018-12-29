@@ -45,6 +45,7 @@
                                           <Font name="System Bold" size="30.0" />
                                        </font>
                                     </Label>
+                                    <Button fx:id="btnLogout1" layoutX="608.0" layoutY="54.0" mnemonicParsing="false" onAction="#logout" text="Sair" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -88,6 +89,7 @@
                                           <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
+                                    <Button fx:id="btnLogout2" layoutX="640.0" layoutY="54.0" mnemonicParsing="false" onAction="#logout" text="Sair" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -163,6 +165,7 @@
                                           <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
+                                    <Button fx:id="btnLogout3" layoutX="624.0" layoutY="51.0" mnemonicParsing="false" onAction="#logout" text="Sair" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -237,6 +240,7 @@
                                           <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
+                                    <Button fx:id="btnLogout4" layoutX="630.0" layoutY="60.0" mnemonicParsing="false" onAction="#logout" text="Sair" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -311,6 +315,7 @@
                                           <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
+                                    <Button fx:id="btnLogout5" layoutX="617.0" layoutY="51.0" mnemonicParsing="false" onAction="#logout" text="Sair" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -351,6 +356,7 @@
                                     <TextField fx:id="textProfessorDisciplina" layoutX="133.0" layoutY="82.0" prefHeight="31.0" prefWidth="200.0" promptText="Professor da Disciplina" />
                                     <Button fx:id="btnAlterarDisciplina" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" onAction="#alterarDadosDisciplina" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
                                     <Button fx:id="btnRemoveDisciplina" layoutX="458.0" layoutY="125.0" mnemonicParsing="false" onAction="#removerDisciplina" prefHeight="35.0" prefWidth="150.0" text="Remover Disciplina" />
+                                    <Button fx:id="btnMudarProfessorDisc" layoutX="152.0" layoutY="125.0" mnemonicParsing="false" onAction="#alterarProfessorDisciplina" prefHeight="25.0" prefWidth="163.0" text="Mudar Professor" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -385,6 +391,7 @@
                                           <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
+                                    <Button fx:id="btnLogout6" layoutX="658.0" layoutY="55.0" mnemonicParsing="false" onAction="#logout" text="Sair" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
