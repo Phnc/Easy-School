@@ -529,7 +529,7 @@ public class PerfilDiretoriaController {
     @FXML
     void alterarDadosDisciplina(ActionEvent event) {
     	String idAntes = textIdDisciplina.getText();
-    	if(tblDisciplina.getSelectionModel().getSelectedItem() != null) {
+    	if(tblDisciplina.getSelectionModel().getSelectedItem() != null && (!textNomeDisciplina.getText().isEmpty())) {
     		
     		ArrayList<Aluno> lista = EscolaFachada.getInstance().alunosDisc(discTabela);
     		

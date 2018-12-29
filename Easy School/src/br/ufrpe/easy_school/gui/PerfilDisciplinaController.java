@@ -64,6 +64,12 @@ public class PerfilDisciplinaController {
     private Button btnVoltar;
     
     @FXML
+    private Button btnMarcarFalta;
+    
+    @FXML
+    private Button btnRemoverFalta;
+    
+    @FXML
     void voltar(ActionEvent event) {
     	KeepDisciplina.getInstance().setDisciplina(null);
     	ScreenManager.getInstance().showPerfilProfessor();
@@ -71,25 +77,48 @@ public class PerfilDisciplinaController {
 
     @FXML
     void addFaltas(ActionEvent event) {
-
+    	selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).marcarFalta();
+    	tblAlunos.refresh();
+    }
+    
+    @FXML
+    void removerFalta(ActionEvent event) {
+    	selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).removerFalta();
+    	tblAlunos.refresh();
     }
 
     @FXML
     void salvarStatus() {
     	if(txtNota1.getText() != null && !txtNota1.getText().isEmpty()) {
-    		selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(1, Double.parseDouble(txtNota1.getText()));
+    		double nota = Double.parseDouble(txtNota1.getText());
+    		if(nota >=0 && nota <= 10) {
+    			selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(1, Double.parseDouble(txtNota1.getText()));
+    		}
+    		
     	}
     	
     	if(txtNota2.getText() != null && !txtNota2.getText().isEmpty()) {
-    		selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(2, Double.parseDouble(txtNota2.getText()));
+    		double nota = Double.parseDouble(txtNota2.getText());
+    		if(nota >=0 && nota <= 10) {
+    			selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(2, Double.parseDouble(txtNota2.getText()));
+    		}
+    		
     	}
     	
     	if(txtNota3.getText() != null && !txtNota3.getText().isEmpty()) {
-    		selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(3, Double.parseDouble(txtNota3.getText()));
+    		double nota = Double.parseDouble(txtNota3.getText());
+    		if(nota >=0 && nota <= 10) {
+    			selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(3, Double.parseDouble(txtNota3.getText()));
+    		}
+    		
     	}
     	
     	if(txtNota4.getText() != null && !txtNota4.getText().isEmpty()) {
-    		selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(4, Double.parseDouble(txtNota4.getText()));
+    		double nota = Double.parseDouble(txtNota4.getText());
+    		if(nota >=0 && nota <= 10) {
+    			selecionado.getDisciplina(KeepDisciplina.getInstance().getDisciplina()).mudarNota(4, Double.parseDouble(txtNota4.getText()));
+    		}
+    		
     	}
     	
     }

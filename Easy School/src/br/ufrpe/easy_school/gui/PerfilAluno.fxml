@@ -12,13 +12,14 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tableDisc" layoutX="50.0" layoutY="139.0" prefHeight="319.0" prefWidth="600.0">
+            <TableView fx:id="tableDisc" layoutX="8.0" layoutY="139.0" prefHeight="319.0" prefWidth="692.0">
               <columns>
                 <TableColumn fx:id="columnDisc" prefWidth="115.0" sortable="false" text="Disciplinas" />
                   <TableColumn fx:id="columnNota1" prefWidth="115.0" sortable="false" text="Unidade 1" />
                   <TableColumn fx:id="columnNota2" prefWidth="123.0" sortable="false" text="Unidade 2" />
                   <TableColumn fx:id="columnNota3" prefWidth="123.0" sortable="false" text="Unidade 3" />
                   <TableColumn fx:id="columnNota4" prefWidth="123.0" sortable="false" text="Unidade 4" />
+                  <TableColumn fx:id="columnFaltas" prefWidth="90.0" sortable="false" text="Faltas" />
               </columns>
             </TableView>
             <Button fx:id="btnLogout" layoutX="620.0" layoutY="537.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="60.0" text="Sair" />

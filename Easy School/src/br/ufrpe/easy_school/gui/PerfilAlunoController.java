@@ -42,6 +42,9 @@ public class PerfilAlunoController {
     private TableColumn<Disciplina, Double> columnNota4;
     
     @FXML
+    private TableColumn<Disciplina, Integer> columnFaltas;
+    
+    @FXML
     private Button btnLogout;
 
     @FXML
@@ -63,6 +66,7 @@ public class PerfilAlunoController {
     	columnNota2.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota2"));
     	columnNota3.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota3"));
     	columnNota4.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota4"));
+    	columnFaltas.setCellValueFactory(new PropertyValueFactory<Disciplina, Integer>("faltas"));
     	
     	tableDisc.setItems(getDisciplinas(a));
 
