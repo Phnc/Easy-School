@@ -280,7 +280,7 @@
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="btnRemoveAlunoResp" layoutX="342.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Remover" />
+                                    <Button fx:id="btnRemoveAlunoResp" layoutX="342.0" layoutY="82.0" mnemonicParsing="false" onAction="#removerAlunoResponsavel" prefHeight="31.0" prefWidth="80.0" text="Remover" />
                                  </children>
                               </AnchorPane>
                            </children>

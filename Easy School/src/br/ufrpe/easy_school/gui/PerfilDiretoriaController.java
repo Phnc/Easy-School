@@ -590,4 +590,24 @@ public class PerfilDiretoriaController {
     void logout(ActionEvent event) {
     	ScreenManager.getInstance().showCena1();
     }
+    
+    @FXML
+    void removerAlunoResponsavel(ActionEvent event) {
+    	if(choiceAlunosResp.getValue() != null && tblResponsaveis.getSelectionModel().getSelectedItem() != null) {
+    		respTabela.removerAluno(choiceAlunosResp.getValue());
+    		choiceAlunosResp.getSelectionModel().clearSelection();
+    		choiceAlunosResp.getItems().clear();
+    		tblResponsaveis.getSelectionModel().clearSelection();
+    		tblResponsaveis.refresh();
+    		
+    	}
+    	else {
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setTitle("Operação não realizada");
+    		a.setHeaderText("A operação não foi realizada pois nenhum aluno válido foi selecionado.");
+    		a.setContentText("Selecione um aluno válido e tente novamente");
+    		a.show();
+    	}
+    	
+    }
 }
