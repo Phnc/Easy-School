@@ -28,7 +28,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button fx:id="btnVoltar" layoutX="36.0" layoutY="537.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="60.0" text="Voltar" />
+            <Button fx:id="btnVoltar" layoutX="36.0" layoutY="537.0" mnemonicParsing="false" onAction="#goBack" prefHeight="35.0" prefWidth="60.0" text="Voltar" />
          </children>
       </AnchorPane>
    </center>

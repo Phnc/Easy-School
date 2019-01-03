@@ -30,7 +30,7 @@ public class PerfilResponsavelController {
 
     @FXML
     void mostrarAlunoSelecionado(ActionEvent event) {
-    	
+    	ScreenManager.getInstance().showNotasResponsavel();
     }
     
     @FXML
