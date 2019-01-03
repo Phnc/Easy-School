@@ -16,8 +16,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class NotasResponsavelController {
 	
-	public Responsavel a;
-	
 	@FXML
     private Label lblName;
 
@@ -53,7 +51,7 @@ public class NotasResponsavelController {
     	KeepPerson.getInstance().setPessoa(null);
     	ScreenManager.getInstance().showCena1();
     }
-    
+	 
     @FXML
     void goBack(ActionEvent event) {
     	ScreenManager.getInstance().showPerfilResponsavel();
@@ -61,27 +59,30 @@ public class NotasResponsavelController {
     
     
     @FXML 
-    private void initialize() {
-    	
-        this.a = (Responsavel) KeepPerson.getInstance().getPessoa();
-    	
+    public void iniciarTabela(Aluno a) {
     	lblName.setText(a.getName());
     	columnDisc.setCellValueFactory(new PropertyValueFactory<Disciplina, String>("nome"));
     	columnNota1.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota1"));
     	columnNota2.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota2"));
     	columnNota3.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota3"));
     	columnNota4.setCellValueFactory(new PropertyValueFactory<Disciplina, Double>("Nota4"));
-    	columnFaltas.setCellValueFactory(new PropertyValueFactory<Disciplina, Integer>("faltas"));
-    	
-    	//tableDisc.setItems(getDisciplinas(a.getAlunos()));
-
+    	columnFaltas.setCellValueFactory(new PropertyValueFactory<Disciplina, Integer>("faltas"));    	
+    	tableDisc.setItems(getDisciplinas(a));
     }
     
+    @FXML
+    public void initialize() {
+    			
+    }
+
 	private ObservableList<Disciplina> getDisciplinas(Aluno a) {
 		ObservableList<Disciplina> disciplinas = FXCollections.observableArrayList();
 		disciplinas.addAll(a.getDisciplinas());
 		
 		return disciplinas;
 	}
+	
+    
+    
     
 }
