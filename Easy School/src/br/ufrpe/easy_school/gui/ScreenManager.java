@@ -1,8 +1,11 @@
 package br.ufrpe.easy_school.gui;
 
 import java.io.IOException;
+
+import br.ufrpe.easy_school.negocios.beans.Aluno;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -21,7 +24,6 @@ public class ScreenManager {
     private Scene perfilResponsavel;
     private Scene perfilDiretoria;
     private Scene msgScene;
-    private Scene notasResponsavel;
 
     
     public static ScreenManager getInstance() {
@@ -160,17 +162,18 @@ public class ScreenManager {
 		
 	}
 	
-    public void showNotasResponsavel() {
-    	BorderPane scene;
+    public void showNotasResponsavel (Aluno x) {
+    	 try {
+             FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/ufrpe/easy_school/gui/NotasResponsavel.fxml"));
+             Parent root = (Parent) loader.load();
+             NotasResponsavelController secController = loader.getController();
+             secController.iniciarTabela(x);
+          	 this.mainStage.setScene(new Scene(root));
+        	 this.mainStage.show();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
     	
-    	try {
-    		scene = FXMLLoader.load(getClass().getResource("/br/ufrpe/easy_school/gui/NotasResponsavel.fxml"));
-    		this.notasResponsavel = new Scene(scene);
-    	}catch(IOException e) {
-    		e.printStackTrace();
-    	}
-    	this.mainStage.setScene(notasResponsavel);
-    	this.mainStage.show();
     }
 
     
