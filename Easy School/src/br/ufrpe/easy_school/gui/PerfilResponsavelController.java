@@ -30,7 +30,10 @@ public class PerfilResponsavelController {
 
     @FXML
     void mostrarAlunoSelecionado(ActionEvent event) {
-    	ScreenManager.getInstance().showNotasResponsavel();
+		Aluno a = choiceAluno.getValue();
+    	if (a != null) { 
+    		ScreenManager.getInstance().showNotasResponsavel(a);
+    	}
     }
     
     @FXML
@@ -44,7 +47,7 @@ public class PerfilResponsavelController {
     	lblNome.setText("Seja bem-vindo(a), " + KeepPerson.getInstance().getPessoa().getName());
     	ObservableList<Aluno> lista = FXCollections.observableArrayList(((Responsavel)KeepPerson.getInstance().getPessoa()).getAlunos());
     	choiceAluno.setItems(lista);
-    	
+
     			
     }
     
