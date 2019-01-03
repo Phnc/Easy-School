@@ -21,6 +21,7 @@ public class ScreenManager {
     private Scene perfilResponsavel;
     private Scene perfilDiretoria;
     private Scene msgScene;
+    private Scene notasResponsavel;
 
     
     public static ScreenManager getInstance() {
@@ -159,6 +160,18 @@ public class ScreenManager {
 		
 	}
 	
+    public void showNotasResponsavel() {
+    	BorderPane scene;
+    	
+    	try {
+    		scene = FXMLLoader.load(getClass().getResource("/br/ufrpe/easy_school/gui/NotasResponsavel.fxml"));
+    		this.notasResponsavel = new Scene(scene);
+    	}catch(IOException e) {
+    		e.printStackTrace();
+    	}
+    	this.mainStage.setScene(notasResponsavel);
+    	this.mainStage.show();
+    }
 
     
 }
