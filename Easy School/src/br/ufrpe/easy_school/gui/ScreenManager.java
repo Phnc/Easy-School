@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class ScreenManager {
@@ -16,7 +17,7 @@ public class ScreenManager {
 	private static ScreenManager instance;
     private Stage mainStage;
 
-    
+
     private Scene cena1;
     private Scene perfilAluno;
     private Scene perfilProfessor;
@@ -25,54 +26,54 @@ public class ScreenManager {
     private Scene perfilDiretoria;
     private Scene msgScene;
 
-    
+
     public static ScreenManager getInstance() {
         if (instance == null) {
             instance = new ScreenManager();
-        } 
-        
-        return instance; 
-    }
-    
-    private ScreenManager() {
-        
-        try {
-        	 
-        	
-            BorderPane testPane = FXMLLoader.load(getClass().getResource(
-              "/br/ufrpe/easy_school/gui/Scene1.fxml"));      
-            this.cena1 = new Scene(testPane);
-            
+        }
 
-            
-            
-        } 
+        return instance;
+    }
+
+    private ScreenManager() {
+
+        try {
+
+
+            HBox testPane = FXMLLoader.load(getClass().getResource(
+              "/br/ufrpe/easy_school/gui/Scene1.fxml"));
+            this.cena1 = new Scene(testPane);
+
+
+
+
+        }
         catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-    
+
     public Stage getMainStage() {
         return mainStage;
     }
 
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
-           
+
         mainStage.setWidth(718);
         mainStage.setHeight(735);
     }
-    
-    
+
+
     public void showCena1(){
     	this.mainStage.setScene(cena1);
     	this.mainStage.show();
     }
-    
+
     public void showPerfilAluno(){
 
-    	BorderPane scene;
+    	HBox scene;
 		try {
 			scene = FXMLLoader.load(getClass().getResource(
 			        "/br/ufrpe/easy_school/gui/PerfilAluno.fxml"));
@@ -80,17 +81,17 @@ public class ScreenManager {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}      
-              
-    	
-    	
+		}
+
+
+
     	this.mainStage.setScene(perfilAluno);
     	this.mainStage.show();
     }
-    
+
     public void showPerfilProfessor(){
 
-    	AnchorPane scene;
+    	HBox scene;
 		try {
 			scene = FXMLLoader.load(getClass().getResource(
 			        "/br/ufrpe/easy_school/gui/PerfilProfessor.fxml"));
@@ -98,16 +99,16 @@ public class ScreenManager {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}      
-              
-    	
-    	
+		}
+
+
+
     	this.mainStage.setScene(perfilProfessor);
     	this.mainStage.show();
     }
-    
+
     public void showDisc() {
-    	AnchorPane scene;
+    	HBox scene;
     	try {
 			scene = FXMLLoader.load(getClass().getResource(
 			        "/br/ufrpe/easy_school/gui/PerfilDisciplina.fxml"));
@@ -119,10 +120,10 @@ public class ScreenManager {
     	this.mainStage.setScene(perfilDisc);
     	this.mainStage.show();
     }
-    
+
     public void showPerfilResponsavel() {
-    	GridPane scene;
-    	
+    	HBox scene;
+
     	try {
     		scene = FXMLLoader.load(getClass().getResource("/br/ufrpe/easy_school/gui/PerfilResponsavel.fxml"));
     		this.perfilResponsavel = new Scene(scene);
@@ -132,9 +133,9 @@ public class ScreenManager {
     	this.mainStage.setScene(perfilResponsavel);
     	this.mainStage.show();
     }
-    
+
     public void showMessageScene() {
-    	AnchorPane scene;
+    	HBox scene;
     	try {
 			scene = FXMLLoader.load(getClass().getResource(
 			        "/br/ufrpe/easy_school/gui/MessageScene.fxml"));
@@ -148,7 +149,7 @@ public class ScreenManager {
     }
 
 	public void showPerfilDiretoria() {
-		AnchorPane scene;
+		HBox scene;
     	try {
 			scene = FXMLLoader.load(getClass().getResource(
 			        "/br/ufrpe/easy_school/gui/PerfilDiretoria.fxml"));
@@ -159,9 +160,9 @@ public class ScreenManager {
 		}
     	this.mainStage.setScene(perfilDiretoria);
     	this.mainStage.show();
-		
+
 	}
-	
+
     public void showNotasResponsavel (Aluno x) {
     	 try {
              FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/ufrpe/easy_school/gui/NotasResponsavel.fxml"));
@@ -173,8 +174,8 @@ public class ScreenManager {
          } catch (IOException e) {
              e.printStackTrace();
          }
-    	
+
     }
 
-    
+
 }

@@ -6,35 +6,42 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.PerfilDisciplinaController">
+
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.PerfilDisciplinaController">
    <children>
-      <TableView fx:id="tblAlunos" editable="true" prefHeight="410.0" prefWidth="700.0">
-        <columns>
-          <TableColumn fx:id="colAluno" editable="false" prefWidth="197.0" sortable="false" text="Aluno" />
-          <TableColumn fx:id="colNota1" prefWidth="94.0" sortable="false" text="Unidade 1" />
-            <TableColumn fx:id="colNota2" prefWidth="87.0" sortable="false" text="Unidade 2" />
-            <TableColumn fx:id="colNota3" prefWidth="75.0" sortable="false" text="Unidade 3" />
-            <TableColumn fx:id="colNota4" prefWidth="70.0" sortable="false" text="Unidade 4" />
-            <TableColumn fx:id="colFaltas" onEditCommit="#addFaltas" prefWidth="76.0" sortable="false" text="Faltas" />
-        </columns>
-      </TableView>
-      <TextField fx:id="txtNota2" layoutX="114.0" layoutY="550.0" />
-      <TextField fx:id="txtNota4" layoutX="395.0" layoutY="550.0" />
-      <TextField fx:id="txtNota3" layoutX="395.0" layoutY="490.0" />
-      <TextField fx:id="txtNota1" layoutX="114.0" layoutY="490.0" />
-      <Label layoutX="59.0" layoutY="495.0" text="Nota 1" />
-      <Label layoutX="59.0" layoutY="550.0" text="Nota 2" />
-      <Label layoutX="339.0" layoutY="495.0" text="Nota 3" />
-      <Label layoutX="339.0" layoutY="555.0" text="Nota 4" />
-      <Button fx:id="btnSalvar" layoutX="449.0" layoutY="611.0" mnemonicParsing="false" onAction="#salvarStatus" prefHeight="40.0" prefWidth="80.0" text="Salvar" />
-      <Label fx:id="lblAluno" alignment="CENTER" layoutX="265.0" layoutY="420.0" prefHeight="17.0" prefWidth="170.0" text="Aluno">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Button fx:id="btnVoltar" layoutX="168.0" layoutY="611.0" mnemonicParsing="false" onAction="#voltar" prefHeight="40.0" prefWidth="80.0" text="Voltar" />
-      <Button fx:id="btnMarcarFalta" layoutX="582.0" layoutY="490.0" mnemonicParsing="false" onAction="#addFaltas" text="Marcar falta" />
-      <Button fx:id="btnRemoverFalta" layoutX="582.0" layoutY="550.0" mnemonicParsing="false" onAction="#removerFalta" text="Remover falta" />
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0">
+         <children>
+            <TableView fx:id="tblAlunos" editable="true" prefHeight="410.0" prefWidth="700.0">
+              <columns>
+                <TableColumn fx:id="colAluno" editable="false" prefWidth="197.0" sortable="false" text="Aluno" />
+                <TableColumn fx:id="colNota1" prefWidth="94.0" sortable="false" text="Unidade 1" />
+                  <TableColumn fx:id="colNota2" prefWidth="87.0" sortable="false" text="Unidade 2" />
+                  <TableColumn fx:id="colNota3" prefWidth="75.0" sortable="false" text="Unidade 3" />
+                  <TableColumn fx:id="colNota4" prefWidth="70.0" sortable="false" text="Unidade 4" />
+                  <TableColumn fx:id="colFaltas" onEditCommit="#addFaltas" prefWidth="76.0" sortable="false" text="Faltas" />
+              </columns>
+            </TableView>
+            <TextField fx:id="txtNota2" layoutX="114.0" layoutY="550.0" />
+            <TextField fx:id="txtNota4" layoutX="395.0" layoutY="550.0" />
+            <TextField fx:id="txtNota3" layoutX="395.0" layoutY="490.0" />
+            <TextField fx:id="txtNota1" layoutX="114.0" layoutY="490.0" />
+            <Label layoutX="59.0" layoutY="495.0" text="Nota 1" />
+            <Label layoutX="59.0" layoutY="550.0" text="Nota 2" />
+            <Label layoutX="339.0" layoutY="495.0" text="Nota 3" />
+            <Label layoutX="339.0" layoutY="555.0" text="Nota 4" />
+            <Button fx:id="btnSalvar" layoutX="449.0" layoutY="611.0" mnemonicParsing="false" onAction="#salvarStatus" prefHeight="40.0" prefWidth="80.0" text="Salvar" />
+            <Label fx:id="lblAluno" alignment="CENTER" layoutX="265.0" layoutY="420.0" prefHeight="17.0" prefWidth="170.0" text="Aluno">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVoltar" layoutX="168.0" layoutY="611.0" mnemonicParsing="false" onAction="#voltar" prefHeight="40.0" prefWidth="80.0" text="Voltar" />
+            <Button fx:id="btnMarcarFalta" layoutX="582.0" layoutY="490.0" mnemonicParsing="false" onAction="#addFaltas" text="Marcar falta" />
+            <Button fx:id="btnRemoverFalta" layoutX="582.0" layoutY="550.0" mnemonicParsing="false" onAction="#removerFalta" text="Remover falta" />
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</HBox>
