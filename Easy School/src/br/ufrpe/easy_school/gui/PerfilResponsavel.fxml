@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.PerfilResponsavelController">
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.PerfilResponsavelController">
    <children>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0">
         <columnConstraints>
@@ -37,7 +36,7 @@
             <AnchorPane prefHeight="375.0" prefWidth="700.0" GridPane.rowIndex="2">
                <children>
                   <Button fx:id="btnSendMsg" layoutX="93.0" layoutY="121.0" mnemonicParsing="false" onAction="#sendMsg" text="Enviar uma Mensagem" />
-                  <Button fx:id="btnMsgRecebidas" layoutX="437.0" layoutY="121.0" mnemonicParsing="false" text="Mensagens Recebidas" />
+                  <Button fx:id="btnMsgRecebidas" layoutX="437.0" layoutY="121.0" mnemonicParsing="false" onAction="#caixaDeEntrada" text="Mensagens Recebidas" />
                   <Label layoutX="254.0" layoutY="40.0" text="Contato com a Diretoria">
                      <font>
                         <Font name="System Bold" size="17.0" />
