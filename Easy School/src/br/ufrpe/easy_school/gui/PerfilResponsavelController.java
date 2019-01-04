@@ -40,7 +40,11 @@ public class PerfilResponsavelController {
     void sendMsg(ActionEvent event) {
     	ScreenManager.getInstance().showMessageScene();
     }
-
+    
+    @FXML
+    void caixaDeEntrada(ActionEvent event) {
+    	ScreenManager.getInstance().showCaixaDeEntradaResponsavel();
+    }
     
     @FXML
     public void initialize(){
