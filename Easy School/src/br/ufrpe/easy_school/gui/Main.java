@@ -18,7 +18,7 @@ public class Main extends Application {
 		try {
 			ScreenManager.getInstance().setMainStage(primaryStage);
 			primaryStage.setTitle("EasySchool");
-			Image image = new Image("/br/ufrpe/easy_school/icones/icon.png");
+			Image image = new Image("/icon.png");
 			primaryStage.getIcons().add(image);
 			ScreenManager.getInstance().showCena1();
 		} catch(Exception e) {
