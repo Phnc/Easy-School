@@ -25,6 +25,7 @@ public class ScreenManager {
     private Scene perfilResponsavel;
     private Scene perfilDiretoria;
     private Scene msgScene;
+    private Scene caixaDeEntradaResponsavel;
 
 
     public static ScreenManager getInstance() {
@@ -175,6 +176,20 @@ public class ScreenManager {
              e.printStackTrace();
          }
 
+    }
+    
+    
+    public void showCaixaDeEntradaResponsavel () {
+    	HBox scene;
+    	try {
+			scene = FXMLLoader.load(getClass().getResource("/br/ufrpe/easy_school/gui/CaixaDeEntradaResponsavel.fxml"));
+			this.caixaDeEntradaResponsavel = new Scene(scene);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	this.mainStage.setScene(caixaDeEntradaResponsavel);
+    	this.mainStage.show();
     }
 
 
