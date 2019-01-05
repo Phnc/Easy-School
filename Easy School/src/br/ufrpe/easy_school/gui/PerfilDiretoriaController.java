@@ -594,10 +594,14 @@ public class PerfilDiretoriaController {
     	ScreenManager.getInstance().showMensagens();
     }
     
+    
     @FXML
     void enviarMensagem(ActionEvent event) {
-    	ScreenManager.getInstance().showEnviarMensagemDiretoria(tblResponsaveis.getSelectionModel().getSelectedItem());
+    	if (tblResponsaveis.getSelectionModel().getSelectedItem() != null) {
+    		ScreenManager.getInstance().showEnviarMensagemDiretoria(tblResponsaveis.getSelectionModel().getSelectedItem());
+    	}
     }
+    
     
     @FXML
     void removerAlunoResponsavel(ActionEvent event) {
