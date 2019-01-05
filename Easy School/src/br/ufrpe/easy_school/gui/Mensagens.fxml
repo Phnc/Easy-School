@@ -11,19 +11,19 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="787.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.CaixaDeEntradaResponsavelController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.easy_school.gui.MensagensController">
    <children>
-      <AnchorPane prefHeight="541.0" prefWidth="798.0">
+      <AnchorPane prefHeight="616.0" prefWidth="730.0">
          <children>
-            <Button fx:id="btnVoltar" layoutX="181.0" layoutY="481.0" mnemonicParsing="false" onAction="#goBack" text="Voltar" />
-            <TextArea fx:id="txtMsg" editable="false" layoutX="411.0" layoutY="170.0" prefHeight="278.0" prefWidth="342.0" />
-            <Label layoutX="489.0" layoutY="128.0" prefHeight="42.0" prefWidth="167.0" text="Mensagem">
+            <Button fx:id="btnVoltar" layoutX="138.0" layoutY="612.0" mnemonicParsing="false" onAction="#goBack" text="Voltar" />
+            <TextArea fx:id="txtMsg" editable="false" layoutX="344.0" layoutY="112.0" prefHeight="216.0" prefWidth="341.0" />
+            <Label layoutX="439.0" layoutY="70.0" prefHeight="42.0" prefWidth="167.0" text="Mensagem">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="btnResponder" layoutX="506.0" layoutY="481.0" mnemonicParsing="false" text="Responder" />
-            <Label layoutX="310.0" layoutY="66.0" prefHeight="42.0" prefWidth="167.0" text="Caixa de entrada">
+            <Button fx:id="btnResponder" layoutX="477.0" layoutY="612.0" mnemonicParsing="false" onAction="#responder" text="Responder" />
+            <Label layoutX="256.0" layoutY="14.0" prefHeight="42.0" prefWidth="219.0" text="Caixa de mensagens">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>
@@ -33,18 +33,18 @@
                   <Font name="Impact" size="24.0" />
                </font>
             </Label>
-            <TabPane layoutX="14.0" layoutY="128.0" prefHeight="322.0" prefWidth="355.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutX="12.0" layoutY="98.0" prefHeight="493.0" prefWidth="286.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Nao respondidas">
+                <Tab text="Enviadas">
                      <content>
-                        <TableView fx:id="tblMsg" prefHeight="278.0" prefWidth="355.0">
+                        <TableView fx:id="tblMsg" prefHeight="422.0" prefWidth="285.0">
                            <columns>
                               <TableColumn fx:id="tblTitulo" prefWidth="354.0" />
                            </columns>
                         </TableView>
                      </content>
                 </Tab>
-                <Tab text="Todas">
+                <Tab text="Recebidas">
                      <content>
                         <TableView fx:id="tblMsg1" prefHeight="278.0" prefWidth="355.0">
                            <columns>
@@ -55,6 +55,12 @@
                 </Tab>
               </tabs>
             </TabPane>
+            <Label layoutX="453.0" layoutY="324.0" prefHeight="42.0" prefWidth="167.0" text="Resposta">
+               <font>
+                  <Font name="Calibri" size="24.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtMsg1" editable="false" layoutX="344.0" layoutY="375.0" prefHeight="216.0" prefWidth="341.0" />
          </children>
       </AnchorPane>
    </children>
