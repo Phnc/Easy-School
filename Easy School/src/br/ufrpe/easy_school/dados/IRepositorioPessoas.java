@@ -79,6 +79,9 @@ public interface IRepositorioPessoas {
 	
 	ArrayList<Aluno> alunosDisc(Disciplina disc);
 
+	/**
+	 * salva todos os elementos do repositorio em um arquivo
+	 */
 	void salvarArquivosRepositorioPessoas();
 	
 	//void carregarArquivoRepositorioPessoas();

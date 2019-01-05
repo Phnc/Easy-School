@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Disciplina implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7525713341593259588L;
 	private String nome;
 	private Professor professor;
 	private double[] notas;

@@ -187,4 +187,9 @@ public interface IEscola {
 	
 	public ArrayList<Responsavel> responsaveisAluno(Aluno aluno);
 	
+	/**
+	 * salva todos os dados do sistema
+	 */
+	public void salvarSistema();
+	
 }

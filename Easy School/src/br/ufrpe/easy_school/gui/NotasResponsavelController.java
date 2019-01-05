@@ -3,7 +3,6 @@ package br.ufrpe.easy_school.gui;
 import br.ufrpe.easy_school.negocios.KeepPerson;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
-import br.ufrpe.easy_school.negocios.beans.Responsavel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -58,7 +57,7 @@ public class NotasResponsavelController {
     }
     
     
-    @FXML 
+
     public void iniciarTabela(Aluno a) {
     	lblName.setText(a.getName());
     	columnDisc.setCellValueFactory(new PropertyValueFactory<Disciplina, String>("nome"));

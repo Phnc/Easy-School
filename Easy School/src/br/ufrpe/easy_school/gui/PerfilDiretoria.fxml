@@ -23,7 +23,7 @@
          <children>
             <TabPane prefHeight="700.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="InÃ­cio">
+                <Tab text="Início">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -43,7 +43,7 @@
                                                 <Font name="Impact" size="24.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="166.0" layoutY="157.0" prefHeight="40.0" text="AdministraÃ§Ã£o EasySchool">
+                                          <Label layoutX="166.0" layoutY="157.0" prefHeight="40.0" text="Administração EasySchool">
                                              <font>
                                                 <Font name="System Bold" size="30.0" />
                                              </font>
@@ -53,7 +53,7 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                                        <children>
-                                          <Label alignment="CENTER" layoutY="48.0" prefHeight="27.0" prefWidth="700.0" text="Navegue pelas abas para acessar as vÃ¡rias Ã¡reas do Sistema!">
+                                          <Label alignment="CENTER" layoutY="48.0" prefHeight="27.0" prefWidth="700.0" text="Navegue pelas abas para acessar as várias Áreas do Sistema!">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -124,7 +124,7 @@
                                              </font>
                                           </Label>
                                           <TextField fx:id="textIdAluno" layoutX="432.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Id do Aluno" />
-                                          <Label layoutX="31.0" layoutY="87.0" text="ResponsÃ¡veis:">
+                                          <Label layoutX="31.0" layoutY="87.0" text="Responsáveis:">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -133,7 +133,7 @@
                                           <Button fx:id="btnRemoveAluno" layoutX="470.0" layoutY="130.0" mnemonicParsing="false" onAction="#removerAluno" prefHeight="35.0" prefWidth="125.0" text="Remover Aluno" />
                                           <ChoiceBox fx:id="choiceResponsavelAluno" layoutX="133.0" layoutY="82.0" prefWidth="200.0" />
                                           <Button fx:id="btnRemoveResponsavelAluno" layoutX="343.0" layoutY="82.0" mnemonicParsing="false" onAction="#removeResponsavelAluno" prefHeight="31.0" prefWidth="80.0" text="Remover" />
-                                          <Button fx:id="btnAdicionarResponsavelAluno" layoutX="136.0" layoutY="132.0" mnemonicParsing="false" onAction="#addResponsavel" prefHeight="31.0" prefWidth="195.0" text="Adicionar um ResponsÃ¡vel" />
+                                          <Button fx:id="btnAdicionarResponsavelAluno" layoutX="136.0" layoutY="132.0" mnemonicParsing="false" onAction="#addResponsavel" prefHeight="31.0" prefWidth="195.0" text="Adicionar um Responsável" />
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -217,7 +217,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="ResponsÃ¡veis">
+                  <Tab text="Responsáveis">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -277,7 +277,7 @@
                                           </Label>
                                           <TextField fx:id="textIdResp" layoutX="432.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Id do ResponsÃ¡vel" />
                                           <Button fx:id="btnAlterarResp" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" onAction="#alterarDadosResponsavel" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
-                                          <Button fx:id="btnRemoveResp" layoutX="449.0" layoutY="141.0" mnemonicParsing="false" onAction="#removerResponsavel" prefHeight="35.0" prefWidth="168.0" text="Remover ResponsÃ¡vel" />
+                                          <Button fx:id="btnRemoveResp" layoutX="449.0" layoutY="141.0" mnemonicParsing="false" onAction="#removerResponsavel" prefHeight="35.0" prefWidth="168.0" text="Remover Responsável" />
                                           <ChoiceBox fx:id="choiceAlunosResp" layoutX="133.0" layoutY="82.0" prefWidth="200.0" />
                                           <Label layoutX="70.0" layoutY="87.0" text="Alunos:">
                                              <font>
@@ -370,7 +370,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Cadastros">
+                  <Tab text="Cadastro de Usuários">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -436,6 +436,52 @@
                            </children>
                         </AnchorPane>
                      </content>
+                  </Tab>
+                  <Tab text="Cadastro de Disciplinas">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutY="-1.0" prefHeight="673.0" prefWidth="700.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER" layoutX="155.0" layoutY="41.0" prefHeight="42.0" prefWidth="390.0" text="Cadastro de Disciplinas">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="nomeCadastroDisc" layoutX="276.0" layoutY="212.0" />
+                                          <TextField fx:id="idCadastroDisc" layoutX="276.0" layoutY="259.0" />
+                                          <TextField fx:id="idProfessorCadastroDisc" layoutX="276.0" layoutY="300.0" />
+                                          <Label layoutX="180.0" layoutY="214.0" text="Nome:">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="188.0" layoutY="259.0" prefHeight="26.0" prefWidth="43.0" text="Id:">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="140.0" layoutY="300.0" prefHeight="26.0" prefWidth="127.0" text="Id do Professor:">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="btnCadastrarDisciplina" layoutX="325.0" layoutY="405.0" mnemonicParsing="false" onAction="#cadastrarDisciplina" text="Cadastrar" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
                   </Tab>
               </tabs>
             </TabPane>

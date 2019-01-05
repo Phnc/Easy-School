@@ -2,6 +2,10 @@ package br.ufrpe.easy_school.exceptions;
 
 public class PessoaNaoExistenteException extends Exception {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7179702122473482867L;
 	private String id;
 
 	public PessoaNaoExistenteException(String id) {

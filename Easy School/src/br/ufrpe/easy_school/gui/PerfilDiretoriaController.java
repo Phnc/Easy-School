@@ -198,6 +198,62 @@ public class PerfilDiretoriaController {
     private Button btnLogout6;
     
     @FXML
+    private TextField idCadastroDisc;
+    
+    @FXML
+    private TextField nomeCadastroDisc;
+    
+    @FXML
+    private TextField idProfessorCadastroDisc;
+    
+    @FXML
+    private Button btnCadastrarDisciplina;
+    
+    
+    @FXML
+    public void cadastrarDisciplina(ActionEvent event) {
+    	
+    	Disciplina d = new Disciplina(nomeCadastroDisc.getText(), (Professor) EscolaFachada.getInstance().buscar(idProfessorCadastroDisc.getText()), idCadastroDisc.getText());
+    	if(!nomeCadastroDisc.getText().isEmpty() && !idProfessorCadastroDisc.getText().isEmpty() && !idCadastroDisc.getText().isEmpty()) {
+    		boolean b = false;
+    		
+    		for(int i = 0; i < EscolaFachada.getInstance().getDisciplinas().size(); i++) {
+    			if(EscolaFachada.getInstance().getDisciplinas().get(i).equals(d)) {
+    				b = true;
+    			}
+    		}
+    		
+    		if(b == false) {
+    			EscolaFachada.getInstance().cadastrarDisciplina(d);
+    			Alert a = new Alert(AlertType.INFORMATION);
+    			a.setTitle("Operação realizada com sucesso");
+    			a.setHeaderText("A disciplina foi cadastrada com sucesso");
+    			a.show();
+    		}
+    		
+    		else if (b == true) {
+    			Alert a = new Alert(AlertType.ERROR);
+    			a.setTitle("Ação nao realizada");
+    			a.setContentText("Não foi possível concluir a operação pois esta disciplina já foi cadastrada no sistema" + '\n' + "Verifique se não existe uma disciplina cadastrada com o mesmo id e tente novamente");
+    			a.setHeaderText("Não foi possível realizar o cadastro");
+    			a.show();
+    		}
+    	}
+    	
+    	else {
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setTitle("Não foi possível realizar o cadastro");
+    		a.setHeaderText("Os campos sao obrigatórios");
+    		a.setContentText("Verifique se os campos digitados são válidos e tente novamente");
+    		a.show();
+    	}
+    	
+    	nomeCadastroDisc.setText(null);
+    	idCadastroDisc.setText(null);
+    	idProfessorCadastroDisc.setText(null);
+    }
+    
+    @FXML
     public void initialize() {
     	
     	
@@ -276,7 +332,7 @@ public class PerfilDiretoriaController {
         });
     	
     	
-    	//EU DESABILITEI O TEXTFIELD DO ID DA DISCIPLINA AQUI!!!!
+
     	
     	tblDisciplina.setOnMouseClicked((MouseEvent event) -> {
             if(event.getButton().equals(MouseButton.PRIMARY)){

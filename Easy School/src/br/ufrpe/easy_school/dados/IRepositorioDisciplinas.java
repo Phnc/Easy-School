@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import br.ufrpe.easy_school.exceptions.DisciplinaJaExistenteException;
 import br.ufrpe.easy_school.exceptions.DisciplinaNaoExistenteException;
-import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
 
@@ -70,10 +69,11 @@ public interface IRepositorioDisciplinas {
 	ArrayList<Disciplina> arrayDisc(Professor prof);
 	
 
-
+	/**
+	 * salva todos os elementos do repositorio em uma disciplina
+	 */
 	void salvarArquivosRepositorioDisciplinas();
 
-	void carregarArquivosRepositorioDisciplinas();
 	/**
 	 * Devolve uma lista com todas as disciplinas do repositorio
 	 * @return

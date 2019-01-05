@@ -25,14 +25,15 @@ public class CadastroPessoas {
 	
 	public void cadastrar(Pessoa p) throws PessoaExistenteException {
 		if(p == null) {
-			//exception
+			//se for nulo, nao cadastra
 		}
 		else {
 			if(!this.existe(p.getId())) {
 				this.repositorio.cadastrar(p);
+				this.repositorio.salvarArquivosRepositorioPessoas();
 			}
 			else {
-				//pessoa já existe
+				throw new PessoaExistenteException(p.getId());
 			}
 		}
 	}
@@ -43,10 +44,12 @@ public class CadastroPessoas {
 		
 		Pessoa p = this.buscar(id);
 		if(p == null) {
-			//exception contanaoexiste
+			//exception pessoa nao existe
+			throw new PessoaNaoExistenteException(id);
 		}
 		else {
 			this.repositorio.remover(id);
+			this.repositorio.salvarArquivosRepositorioPessoas();
 		}
 	}
 	
@@ -55,9 +58,11 @@ public class CadastroPessoas {
 		Pessoa temp = this.buscar(idAluno);
 		if(!(temp instanceof Aluno)) {
 			//aluno nao cadastrado
+			throw new PessoaNaoExistenteException(idAluno);
 		}
 		else {
 			((Aluno) this.buscar(idAluno)).buscarDisc(prof).mudarNota(unidade, nota);
+			this.repositorio.salvarArquivosRepositorioPessoas();
 		}
 	}
 	
@@ -67,12 +72,13 @@ public class CadastroPessoas {
 			if(this.buscar(idResponsavel) instanceof Responsavel) {
 				Responsavel atual = (Responsavel) this.buscar(idResponsavel);
 				atual.addAluno((Aluno)temp);
+				this.repositorio.salvarArquivosRepositorioPessoas();
 			}
 		}
 	}
 	
 	public boolean efetuarLogin(String id, String password) throws PessoaNaoExistenteException {
-		// TODO Auto-generated method stub
+
 		boolean retorno = false;
 		if(this.existe(id) ) {
 			retorno = this.buscar(id).login(id, password);
@@ -88,6 +94,7 @@ public class CadastroPessoas {
 		Pessoa temp = this.buscar(idAluno);
 		if (temp instanceof Aluno) {
 			((Aluno) this.buscar(idAluno)).addDisciplina(disc);
+			this.repositorio.salvarArquivosRepositorioPessoas();
 		}
 		
 	}
@@ -96,6 +103,7 @@ public class CadastroPessoas {
 		Pessoa temp = this.buscar(idAluno);
 		if (temp instanceof Aluno) {
 			((Aluno) this.buscar(idAluno)).buscarDisc(prof).marcarFalta();
+			this.repositorio.salvarArquivosRepositorioPessoas();
 		}
 	}
 	
@@ -135,3 +143,9 @@ public class CadastroPessoas {
 	}
 	
 }
+
+
+
+
+
+	

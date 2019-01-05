@@ -7,6 +7,8 @@ import br.ufrpe.easy_school.exceptions.DisciplinaJaExistenteException;
 import br.ufrpe.easy_school.exceptions.DisciplinaNaoExistenteException;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
 import br.ufrpe.easy_school.negocios.beans.Professor;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class CadastroDisciplinas {
 	
@@ -28,6 +30,13 @@ public class CadastroDisciplinas {
 		else {
 			if(!this.existe(d.getId())) {
 				this.repositorio.cadastrar(d);
+				this.repositorio.salvarArquivosRepositorioDisciplinas();
+			}
+			else if(this.existe(d.getId())) {
+				Alert a = new Alert(AlertType.WARNING);
+				a.setContentText("A disciplina com o presente id já foi cadastrada");
+				a.setTitle("Disciplina já cadastrada");
+				a.show();
 			}
 		}
 	}
@@ -35,6 +44,7 @@ public class CadastroDisciplinas {
 	public void cadastrar(String nome, Professor professor, String id) throws DisciplinaJaExistenteException {
 		Disciplina temp = new Disciplina(nome, professor, id);
 		this.cadastrar(temp);
+		this.repositorio.salvarArquivosRepositorioDisciplinas();
 		
 	}
 	
@@ -46,6 +56,7 @@ public class CadastroDisciplinas {
 		}
 		else {
 			this.repositorio.remover(id);;
+			this.repositorio.salvarArquivosRepositorioDisciplinas();
 		}
 	}
 	
@@ -59,6 +70,7 @@ public class CadastroDisciplinas {
 	
 	public void remover(String id) throws DisciplinaNaoExistenteException {
 		this.repositorio.remover(id);
+		this.repositorio.salvarArquivosRepositorioDisciplinas();
 	}
 	
 	public ArrayList<Disciplina> arrayDisc(Professor prof){
@@ -70,3 +82,5 @@ public class CadastroDisciplinas {
 		return this.repositorio.getDisciplinas();
 	}
 }
+
+

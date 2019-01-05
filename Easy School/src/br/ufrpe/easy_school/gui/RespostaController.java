@@ -2,16 +2,15 @@ package br.ufrpe.easy_school.gui;
 
 import br.ufrpe.easy_school.negocios.KeepPerson;
 import br.ufrpe.easy_school.negocios.Mensagem;
-import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Diretoria;
 import br.ufrpe.easy_school.negocios.beans.Responsavel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 public class RespostaController {
 	private Mensagem a;
@@ -40,7 +39,7 @@ public class RespostaController {
     }
     
     
-    @FXML 
+
     public void iniciarTxt(Mensagem a) {
     	this.a = a;
     	if (a != null) {

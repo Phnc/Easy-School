@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 public class Professor extends Pessoa implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6640534907895243857L;
+
 	public Professor(String name, String id, String password) {
 		super(name, id, password);
 		// TODO Auto-generated constructor stub

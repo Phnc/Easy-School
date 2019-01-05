@@ -2,6 +2,10 @@ package br.ufrpe.easy_school.exceptions;
 
 public class DisciplinaNaoExistenteException extends Exception {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4813469028807515117L;
 	private String id;
 
 	public DisciplinaNaoExistenteException(String id) {

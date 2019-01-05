@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 public class Aluno extends Pessoa implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3038167602229655888L;
+
 	public Aluno(String name, String id, String password) {
 		super(name, id, password);
 		this.disciplinas = new ArrayList<Disciplina>(1);

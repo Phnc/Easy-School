@@ -1,19 +1,18 @@
 package br.ufrpe.easy_school.gui;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import br.ufrpe.easy_school.negocios.EscolaFachada;
-import br.ufrpe.easy_school.negocios.KeepPerson;
 import br.ufrpe.easy_school.negocios.Mensagem;
 import br.ufrpe.easy_school.negocios.beans.Diretoria;
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import br.ufrpe.easy_school.negocios.beans.Responsavel;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class EnviarMensagemDiretoriaController {
 	
@@ -45,7 +44,7 @@ public class EnviarMensagemDiretoriaController {
      	ScreenManager.getInstance().showPerfilDiretoria();
     }
     
-    @FXML
+
     public void iniciar_Receptor(Pessoa p) {
     	this.receptor = p;
       	lblMsg2.setText(receptor.getName());
@@ -68,6 +67,7 @@ public class EnviarMensagemDiretoriaController {
     	        	a.setContentText("Mensagem enviada com sucesso!");
     	        	a.show();
     	        	ScreenManager.getInstance().showPerfilDiretoria();
+    	        	EscolaFachada.getInstance().salvarSistema();
     	    	}
     		}
     	}

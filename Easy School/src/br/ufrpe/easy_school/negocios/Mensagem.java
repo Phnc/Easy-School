@@ -1,11 +1,17 @@
 package br.ufrpe.easy_school.negocios;
 
+import java.io.Serializable;
+
 import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-public class Mensagem {
+public class Mensagem implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7919072713528533823L;
 	private String titulo;
 	private String mensagem;
 	private String resposta;

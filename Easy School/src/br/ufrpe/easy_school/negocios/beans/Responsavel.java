@@ -9,6 +9,10 @@ import java.io.Serializable;
 public class Responsavel extends Pessoa implements Serializable{
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8975599232833897615L;
 	private ArrayList<Aluno> alunos;
 	private ArrayList<Mensagem> mensagens;
 	

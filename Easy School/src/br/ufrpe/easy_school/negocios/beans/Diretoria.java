@@ -6,6 +6,10 @@ import br.ufrpe.easy_school.negocios.Mensagem;
 
 public class Diretoria extends Pessoa{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7034555301643669115L;
 	private ArrayList<Mensagem> mensagens;
 	
 	public Diretoria(String name, String id, String password) {

@@ -6,7 +6,6 @@ import br.ufrpe.easy_school.dados.RepositorioDisciplinas;
 import br.ufrpe.easy_school.dados.RepositorioPessoas;
 import br.ufrpe.easy_school.exceptions.DisciplinaJaExistenteException;
 import br.ufrpe.easy_school.exceptions.DisciplinaNaoExistenteException;
-import br.ufrpe.easy_school.exceptions.PessoaExistenteException;
 import br.ufrpe.easy_school.exceptions.PessoaNaoExistenteException;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
@@ -43,8 +42,9 @@ public class EscolaFachada implements IEscola{
 		// TODO Auto-generated method stub
 		try {
 			this.pessoas.cadastrar(pessoa);
-		} catch (PessoaExistenteException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
 			Alert a = new Alert(AlertType.WARNING);
 			a.setContentText(e.getMessage());
 			a.setTitle("Pessoa já cadastrada");
@@ -233,6 +233,13 @@ public class EscolaFachada implements IEscola{
 	@Override
 	public ArrayList<Responsavel> responsaveisAluno(Aluno aluno) {
 		return this.pessoas.responsaveisAluno(aluno);
+	}
+
+	@Override
+	public void salvarSistema() {
+		this.disciplinas.repositorio.salvarArquivosRepositorioDisciplinas();
+		this.pessoas.repositorio.salvarArquivosRepositorioPessoas();
+		
 	}
 
 }

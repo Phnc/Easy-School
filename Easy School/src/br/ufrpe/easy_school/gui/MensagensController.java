@@ -1,21 +1,20 @@
 package br.ufrpe.easy_school.gui;
 
 
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.Label;
 import br.ufrpe.easy_school.negocios.EscolaFachada;
 import br.ufrpe.easy_school.negocios.KeepPerson;
 import br.ufrpe.easy_school.negocios.Mensagem;
 import br.ufrpe.easy_school.negocios.beans.Diretoria;
-import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import br.ufrpe.easy_school.negocios.beans.Responsavel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -70,12 +69,14 @@ public class MensagensController {
         if (selecionada != null && !(selecionada.getPessoa().equals(KeepPerson.getInstance().getPessoa()))) {
         	ScreenManager.getInstance().showResposta(selecionada);
         }
+        EscolaFachada.getInstance().salvarSistema();
     }
+    
     @FXML
     public void initialize() {
     	// Quando a tabela estiver vazia
-    	tblMsg.setPlaceholder(new Label("VocÃª nÃ£o tem mensagens aqui."));
-    	tblMsg1.setPlaceholder(new Label("VocÃª nÃ£o tem mensagens aqui."));
+    	tblMsg.setPlaceholder(new Label("Você não tem mensagens aqui."));
+    	tblMsg1.setPlaceholder(new Label("Você não tem mensagens aqui."));
     	if (KeepPerson.getInstance().getPessoa() instanceof Responsavel) {
 	    	tblTitulo.setCellValueFactory(new PropertyValueFactory<Mensagem, String>("titulo"));
 			tblMsg.setItems(getEnviadasResponsavel((Responsavel)KeepPerson.getInstance().getPessoa()));
