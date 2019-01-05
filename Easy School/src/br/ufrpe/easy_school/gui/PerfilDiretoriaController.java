@@ -201,7 +201,7 @@ public class PerfilDiretoriaController {
     public void initialize() {
     	
     	
-    	//Tornando selecion·vel somente um radioButton na parte do cadastro de novos usu·rios
+    	//Tornando selecion√°vel somente um radioButton na parte do cadastro de novos usu√°rios
     	grupo = new ToggleGroup();
     	btnSelectAluno.setToggleGroup(grupo);
     	btnSelectProf.setToggleGroup(grupo);
@@ -329,7 +329,7 @@ public class PerfilDiretoriaController {
     			textIdCadastro.setText(null);
     					
     			Alert a = new Alert(AlertType.INFORMATION);
-    			a.setTitle("InformaÁ„o do cadastro");
+    			a.setTitle("Informa√ß√£o do cadastro");
     			a.setHeaderText("Cadastro realizado com sucesso");
     			a.setContentText(null);
     			a.show();
@@ -343,7 +343,7 @@ public class PerfilDiretoriaController {
 	    		textIdCadastro.setText(null);
 	    					
 	    		Alert a = new Alert(AlertType.INFORMATION);
-	    		a.setTitle("InformaÁ„o do cadastro");
+	    		a.setTitle("Informa√ß√£o do cadastro");
 	    		a.setHeaderText("Cadastro realizado com sucesso");
 	    		a.setContentText(null);
 	    		a.show();
@@ -358,7 +358,7 @@ public class PerfilDiretoriaController {
 	    					
 	
 	    		Alert a = new Alert(AlertType.INFORMATION);
-	    		a.setTitle("InformaÁ„o do cadastro");
+	    		a.setTitle("Informa√ß√£o do cadastro");
 	    		a.setHeaderText("Cadastro realizado com sucesso");
 	    		a.setContentText(null);
 	    		a.show();
@@ -369,9 +369,9 @@ public class PerfilDiretoriaController {
     	
     	else {
     		Alert a = new Alert(AlertType.ERROR);
-    		a.setTitle("Cadastro n„o realizado");
-    		a.setHeaderText("O cadastro n„o foi realizado com sucesso");
-    		a.setContentText("Verifique se todos os campos est„o preenchidos e tente novamente");
+    		a.setTitle("Cadastro n√£o realizado");
+    		a.setHeaderText("O cadastro n√£o foi realizado com sucesso");
+    		a.setContentText("Verifique se todos os campos est√£o preenchidos e tente novamente");
     		a.show();
     	}
     	
@@ -391,7 +391,7 @@ public class PerfilDiretoriaController {
 		        controller.setAluno(alunoTabela);
 		        
 		        Stage stage = new Stage();
-		        stage.setTitle("Adicionar um Respons·vel");
+		        stage.setTitle("Adicionar um Respons√°vel");
 		        stage.setScene(new Scene(root, 400, 250));
 		        
 		        
@@ -421,7 +421,7 @@ public class PerfilDiretoriaController {
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
-    		a.setHeaderText("Selecione um Respons·vel");
+    		a.setHeaderText("Selecione um Respons√°vel");
     		a.show();
     	}
     }
@@ -436,9 +436,9 @@ public class PerfilDiretoriaController {
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
-    		a.setTitle("OperaÁ„o n„o realizada");
-    		a.setHeaderText("N„o foi possÌvel alterar os dados do Aluno");
-    		a.setContentText("Verifique se os campos tÍm informaÁıes v·lidas e tente novamente");
+    		a.setTitle("Opera√ß√£o n√£o realizada");
+    		a.setHeaderText("N√£o foi poss√≠vel alterar os dados do Aluno");
+    		a.setContentText("Verifique se os campos t√™m informa√ß√µes v√°lidas e tente novamente");
     	}
     }
     
@@ -462,9 +462,9 @@ public class PerfilDiretoriaController {
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
-    		a.setTitle("OperaÁ„o n„o realizada");
-    		a.setHeaderText("N„o foi possÌvel alterar os dados do Professor");
-    		a.setContentText("Verifique se os campos tÍm informaÁıes v·lidas e tente novamente");
+    		a.setTitle("Opera√ß√£o n√£o realizada");
+    		a.setHeaderText("N√£o foi poss√≠vel alterar os dados do Professor");
+    		a.setContentText("Verifique se os campos t√™m informa√ß√µes v√°lidas e tente novamente");
     	}
     }
     
@@ -502,9 +502,9 @@ public class PerfilDiretoriaController {
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
-    		a.setTitle("OperaÁ„o n„o realizada");
-    		a.setHeaderText("N„o foi possÌvel alterar os dados do Respons·vel");
-    		a.setContentText("Verifique se os campos tÍm informaÁıes v·lidas e tente novamente");
+    		a.setTitle("Opera√ß√£o n√£o realizada");
+    		a.setHeaderText("N√£o foi poss√≠vel alterar os dados do Respons√°vel");
+    		a.setContentText("Verifique se os campos t√™m informa√ß√µes v√°lidas e tente novamente");
     	}
     }
     
@@ -545,15 +545,13 @@ public class PerfilDiretoriaController {
     			textNomeDisciplina.setText(null);
     			textIdDisciplina.setText(null);
     			textProfessorDisciplina.setText(null);
-    			
     		}
-    		
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
-    		a.setTitle("OperaÁ„o n„o realizada");
-    		a.setHeaderText("N„o foi possÌvel alterar os dados da Disciplina");
-    		a.setContentText("Verifique se os campos tÍm informaÁıes v·lidas e tente novamente");
+    		a.setTitle("Opera√ß√£o n√£o realizada");
+    		a.setHeaderText("N√£o foi poss√≠vel alterar os dados da Disciplina");
+    		a.setContentText("Verifique se os campos t√™m informa√ß√µes v√°lidas e tente novamente");
     		a.show();
     	}
     }
@@ -592,6 +590,16 @@ public class PerfilDiretoriaController {
     }
     
     @FXML
+    void mensagens(ActionEvent event) {
+    	ScreenManager.getInstance().showMensagens();
+    }
+    
+    @FXML
+    void enviarMensagem(ActionEvent event) {
+    	ScreenManager.getInstance().showEnviarMensagemDiretoria(tblResponsaveis.getSelectionModel().getSelectedItem());
+    }
+    
+    @FXML
     void removerAlunoResponsavel(ActionEvent event) {
     	if(choiceAlunosResp.getValue() != null && tblResponsaveis.getSelectionModel().getSelectedItem() != null) {
     		respTabela.removerAluno(choiceAlunosResp.getValue());
@@ -603,9 +611,9 @@ public class PerfilDiretoriaController {
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
-    		a.setTitle("OperaÁ„o n„o realizada");
-    		a.setHeaderText("A operaÁ„o n„o foi realizada pois nenhum aluno v·lido foi selecionado.");
-    		a.setContentText("Selecione um aluno v·lido e tente novamente");
+    		a.setTitle("Opera√ß√£o n√£o realizada");
+    		a.setHeaderText("A opera√ß√£o n√£o foi realizada pois nenhum aluno v√°lido foi selecionado.");
+    		a.setContentText("Selecione um aluno v√°lido e tente novamente");
     		a.show();
     	}
     	
