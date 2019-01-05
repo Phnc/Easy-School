@@ -1,5 +1,6 @@
 package br.ufrpe.easy_school.negocios;
 
+import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -8,12 +9,14 @@ public class Mensagem {
 	private String titulo;
 	private String mensagem;
 	private String resposta;
+	private final Pessoa pessoa;
 	
-	public Mensagem(String titulo, String mensagem, String resposta) {
+	public Mensagem(String titulo, String mensagem, String resposta, Pessoa p) {
 		super();
 		this.setTitulo(titulo);
 		this.setMensagem(mensagem);
 		this.resposta = resposta;
+		this.pessoa = p;
 	}
 	
 	public String getTitulo() {
@@ -26,7 +29,7 @@ public class Mensagem {
 		}
 		else {
 			Alert a = new Alert(AlertType.WARNING);
-			a.setContentText("O tÌtulo da sua mensagem n„o pode ser vazio");
+			a.setContentText("O t√≠tulo da sua mensagem n√£o pode ser vazio");
 			a.show();
 		}
 		
@@ -41,7 +44,7 @@ public class Mensagem {
 		}
 		else {
 			Alert a = new Alert(AlertType.WARNING);
-			a.setContentText("A sua mensagem n„o pode ser vazia");
+			a.setContentText("A sua mensagem n√£o pode ser vazia");
 			a.show();
 		}
 		
@@ -55,7 +58,7 @@ public class Mensagem {
 		}
 		else {
 			Alert a = new Alert(AlertType.WARNING);
-			a.setContentText("Sua resposta n„o pode ser vazia");
+			a.setContentText("Sua resposta n√£o pode ser vazia");
 			a.show();
 		}
 	}
@@ -69,5 +72,10 @@ public class Mensagem {
 		s += "Resposta: " + this.resposta + "\n";
 		return s;
 	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
 	
 }
