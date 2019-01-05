@@ -15,7 +15,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class MessageSceneController {
-
+	
     @FXML
     private TextArea textMensagem;
 
@@ -34,39 +34,31 @@ public class MessageSceneController {
     @FXML
     void sendMessage(ActionEvent event) {
     	Mensagem m;
-    	
-    	Diretoria d =((Diretoria)EscolaFachada.getInstance().buscar("admin"));
-    	Responsavel r;
-    	if(txtTitulo.getText() != null && !txtTitulo.getText().equals("") && txtTitulo.getText().length() > 0) {
-    		if(textMensagem.getText() != null && !textMensagem.getText().equals("") && textMensagem.getText().length() > 0) {
-    			m = new Mensagem(txtTitulo.getText(), textMensagem.getText(), " ");
-    			d.addMensagem(m);
-    			r = (Responsavel) KeepPerson.getInstance().getPessoa();
-    			r.addMensagem(m);
-    			if(d.getMensagens().contains(m) && r.getMensagens().contains(m)) {
-    	    		Alert a = new Alert(AlertType.INFORMATION);
-    	        	a.setTitle("ConfirmaÁ„o da mensagem");
-    	        	a.setHeaderText("");
-    	        	a.setContentText("Mensagem enviada com sucesso!");
-    	        	a.show();
-    	        	ScreenManager.getInstance().showPerfilResponsavel();
-    	    	}
-    		}
-    	}
-    	else {
-    		Alert a = new Alert(AlertType.WARNING);
-    		a.setTitle("Campos vazios");
-    		a.setContentText("Todos os campos s„o obrigatÛrios!");
-    		a.setHeaderText("");
-    		a.show();
-    	}
-    	
-    	
-    	
-    	
-    	
-    	
-    	
+	    	Diretoria d =((Diretoria)EscolaFachada.getInstance().buscar("admin"));
+	    	Responsavel r;
+	    	if(txtTitulo.getText() != null && !txtTitulo.getText().equals("") && txtTitulo.getText().length() > 0) {
+	    		if(textMensagem.getText() != null && !textMensagem.getText().equals("") && textMensagem.getText().length() > 0) {
+	    			r = (Responsavel) KeepPerson.getInstance().getPessoa();
+	    			m = new Mensagem(txtTitulo.getText(), textMensagem.getText(), " ", r);
+	    			d.addMensagem(m);
+	    			r.addMensagem(m);
+	    			if(d.getMensagens().contains(m) && r.getMensagens().contains(m)) {
+	    	    		Alert a = new Alert(AlertType.INFORMATION);
+	    	        	a.setTitle("Confirma√ß√£o da mensagem");
+	    	        	a.setHeaderText("");
+	    	        	a.setContentText("Mensagem enviada com sucesso!");
+	    	        	a.show();
+	    	        	ScreenManager.getInstance().showPerfilResponsavel();
+	    	    	}
+	    		}
+	    	}
+	    	else {
+	    		Alert a = new Alert(AlertType.WARNING);
+	    		a.setTitle("Campos vazios");
+	    		a.setContentText("Todos os campos s√£o obrigat√≥rios!");
+	    		a.setHeaderText("");
+	    		a.show();
+	    	}
     }
     
     @FXML
