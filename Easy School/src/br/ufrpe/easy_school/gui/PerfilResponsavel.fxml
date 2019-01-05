@@ -36,7 +36,7 @@
             <AnchorPane prefHeight="375.0" prefWidth="700.0" GridPane.rowIndex="2">
                <children>
                   <Button fx:id="btnSendMsg" layoutX="93.0" layoutY="121.0" mnemonicParsing="false" onAction="#sendMsg" text="Enviar uma Mensagem" />
-                  <Button fx:id="btnMsgRecebidas" layoutX="437.0" layoutY="121.0" mnemonicParsing="false" onAction="#caixaDeEntrada" text="Mensagens Recebidas" />
+                  <Button fx:id="btnMsg" layoutX="437.0" layoutY="121.0" mnemonicParsing="false" onAction="#mensagens" text="Mensagens" />
                   <Label layoutX="254.0" layoutY="40.0" text="Contato com a Diretoria">
                      <font>
                         <Font name="System Bold" size="17.0" />
@@ -56,6 +56,7 @@
                         <Font name="Impact" size="24.0" />
                      </font>
                   </Label>
+                  <Button fx:id="btnVerNotas1" layoutX="587.0" layoutY="21.0" mnemonicParsing="false" onAction="#logout" text="Sair" />
                </children>
             </AnchorPane>
          </children>
