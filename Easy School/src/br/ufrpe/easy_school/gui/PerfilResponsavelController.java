@@ -26,7 +26,7 @@ public class PerfilResponsavelController {
     private Button btnSendMsg;
 
     @FXML
-    private Button btnMsgRecebidas;
+    private Button btnMsg;
 
     @FXML
     void mostrarAlunoSelecionado(ActionEvent event) {
@@ -42,8 +42,13 @@ public class PerfilResponsavelController {
     }
     
     @FXML
-    void caixaDeEntrada(ActionEvent event) {
-    	ScreenManager.getInstance().showCaixaDeEntradaResponsavel();
+    void mensagens(ActionEvent event) {
+    	ScreenManager.getInstance().showMensagens();
+    }
+    
+    @FXML
+    void logout(ActionEvent event) {
+    	ScreenManager.getInstance().showCena1();
     }
     
     @FXML
@@ -52,7 +57,6 @@ public class PerfilResponsavelController {
     	ObservableList<Aluno> lista = FXCollections.observableArrayList(((Responsavel)KeepPerson.getInstance().getPessoa()).getAlunos());
     	choiceAluno.setItems(lista);
 
-    			
     }
     
 }
