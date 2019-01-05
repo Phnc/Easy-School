@@ -2,7 +2,9 @@ package br.ufrpe.easy_school.gui;
 
 import java.io.IOException;
 
+import br.ufrpe.easy_school.negocios.Mensagem;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
+import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
@@ -25,7 +27,7 @@ public class ScreenManager {
     private Scene perfilResponsavel;
     private Scene perfilDiretoria;
     private Scene msgScene;
-    private Scene caixaDeEntradaResponsavel;
+    private Scene mensagens;
 
 
     public static ScreenManager getInstance() {
@@ -179,18 +181,46 @@ public class ScreenManager {
     }
     
     
-    public void showCaixaDeEntradaResponsavel () {
+    public void showMensagens () {
     	HBox scene;
     	try {
-			scene = FXMLLoader.load(getClass().getResource("/br/ufrpe/easy_school/gui/CaixaDeEntradaResponsavel.fxml"));
-			this.caixaDeEntradaResponsavel = new Scene(scene);
+			scene = FXMLLoader.load(getClass().getResource("/br/ufrpe/easy_school/gui/Mensagens.fxml"));
+			this.mensagens = new Scene(scene);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	this.mainStage.setScene(caixaDeEntradaResponsavel);
+    	this.mainStage.setScene(mensagens);
     	this.mainStage.show();
     }
+    
+    public void showResposta(Mensagem x) {
+   	 try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/ufrpe/easy_school/gui/Resposta.fxml"));
+            Parent root = (Parent) loader.load();
+            RespostaController secController = loader.getController();
+            secController.iniciarTxt(x);
+         	 this.mainStage.setScene(new Scene(root));
+       	 this.mainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+   }
+    
+    
+    public void showEnviarMensagemDiretoria(Pessoa x) {
+   	 try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/ufrpe/easy_school/gui/EnviarMensagemDiretoria.fxml"));
+            Parent root = (Parent) loader.load();
+            EnviarMensagemDiretoriaController secController = loader.getController();
+            secController.iniciar_Receptor(x);
+         	 this.mainStage.setScene(new Scene(root));
+       	 this.mainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+   }
 
 }
