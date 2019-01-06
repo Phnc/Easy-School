@@ -33,7 +33,7 @@
                               <Font name="System Bold" size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtTitulo" layoutX="117.0" layoutY="15.0" prefHeight="31.0" prefWidth="543.0" promptText="Digite o tÃ­tulo da sua mensagem aqui" />
+                        <TextField fx:id="txtTitulo" layoutX="117.0" layoutY="15.0" prefHeight="31.0" prefWidth="543.0" promptText="Digite o título da sua mensagem aqui" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="151.0" prefWidth="700.0">
