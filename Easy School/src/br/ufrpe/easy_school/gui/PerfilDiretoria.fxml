@@ -238,7 +238,7 @@
                                                 <Font name="Impact" size="24.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" layoutX="275.0" layoutY="93.0" prefHeight="40.0" text="ResponsÃ¡veis">
+                                          <Label alignment="CENTER" layoutX="275.0" layoutY="93.0" prefHeight="40.0" text="Responsáveis">
                                              <font>
                                                 <Font name="System Bold" size="24.0" />
                                              </font>
@@ -249,14 +249,14 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                                        <children>
-                                          <Label layoutX="243.0" layoutY="1.0" text="Selecione um ResponsÃ¡vel:">
+                                          <Label layoutX="243.0" layoutY="1.0" text="Selecione um Responsável:">
                                              <font>
                                                 <Font name="System Bold" size="17.0" />
                                              </font>
                                           </Label>
                                           <TableView fx:id="tblResponsaveis" editable="true" layoutY="40.0" prefHeight="320.0" prefWidth="700.0">
                                              <columns>
-                                                <TableColumn fx:id="colResponsavel" editable="false" prefWidth="350.0" sortable="false" text="ResponsÃ¡vel" />
+                                                <TableColumn fx:id="colResponsavel" editable="false" prefWidth="350.0" sortable="false" text="Responsável" />
                                                 <TableColumn fx:id="colIdResp" prefWidth="350.0" sortable="false" text="Id" />
                                              </columns>
                                           </TableView>
@@ -264,7 +264,7 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                                        <children>
-                                          <TextField fx:id="textNomeResp" layoutX="133.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Nome do ResponsÃ¡vel" />
+                                          <TextField fx:id="textNomeResp" layoutX="133.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Nome do Responsável" />
                                           <Label layoutX="76.0" layoutY="38.0" text="Nome:">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
@@ -275,7 +275,7 @@
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="textIdResp" layoutX="432.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Id do ResponsÃ¡vel" />
+                                          <TextField fx:id="textIdResp" layoutX="432.0" layoutY="33.0" prefHeight="31.0" prefWidth="200.0" promptText="Id do Responsável" />
                                           <Button fx:id="btnAlterarResp" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" onAction="#alterarDadosResponsavel" prefHeight="35.0" prefWidth="125.0" text="Alterar Dados" />
                                           <Button fx:id="btnRemoveResp" layoutX="449.0" layoutY="141.0" mnemonicParsing="false" onAction="#removerResponsavel" prefHeight="35.0" prefWidth="168.0" text="Remover Responsável" />
                                           <ChoiceBox fx:id="choiceAlunosResp" layoutX="133.0" layoutY="82.0" prefWidth="200.0" />
@@ -403,7 +403,7 @@
                                        <children>
                                           <RadioButton fx:id="btnSelectAluno" layoutX="187.0" layoutY="72.0" mnemonicParsing="false" text="Aluno" />
                                           <RadioButton fx:id="btnSelectProf" layoutX="306.0" layoutY="72.0" mnemonicParsing="false" text="Professor" />
-                                          <RadioButton fx:id="btnSelectResp" layoutX="440.0" layoutY="72.0" mnemonicParsing="false" text="ResponsÃ¡vel" />
+                                          <RadioButton fx:id="btnSelectResp" layoutX="440.0" layoutY="72.0" mnemonicParsing="false" text="Responsável" />
                                           <Label layoutX="245.0" layoutY="14.0" text="Selecione o Tipo de Conta:">
                                              <font>
                                                 <Font name="System Bold" size="17.0" />
