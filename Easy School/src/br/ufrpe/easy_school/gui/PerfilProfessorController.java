@@ -37,11 +37,12 @@ public class PerfilProfessorController {
     	
     }
 
-    @FXML
-    void showDisc(ActionEvent event) {
-    	KeepDisciplina.getInstance().setDisciplina(choiceDisc.getValue());
-    	ScreenManager.getInstance().showDisc();
-		  
+   @FXML
+   void showDisc(ActionEvent event) {
+    	if (choiceDisc.getValue() != null) { 
+    		KeepDisciplina.getInstance().setDisciplina(choiceDisc.getValue());
+    		ScreenManager.getInstance().showDisc();
+    	}	  
     }
     
     @FXML
