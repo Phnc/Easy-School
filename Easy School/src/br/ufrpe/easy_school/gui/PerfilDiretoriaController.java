@@ -226,25 +226,25 @@ public class PerfilDiretoriaController {
     		if(b == false) {
     			EscolaFachada.getInstance().cadastrarDisciplina(d);
     			Alert a = new Alert(AlertType.INFORMATION);
-    			a.setTitle("Opera��o realizada com sucesso");
+    			a.setTitle("Operação realizada com sucesso");
     			a.setHeaderText("A disciplina foi cadastrada com sucesso");
     			a.show();
     		}
     		
     		else if (b == true) {
     			Alert a = new Alert(AlertType.ERROR);
-    			a.setTitle("A��o nao realizada");
-    			a.setContentText("N�o foi poss�vel concluir a opera��o pois esta disciplina j� foi cadastrada no sistema" + '\n' + "Verifique se n�o existe uma disciplina cadastrada com o mesmo id e tente novamente");
-    			a.setHeaderText("N�o foi poss�vel realizar o cadastro");
+    			a.setTitle("Ação nao realizada");
+    			a.setContentText("Não foi possível concluir a operação pois esta disciplina já foi cadastrada no sistema" + '\n' + "Verifique se não existe uma disciplina cadastrada com o mesmo id e tente novamente");
+    			a.setHeaderText("Não foi possível realizar o cadastro");
     			a.show();
     		}
     	}
     	
     	else {
     		Alert a = new Alert(AlertType.WARNING);
-    		a.setTitle("N�o foi poss�vel realizar o cadastro");
-    		a.setHeaderText("Os campos sao obrigat�rios");
-    		a.setContentText("Verifique se os campos digitados s�o v�lidos e tente novamente");
+    		a.setTitle("Não foi possível realizar o cadastro");
+    		a.setHeaderText("Os campos sao obrigatórios");
+    		a.setContentText("Verifique se os campos digitados são válidos e tente novamente");
     		a.show();
     	}
     	
@@ -494,7 +494,7 @@ public class PerfilDiretoriaController {
     		Alert a = new Alert(AlertType.WARNING);
     		a.setTitle("Operação não realizada");
     		a.setHeaderText("Não foi possível alterar os dados do Aluno");
-    		a.setContentText("Verifique se os campos têm informações válidas e tente novamente");
+    		a.setContentText("Verifique se os campos possuem informações válidas e tente novamente");
     	}
     }
     
@@ -520,7 +520,7 @@ public class PerfilDiretoriaController {
     		Alert a = new Alert(AlertType.WARNING);
     		a.setTitle("Operação não realizada");
     		a.setHeaderText("Não foi possível alterar os dados do Professor");
-    		a.setContentText("Verifique se os campos têm informações válidas e tente novamente");
+    		a.setContentText("Verifique se os campos possuem informações válidas e tente novamente");
     	}
     }
     
@@ -560,7 +560,7 @@ public class PerfilDiretoriaController {
     		Alert a = new Alert(AlertType.WARNING);
     		a.setTitle("Operação não realizada");
     		a.setHeaderText("Não foi possível alterar os dados do Responsável");
-    		a.setContentText("Verifique se os campos têm informações válidas e tente novamente");
+    		a.setContentText("Verifique se os campos possuem informações válidas e tente novamente");
     	}
     }
     
@@ -607,7 +607,7 @@ public class PerfilDiretoriaController {
     		Alert a = new Alert(AlertType.WARNING);
     		a.setTitle("Operação não realizada");
     		a.setHeaderText("Não foi possível alterar os dados da Disciplina");
-    		a.setContentText("Verifique se os campos têm informações válidas e tente novamente");
+    		a.setContentText("Verifique se os campos possuem informações válidas e tente novamente");
     		a.show();
     	}
     }
@@ -672,7 +672,7 @@ public class PerfilDiretoriaController {
     	else {
     		Alert a = new Alert(AlertType.WARNING);
     		a.setTitle("Operação não realizada");
-    		a.setHeaderText("A operação não foi realizada pois nenhum aluno válido foi selecionado.");
+    		a.setHeaderText("A operaçãon não foi realizada pois nenhum aluno válido foi selecionado.");
     		a.setContentText("Selecione um aluno válido e tente novamente");
     		a.show();
     	}
