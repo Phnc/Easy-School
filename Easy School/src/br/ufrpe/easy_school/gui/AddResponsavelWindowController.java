@@ -56,6 +56,7 @@ public class AddResponsavelWindowController {
     void adicionarResponsavel(ActionEvent event) {
     	if(choiceResponsavel.getValue() != null && !choiceResponsavel.getValue().getAlunos().contains(aluno)) {
     		choiceResponsavel.getValue().addAluno(aluno);
+    		EscolaFachada.getInstance().salvarSistema();
     		Stage stage = (Stage) btnClose.getScene().getWindow();
             stage.close();
     		

@@ -209,6 +209,60 @@ public class PerfilDiretoriaController {
     @FXML
     private Button btnCadastrarDisciplina;
     
+    @FXML
+    private Button btnRemoveDisciplinaAluno;
+    
+    @FXML
+    private ChoiceBox<Disciplina> choiceDisciplinaAluno;
+    
+    @FXML
+    private Button btnAddDisciplinaAluno;
+    
+    @FXML
+    public void addDisciplinaAluno(ActionEvent event) {
+    	if (alunoTabela != null) {
+			try {
+				FXMLLoader fxloader = new FXMLLoader(
+						getClass().getResource("/br/ufrpe/easy_school/gui/AddDisciplinaAlunoWindow.fxml"));
+				Parent root = (Parent) fxloader.load();
+				AddDisciplinaAlunoWindowController controller = fxloader
+						.<AddDisciplinaAlunoWindowController>getController();
+				controller.setAluno(alunoTabela);
+
+				Stage stage = new Stage();
+				stage.setTitle("Adicionar um ResponsÃ¡vel");
+				stage.setScene(new Scene(root, 603, 400));
+
+				stage.show();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			} 
+		}
+    }
+    
+    @FXML
+    public void removerDisciplinaAluno(ActionEvent event) {
+    	if(alunoTabela != null && choiceDisciplinaAluno.getValue() != null) {
+    		ArrayList<Disciplina> list = alunoTabela.getDisciplinas();
+    		for(int i = 0; i < list.size(); i++) {
+    			if(list.get(i).equals(choiceDisciplinaAluno.getValue())) {
+    				list.remove(i);
+    			}
+    		}
+    		choiceDisciplinaAluno.getSelectionModel().clearSelection();
+    		ObservableList<Disciplina> lista = FXCollections.observableArrayList(alunoTabela.getDisciplinas());
+    		choiceDisciplinaAluno.setItems(lista);
+    	}
+    	else {
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setTitle("Operação não realizada");
+    		a.setHeaderText("Campos inválidos");
+    		a.setContentText("Selecione pelo menos um aluno e uma disciplina e tente novamente");
+    		a.show();
+    	}
+    }
+    
     
     @FXML
     public void cadastrarDisciplina(ActionEvent event) {
@@ -309,6 +363,8 @@ public class PerfilDiretoriaController {
                 ObservableList<Responsavel> list = FXCollections.observableArrayList(EscolaFachada.getInstance().responsaveisAluno(alunoTabela));
                 
                 choiceResponsavelAluno.setItems(list);
+                ObservableList<Disciplina> listaDisc = FXCollections.observableArrayList(((Aluno)EscolaFachada.getInstance().buscar(alunoTabela.getId())).getDisciplinas());
+                choiceDisciplinaAluno.setItems(listaDisc);
               
             }
         });
