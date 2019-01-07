@@ -1,5 +1,6 @@
-package br.ufrpe.easy_school.gui;
+package br.ufrpe.easy_school;
 
+import br.ufrpe.easy_school.gui.ScreenManager;
 import br.ufrpe.easy_school.negocios.EscolaFachada;
 import br.ufrpe.easy_school.negocios.IEscola;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
