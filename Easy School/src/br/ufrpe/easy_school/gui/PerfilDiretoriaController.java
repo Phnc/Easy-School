@@ -214,7 +214,7 @@ public class PerfilDiretoriaController {
     public void cadastrarDisciplina(ActionEvent event) {
     	
     	Disciplina d = new Disciplina(nomeCadastroDisc.getText(), (Professor) EscolaFachada.getInstance().buscar(idProfessorCadastroDisc.getText()), idCadastroDisc.getText());
-    	if(!nomeCadastroDisc.getText().isEmpty() && !idProfessorCadastroDisc.getText().isEmpty() && !idCadastroDisc.getText().isEmpty()) {
+    	if((idCadastroDisc.getText() != null && idCadastroDisc.getText().length() > 0 && !idCadastroDisc.getText().equals("")) && (nomeCadastroDisc.getText() != null && nomeCadastroDisc.getText().length() > 0 && !nomeCadastroDisc.getText().equals("")) && (idProfessorCadastroDisc.getText() != null && idProfessorCadastroDisc.getText().length() > 0 && !idProfessorCadastroDisc.getText().equals(""))) {
     		boolean b = false;
     		
     		for(int i = 0; i < EscolaFachada.getInstance().getDisciplinas().size(); i++) {
