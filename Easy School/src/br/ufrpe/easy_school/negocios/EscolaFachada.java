@@ -24,8 +24,8 @@ public class EscolaFachada implements IEscola{
 	private static IEscola instance;
 	
 	private EscolaFachada() {
-		this.disciplinas = new CadastroDisciplinas(RepositorioDisciplinas.getInstance());
 		this.pessoas = new CadastroPessoas(RepositorioPessoas.getInstance());
+		this.disciplinas = new CadastroDisciplinas(RepositorioDisciplinas.getInstance());
 	}
 	
 	public static IEscola getInstance() {
@@ -149,8 +149,9 @@ public class EscolaFachada implements IEscola{
 			a.setContentText(e.getMessage());
 			a.setTitle("Disciplina não existente");
 			a.show();
+			return null;
 		}
-		return null;
+		
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import br.ufrpe.easy_school.negocios.EscolaFachada;
 import br.ufrpe.easy_school.negocios.beans.Aluno;
 import br.ufrpe.easy_school.negocios.beans.Disciplina;
+import br.ufrpe.easy_school.negocios.beans.Pessoa;
 import br.ufrpe.easy_school.negocios.beans.Professor;
 import br.ufrpe.easy_school.negocios.beans.Responsavel;
 import javafx.collections.FXCollections;
@@ -267,29 +268,35 @@ public class PerfilDiretoriaController {
     @FXML
     public void cadastrarDisciplina(ActionEvent event) {
     	
-    	Disciplina d = new Disciplina(nomeCadastroDisc.getText(), (Professor) EscolaFachada.getInstance().buscar(idProfessorCadastroDisc.getText()), idCadastroDisc.getText());
+    	
     	if((idCadastroDisc.getText() != null && idCadastroDisc.getText().length() > 0 && !idCadastroDisc.getText().equals("")) && (nomeCadastroDisc.getText() != null && nomeCadastroDisc.getText().length() > 0 && !nomeCadastroDisc.getText().equals("")) && (idProfessorCadastroDisc.getText() != null && idProfessorCadastroDisc.getText().length() > 0 && !idProfessorCadastroDisc.getText().equals(""))) {
-    		boolean b = false;
+    		Pessoa p = EscolaFachada.getInstance().buscar(idProfessorCadastroDisc.getText());
     		
-    		for(int i = 0; i < EscolaFachada.getInstance().getDisciplinas().size(); i++) {
-    			if(EscolaFachada.getInstance().getDisciplinas().get(i).equals(d)) {
-    				b = true;
+    		if(p != null && p instanceof Professor) {
+    			Disciplina d = EscolaFachada.getInstance().buscarDisciplina(idCadastroDisc.getText());
+    			if(d != null) {
+    				Alert a = new Alert(AlertType.WARNING);
+    				a.setTitle("Operação não realizada");
+    				a.setHeaderText("Disciplina já cadastrada");
+    				a.setContentText("A disciplina com o presente id já foi cadastrada");
+    				a.show();
+    			}
+    			else {
+    				Disciplina nova = new Disciplina(nomeCadastroDisc.getText(), (Professor) p, idCadastroDisc.getText());
+    				EscolaFachada.getInstance().cadastrarDisciplina(nova);
+    				tblDisciplina.refresh();
+    				Alert a = new Alert(AlertType.INFORMATION);
+    				a.setTitle("Status da operação");
+    				a.setHeaderText("O cadastro foi feito com sucesso");
+    				a.show();
+    				
     			}
     		}
-    		
-    		if(b == false) {
-    			EscolaFachada.getInstance().cadastrarDisciplina(d);
-    			Alert a = new Alert(AlertType.INFORMATION);
-    			a.setTitle("OperaÃ§Ã£o realizada com sucesso");
-    			a.setHeaderText("A disciplina foi cadastrada com sucesso");
-    			a.show();
-    		}
-    		
-    		else if (b == true) {
-    			Alert a = new Alert(AlertType.ERROR);
-    			a.setTitle("AÃ§Ã£o nao realizada");
-    			a.setContentText("NÃ£o foi possÃ­vel concluir a operaÃ§Ã£o pois esta disciplina jÃ¡ foi cadastrada no sistema" + '\n' + "Verifique se nÃ£o existe uma disciplina cadastrada com o mesmo id e tente novamente");
-    			a.setHeaderText("NÃ£o foi possÃ­vel realizar o cadastro");
+    		else {
+    			Alert a = new Alert(AlertType.WARNING);
+    			a.setTitle("Operação não realizada");
+    			a.setHeaderText("Professor inválido");
+    			a.setContentText("Digite um id de professor válido e tente novamente");
     			a.show();
     		}
     	}
@@ -305,6 +312,7 @@ public class PerfilDiretoriaController {
     	nomeCadastroDisc.setText(null);
     	idCadastroDisc.setText(null);
     	idProfessorCadastroDisc.setText(null);
+    	initialize();
     }
     
     @FXML
@@ -487,7 +495,7 @@ public class PerfilDiretoriaController {
     		a.show();
     	}
     	
-    	
+    	EscolaFachada.getInstance().salvarSistema();
     	initialize();
     	
     }
@@ -514,6 +522,7 @@ public class PerfilDiretoriaController {
 		        	isShowing = false;
 		        	
 		        });
+		        EscolaFachada.getInstance().salvarSistema();
 		    }
 		    catch (IOException e) {
 		        e.printStackTrace();
@@ -530,6 +539,7 @@ public class PerfilDiretoriaController {
     		choiceResponsavelAluno.setValue(null);
     		tblAlunos.getSelectionModel().clearSelection();
     		choiceResponsavelAluno.setDisable(true);
+    		EscolaFachada.getInstance().salvarSistema();
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
@@ -545,6 +555,7 @@ public class PerfilDiretoriaController {
     		alunoTabela.setName(textNomeAluno.getText());
     		alunoTabela.setId(textIdAluno.getText());
     		tblAlunos.refresh();
+    		EscolaFachada.getInstance().salvarSistema();
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
@@ -560,8 +571,11 @@ public class PerfilDiretoriaController {
     		tblAlunos.getItems().remove(alunoTabela);
 			EscolaFachada.getInstance().removerPessoa(alunoTabela.getId());
 			alunoTabela = null;
+			textNomeAluno.clear();
+			textIdAluno.clear();
 			tblAlunos.getSelectionModel().clearSelection();
 			tblAlunos.refresh();
+			EscolaFachada.getInstance().salvarSistema();
 		}
     }
     
@@ -571,6 +585,7 @@ public class PerfilDiretoriaController {
     		profTabela.setName(textNomeProf.getText());
     		profTabela.setId(textIdProf.getText());
     		tblProfessores.refresh();
+    		EscolaFachada.getInstance().salvarSistema();
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
@@ -586,8 +601,11 @@ public class PerfilDiretoriaController {
     		tblProfessores.getItems().remove(profTabela);
 			EscolaFachada.getInstance().removerPessoa(profTabela.getId());
 			profTabela = null;
+			textNomeProf.clear();
+			textIdProf.clear();
 			tblProfessores.getSelectionModel().clearSelection();
 			tblProfessores.refresh();
+			EscolaFachada.getInstance().salvarSistema();
 		}
     }
 
@@ -601,6 +619,7 @@ public class PerfilDiretoriaController {
     		choiceDisciplinaProf.getItems().clear();
     		tblProfessores.getSelectionModel().clearSelection();
     		tblDisciplina.refresh();
+    		EscolaFachada.getInstance().salvarSistema();
     	}
     	
     }
@@ -611,6 +630,7 @@ public class PerfilDiretoriaController {
     		respTabela.setName(textNomeResp.getText());
     		respTabela.setId(textIdResp.getText());
     		tblResponsaveis.refresh();
+    		EscolaFachada.getInstance().salvarSistema();
     	}
     	else {
     		Alert a = new Alert(AlertType.WARNING);
@@ -626,8 +646,11 @@ public class PerfilDiretoriaController {
     		tblResponsaveis.getItems().remove(respTabela);
 			EscolaFachada.getInstance().removerPessoa(respTabela.getId());
 			respTabela = null;
+			textNomeResp.clear();
+			textIdResp.clear();
 			tblResponsaveis.getSelectionModel().clearSelection();
 			tblResponsaveis.refresh();
+			EscolaFachada.getInstance().salvarSistema();
 		}
     }
     
@@ -666,6 +689,7 @@ public class PerfilDiretoriaController {
     		a.setContentText("Verifique se os campos possuem informaÃ§Ãµes vÃ¡lidas e tente novamente");
     		a.show();
     	}
+    	EscolaFachada.getInstance().salvarSistema();
     }
     
     @FXML
@@ -677,6 +701,7 @@ public class PerfilDiretoriaController {
 			tblDisciplina.getSelectionModel().clearSelection();
 			tblDisciplina.refresh();
 		}
+    	EscolaFachada.getInstance().salvarSistema();
     }
     
     @FXML
@@ -693,6 +718,7 @@ public class PerfilDiretoriaController {
     	discTabela = null;
     	tblDisciplina.getSelectionModel().clearSelection();
     	tblDisciplina.refresh();
+    	EscolaFachada.getInstance().salvarSistema();
     }
     
     
@@ -712,6 +738,7 @@ public class PerfilDiretoriaController {
     	if (tblResponsaveis.getSelectionModel().getSelectedItem() != null) {
     		ScreenManager.getInstance().showEnviarMensagemDiretoria(tblResponsaveis.getSelectionModel().getSelectedItem());
     	}
+    	EscolaFachada.getInstance().salvarSistema();
     }
     
     
@@ -732,6 +759,7 @@ public class PerfilDiretoriaController {
     		a.setContentText("Selecione um aluno vÃ¡lido e tente novamente");
     		a.show();
     	}
+    	EscolaFachada.getInstance().salvarSistema();
     	
     }
 }

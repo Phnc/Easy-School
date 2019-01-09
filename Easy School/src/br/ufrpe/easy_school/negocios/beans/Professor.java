@@ -25,5 +25,12 @@ public class Professor extends Pessoa implements Serializable{
 	public void removerFalta(Aluno aluno) {
 		aluno.buscarDisc(this).removerFalta();
 	}
+	
+	public boolean equals(Professor outro) {
+		if(this.getId().equals(outro.getId()) && this.getName().equals(outro.getName())) {
+			return true;
+		}
+		return false;
+	}
 
 }
