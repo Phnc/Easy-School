@@ -363,35 +363,47 @@ public class PerfilDiretoriaController {
     	
     	tblAlunos.setOnMouseClicked((MouseEvent event) -> {
             if(event.getButton().equals(MouseButton.PRIMARY)){
-                alunoTabela = tblAlunos.getSelectionModel().getSelectedItem();
-                textNomeAluno.setText(alunoTabela.getName());
-                textIdAluno.setText(alunoTabela.getId());
-                choiceResponsavelAluno.setDisable(false);
+            	
+            	if(tblAlunos.getSelectionModel().getSelectedItem() != null) {
+            		
+            		alunoTabela = tblAlunos.getSelectionModel().getSelectedItem();
+            		textNomeAluno.setText(alunoTabela.getName());
+            		textIdAluno.setText(alunoTabela.getId());
+            		choiceResponsavelAluno.setDisable(false);
                 
-                ObservableList<Responsavel> list = FXCollections.observableArrayList(EscolaFachada.getInstance().responsaveisAluno(alunoTabela));
+            		ObservableList<Responsavel> list = FXCollections.observableArrayList(EscolaFachada.getInstance().responsaveisAluno(alunoTabela));
                 
-                choiceResponsavelAluno.setItems(list);
-                ObservableList<Disciplina> listaDisc = FXCollections.observableArrayList(((Aluno)EscolaFachada.getInstance().buscar(alunoTabela.getId())).getDisciplinas());
-                choiceDisciplinaAluno.setItems(listaDisc);
+            		choiceResponsavelAluno.setItems(list);
+            		ObservableList<Disciplina> listaDisc = FXCollections.observableArrayList(((Aluno)EscolaFachada.getInstance().buscar(alunoTabela.getId())).getDisciplinas());
+            		choiceDisciplinaAluno.setItems(listaDisc);
+            		
+            	}
+                
               
             }
         });
     	
     	tblProfessores.setOnMouseClicked((MouseEvent event) -> {
             if(event.getButton().equals(MouseButton.PRIMARY)){
-            	profTabela = tblProfessores.getSelectionModel().getSelectedItem();
-                textNomeProf.setText(profTabela.getName());
-                textIdProf.setText(profTabela.getId());                          
+            	if(tblProfessores.getSelectionModel().getSelectedItem() != null) {
+            		profTabela = tblProfessores.getSelectionModel().getSelectedItem();
+            		textNomeProf.setText(profTabela.getName());
+            		textIdProf.setText(profTabela.getId());   
+            	}
+            	                       
             }
         });
     	
     	tblResponsaveis.setOnMouseClicked((MouseEvent event) -> {
             if(event.getButton().equals(MouseButton.PRIMARY)){
-            	respTabela = tblResponsaveis.getSelectionModel().getSelectedItem();
-                textNomeResp.setText(respTabela.getName());
-                textIdResp.setText(respTabela.getId());
-                ObservableList<Aluno> listaAlunos = FXCollections.observableArrayList(respTabela.getAlunos());
-                choiceAlunosResp.setItems(listaAlunos);
+            	if(tblResponsaveis.getSelectionModel().getSelectedItem() != null) {
+            		respTabela = tblResponsaveis.getSelectionModel().getSelectedItem();
+            		textNomeResp.setText(respTabela.getName());
+            		textIdResp.setText(respTabela.getId());
+            		ObservableList<Aluno> listaAlunos = FXCollections.observableArrayList(respTabela.getAlunos());
+            		choiceAlunosResp.setItems(listaAlunos);
+            	}
+
             }
         });
     	
@@ -400,15 +412,20 @@ public class PerfilDiretoriaController {
     	
     	tblDisciplina.setOnMouseClicked((MouseEvent event) -> {
             if(event.getButton().equals(MouseButton.PRIMARY)){
-                discTabela = tblDisciplina.getSelectionModel().getSelectedItem();
-                textNomeDisciplina.setText(discTabela.getNome());
-                textIdDisciplina.setText(discTabela.getId());
-                if(discTabela.getProfessor() != null) {
-                	textProfessorDisciplina.setText(discTabela.getProfessor().getId());
-                }
-                else {
-                	textProfessorDisciplina.setText("Nenhum");
-                }
+            	
+            		if(tblDisciplina.getSelectionModel().getSelectedItem() != null) {
+            			discTabela = tblDisciplina.getSelectionModel().getSelectedItem();
+            			textNomeDisciplina.setText(discTabela.getNome());
+            			textIdDisciplina.setText(discTabela.getId());
+            			
+            			if(discTabela.getProfessor() != null) {
+            					textProfessorDisciplina.setText(discTabela.getProfessor().getId());
+            			}
+            			else {
+            				textProfessorDisciplina.setText("Nenhum");
+            			}
+            	}
+                
             }
         });
     }
